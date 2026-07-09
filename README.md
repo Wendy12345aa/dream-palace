@@ -139,27 +139,12 @@ See the full roadmap in [ROADMAP.md](ROADMAP.md) and the documentation hub in [d
 # Repository Structure
 
 ```text
-assets/
-└── README.md
-
-docs/
-├── README.md
-├── 00_Project_Vision.md
-├── 01_Vision_Bible.md
-├── 02_Character_Bible.md
-├── 03_World_Bible.md
-├── 04_Gameplay_Bible.md
-├── 05_Demo_Bible.md
-├── 06_UI_UX_Bible.md
-└── 07_Art_Bible.md
-
-tasks/
-└── Sprint_0.md
-
-devlog/
-└── 2026-07-09.md
-
-ROADMAP.md
+docs/        Project vision, design, world, characters, UI, art, and production documents
+assets/      Concept art, character art, backgrounds, UI, music, and SFX
+prototype/   Experiments and early gameplay prototypes
+web-demo/    Future browser-based demo implementation
+tasks/       Sprint tasks and production planning
+devlog/      Development notes and project history
 ```
 
 ---
