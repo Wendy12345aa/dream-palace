@@ -82,6 +82,18 @@ Contains:
 ## Chapter 3 — World
 
 Everything about the world.
+## Documentation Principles
+
+- Read this file first before changing project direction.
+- Protect the project identity before expanding scope.
+- Turn ideas into decisions, not endless feature lists.
+- Keep every system connected to companions, trust, the throne, and visible consequences.
+- Prefer clear project language over generic production wording.
+- Link every important planning document from this hub so the repository can remain navigable.
+
+---
+
+## How to Use This Hub
 
 Contains:
 
@@ -144,6 +156,11 @@ Contains:
 Defines the visual identity.
 
 Contains:
+### Technical
+
+- Technical documentation is intentionally deferred until Sprint 0 finishes the core vision documents.
+
+### Production
 
 - Art Style
 - Color Palette
@@ -160,6 +177,13 @@ Contains:
 Implementation notes.
 
 Contains:
+1. This documentation hub
+2. [Project Vision](00_Project_Vision.md)
+3. [Vision Bible](01_Vision_Bible.md)
+4. [Character Bible](02_Character_Bible.md)
+5. The document most relevant to the task
+6. [Roadmap](../ROADMAP.md)
+7. [Sprint 0](../tasks/Sprint_0.md)
 
 - Engine
 - Web Demo

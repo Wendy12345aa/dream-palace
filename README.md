@@ -50,7 +50,7 @@ They are the heart of the game.
 
 The throne belongs to the player.
 
-The kingdom belongs to everyone.
+The kingdom lives through everyone.
 
 ---
 
