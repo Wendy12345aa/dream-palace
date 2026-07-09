@@ -29,30 +29,6 @@ If this is your first time joining the project:
 
 ---
 
-# How to Use This Hub
-
-When starting a new task, read:
-
-1. This documentation hub
-2. [Project Vision](00_Project_Vision.md)
-3. [Vision](01_Vision_Bible.md)
-4. The document most relevant to the task
-5. [Roadmap](../ROADMAP.md)
-6. [Sprint 0](../tasks/Sprint_0.md)
-
----
-
-# Documentation Principles
-
-- Read this file first before changing project direction.
-- Protect the project identity before expanding scope.
-- Turn ideas into decisions, not endless feature lists.
-- Keep every system connected to companions, trust, the throne, and visible consequences.
-- Prefer clear project language over generic production wording.
-- Link every important planning document from this hub so the repository can remain navigable.
-
----
-
 # Documentation Structure
 
 ## Chapter 0 — Project Vision
@@ -106,6 +82,20 @@ Contains:
 ## Chapter 3 — World
 
 Everything about the world.
+## Documentation Principles
+
+- Read this file first before changing project direction.
+- Protect the project identity before expanding scope.
+- Turn ideas into decisions, not endless feature lists.
+- Keep every system connected to companions, trust, the throne, and visible consequences.
+- Prefer clear project language over generic production wording.
+- Link every important planning document from this hub so the repository can remain navigable.
+
+---
+
+# Reading Order
+
+If this is your first time joining the project:
 
 Contains:
 
@@ -168,6 +158,11 @@ Contains:
 Defines the visual identity.
 
 Contains:
+### Technical
+
+- Technical documentation is intentionally deferred until Sprint 0 finishes the core vision documents.
+
+Includes:
 
 - Art Style
 - Color Palette
@@ -184,6 +179,13 @@ Contains:
 Implementation notes.
 
 Contains:
+1. This documentation hub
+2. [Project Vision](00_Project_Vision.md)
+3. [Vision Bible](01_Vision_Bible.md)
+4. [Character Bible](02_Character_Bible.md)
+5. The document most relevant to the task
+6. [Roadmap](../ROADMAP.md)
+7. [Sprint 0](../tasks/Sprint_0.md)
 
 - Engine
 - Web Demo
