@@ -93,7 +93,9 @@ Everything about the world.
 
 ---
 
-## How to Use This Hub
+# Reading Order
+
+If this is your first time joining the project:
 
 Contains:
 
@@ -160,7 +162,7 @@ Contains:
 
 - Technical documentation is intentionally deferred until Sprint 0 finishes the core vision documents.
 
-### Production
+Includes:
 
 - Art Style
 - Color Palette
