@@ -2,7 +2,7 @@
 
 > **Build a Living Kingdom.**
 >
-> A cinematic kingdom RPG where every important decision is made together with seven trusted companions.
+> A character-driven Living Kingdom RPG where every important decision is made together with seven trusted companions.
 
 <!-- Future hero key visual: assets/key-visual.png -->
 
@@ -10,7 +10,7 @@
 
 ## 🌸 About
 
-Dream Palace is a cinematic kingdom RPG where every important decision is made together with seven trusted companions.
+Dream Palace is a character-driven Living Kingdom RPG where every important decision is made together with seven trusted companions.
 
 Rather than operating menus, players govern a living kingdom through people.
 
@@ -47,6 +47,10 @@ It is built by the people who choose to stand beside the throne.
 The seven companions are not NPCs.
 
 They are the heart of the game.
+
+The throne belongs to the player.
+
+The kingdom belongs to everyone.
 
 ---
 
@@ -170,7 +174,13 @@ We are not building only a kingdom.
 
 We are building a world worth remembering.
 
+Build companions before content.
+
+Build experiences before mechanics.
+
 ---
+
+> The story of Dream Palace begins with seven companions… and one empty throne.
 
 © Project Dream Palace
 Original IP
