@@ -171,7 +171,7 @@ We are not building menus.
 
 We are building companions.
 
-We are not building a kingdom.
+We are not building only a kingdom.
 
 We are building a world worth remembering.
 
