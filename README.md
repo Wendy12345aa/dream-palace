@@ -2,26 +2,39 @@
 
 > **Build a Living Kingdom.**
 >
-> A character-driven fantasy kingdom management RPG where seven companions stand beside the throne.
+> A cinematic kingdom RPG where every important decision is made together with seven trusted companions.
+
+<!-- Future hero key visual: assets/key-visual.png -->
 
 ---
 
 ## 🌸 About
 
-Dream Palace is an original IP that blends:
+Dream Palace is a cinematic kingdom RPG where every important decision is made together with seven trusted companions.
 
-- 🏯 Eastern Fantasy Kingdom
-- 👥 Character-Driven Gameplay
-- 🎭 Cinematic Storytelling
-- 🗺️ Kingdom Management
-- ⚔️ Adventure & Exploration
-- 🤝 Factions & Guilds
-- 📈 Living Economy
-- 🧠 AI-assisted Development
+Rather than operating menus, players govern a living kingdom through people.
 
-Unlike traditional management games, players do not manage menus.
+Every advisor has a personality.
 
-Players govern a kingdom through people.
+Every discussion changes the future.
+
+Every decision leaves a mark on the world.
+
+---
+
+## Why Dream Palace?
+
+Many kingdom games focus on numbers.
+
+Many RPGs focus on combat.
+
+Dream Palace focuses on people.
+
+The kingdom exists because its companions exist.
+
+The player remembers conversations before statistics.
+
+That is the experience we want to create.
 
 ---
 
@@ -102,65 +115,47 @@ We borrow philosophy, **not visual style**.
 
 ---
 
-# Current Stage
+# Development Status
 
-**Pre-production**
+| Status | Area |
+|--------|------|
+| 🟢 | Project Foundation |
+| 🟢 | Vision Bible |
+| 🟡 | Character Bible |
+| 🟡 | World Bible |
+| 🟡 | Gameplay Bible |
+| ⚪ | Gameplay Prototype |
+| ⚪ | Web Demo |
+| ⚪ | Steam Demo |
 
-Current focus:
-
-- Vision Bible
-- Character Bible
-- World Bible
-- Gameplay Bible
-- Web Demo
-
----
-
-# Roadmap
-
-## Milestone 0
-
-Project Foundation
-
-- [ ] Vision Bible
-- [ ] Character Bible
-- [ ] World Bible
-- [ ] Gameplay Bible
-- [ ] Art Bible
-
----
-
-## Milestone 1
-
-Web Demo
-
-Dream Palace
-
-"The First Morning Court"
-
-Target Length:
-
-15–20 minutes
-
----
-
-## Milestone 2
-
-Steam Demo
-
-Steam Next Fest Ready
+See the full roadmap in [ROADMAP.md](ROADMAP.md) and the documentation hub in [docs/README.md](docs/README.md).
 
 ---
 
 # Repository Structure
 
-```
-docs/
+```text
 assets/
-prototype/
-web-demo/
+└── README.md
+
+docs/
+├── README.md
+├── 00_Project_Vision.md
+├── 01_Vision_Bible.md
+├── 02_Character_Bible.md
+├── 03_World_Bible.md
+├── 04_Gameplay_Bible.md
+├── 05_Demo_Bible.md
+├── 06_UI_UX_Bible.md
+└── 07_Art_Bible.md
+
 tasks/
+└── Sprint_0.md
+
 devlog/
+└── 2026-07-09.md
+
+ROADMAP.md
 ```
 
 ---
@@ -171,7 +166,7 @@ We are not building menus.
 
 We are building companions.
 
-We are not building a kingdom.
+We are not building only a kingdom.
 
 We are building a world worth remembering.
 
