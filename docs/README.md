@@ -8,6 +8,16 @@ Dream Palace is a character-driven Living Kingdom RPG. The documentation should 
 
 ---
 
+## Documentation Principles
+
+- Protect the project identity before expanding scope.
+- Turn ideas into decisions, not endless feature lists.
+- Keep every system connected to companions, trust, the throne, and visible consequences.
+- Prefer clear project language over generic production wording.
+- Link every important planning document from this hub so the repository can remain navigable.
+
+---
+
 ## How to Use This Hub
 
 1. Start with the project vision to understand the emotional target.
