@@ -14,3 +14,16 @@ Capture the visual identity of Dream Palace while borrowing philosophy, not visu
 ## Reference Philosophy
 
 Inspirations may guide ambition, pacing, clarity, emotional presentation, or polish, but Dream Palace must remain an original IP with its own visual identity.
+
+
+## Key Visual Goal
+
+Dream Palace should eventually share one official key visual across GitHub, Steam, the website, and pitch materials.
+
+The target first impression is:
+
+1. Logo.
+2. Official key visual.
+3. **Build a Living Kingdom.**
+
+The key visual should communicate the throne, the morning court, and the seven companions as the emotional center of the kingdom.
