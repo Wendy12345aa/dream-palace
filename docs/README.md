@@ -8,6 +8,17 @@ Dream Palace is a character-driven Living Kingdom RPG. The documentation should 
 
 ---
 
+## Documentation Principles
+
+- Read this file first before changing project direction.
+- Protect the project identity before expanding scope.
+- Turn ideas into decisions, not endless feature lists.
+- Keep every system connected to companions, trust, the throne, and visible consequences.
+- Prefer clear project language over generic production wording.
+- Link every important planning document from this hub so the repository can remain navigable.
+
+---
+
 ## How to Use This Hub
 
 1. Start with the project vision to understand the emotional target.
@@ -49,6 +60,10 @@ Dream Palace is a character-driven Living Kingdom RPG. The documentation should 
 
 - [Demo Bible](05_Demo_Bible.md): scope for **The First Morning Court**, the first 15–20 minute web demo.
 
+### Technical
+
+- Technical documentation is intentionally deferred until Sprint 0 finishes the core vision documents.
+
 ### Production
 
 - [Roadmap](../ROADMAP.md): milestone-level project plan.
@@ -61,12 +76,13 @@ Dream Palace is a character-driven Living Kingdom RPG. The documentation should 
 
 ### For New Contributors
 
-1. [Project Vision](00_Project_Vision.md)
-2. [Vision Bible](01_Vision_Bible.md)
-3. [Character Bible](02_Character_Bible.md)
-4. The document most relevant to the task
-5. [Roadmap](../ROADMAP.md)
-6. [Sprint 0](../tasks/Sprint_0.md)
+1. This documentation hub
+2. [Project Vision](00_Project_Vision.md)
+3. [Vision Bible](01_Vision_Bible.md)
+4. [Character Bible](02_Character_Bible.md)
+5. The document most relevant to the task
+6. [Roadmap](../ROADMAP.md)
+7. [Sprint 0](../tasks/Sprint_0.md)
 
 ### For AI Agents
 
