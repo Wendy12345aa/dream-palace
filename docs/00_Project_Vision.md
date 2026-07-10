@@ -4,6 +4,20 @@
 
 ---
 
+# One Sentence
+
+If someone asks what Dream Palace is in one sentence:
+
+Dream Palace is a character-driven Living Kingdom RPG where players build a kingdom worth returning to through trust, leadership, and companionship.
+
+# One Feeling
+
+If players remember only one feeling after finishing the game:
+
+"I wasn't managing a kingdom.
+
+I was leading people who believed in me."
+
 # Why Dream Palace Exists
 
 Dream Palace was not created to become another kingdom management game.
