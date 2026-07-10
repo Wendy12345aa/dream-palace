@@ -67,4 +67,4 @@ Sprint 0 is complete when the team can answer these questions from the repositor
 - What makes a feature belong to Dream Palace?
 - Which document should a contributor or AI agent read first?
 
-After Sprint 0, the project can safely move into deeper Vision Bible refinement, then Character Bible, World Bible, Gameplay Bible, and eventually prototype planning.
+After Sprint 0, the project can safely move into World Bible refinement, then Gameplay Bible, Character Bible, UI/UX Bible, Art Bible, Demo Bible, and eventually prototype planning.

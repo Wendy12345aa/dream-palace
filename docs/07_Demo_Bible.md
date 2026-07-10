@@ -1,4 +1,4 @@
-# Dream Palace Demo Bible
+# Chapter 7 — Demo Bible
 
 ## Purpose
 

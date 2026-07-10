@@ -3,12 +3,12 @@
 ## Milestone 0: Project Foundation
 
 - [ ] Vision Bible
-- [ ] Character Bible
 - [ ] World Bible
 - [ ] Gameplay Bible
-- [ ] Demo Bible
+- [ ] Character Bible
 - [ ] UI/UX Bible
 - [ ] Art Bible
+- [ ] Demo Bible
 
 ## Milestone 1: Web Demo
 
