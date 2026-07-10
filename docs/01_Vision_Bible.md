@@ -1,169 +1,294 @@
-# Dream Palace Vision Bible
+# Chapter 1 — Vision Bible
 
-## Purpose
-
-Define the creative north star for Dream Palace: a character-driven Living Kingdom RPG where the kingdom is built through companions, consequences, and a living world.
-
-This bible turns the project identity into design rules.
+> *Every feature exists to strengthen the Dream Palace experience.*
 
 ---
 
-## One-Sentence Identity
+# Purpose
 
-Dream Palace is a character-driven Living Kingdom RPG where every important decision is made together with seven trusted companions.
+The Project Vision defines **why** Dream Palace exists.
 
----
+The Vision Bible defines **how** every design decision should support that vision.
 
-## Player Fantasy
-
-The player sits on an empty throne and gradually becomes the center of a living court.
-
-The fantasy is not being a distant god.
-
-The fantasy is being the ruler everyone comes to when the kingdom must choose a future.
-
-The player should feel:
-
-- trusted by companions,
-- pressured by competing needs,
-- responsible for visible consequences,
-- emotionally attached to the people who stand beside the throne.
+Every future feature, system, story, artwork, and line of code should align with the principles in this document.
 
 ---
 
-## Core Experience
+# Design Pillars
 
-A typical Dream Palace experience should move through four feelings:
+Dream Palace is built upon six design pillars.
 
-1. **Arrival** — the player enters the court and senses the kingdom is alive.
-2. **Counsel** — companions reveal problems, hopes, warnings, and disagreements.
-3. **Decision** — the player chooses a direction with incomplete certainty.
-4. **Memory** — the kingdom and companions respond, making the choice feel remembered.
+These pillars should guide every future design decision.
 
 ---
 
-## Game Pillars
+# Pillar 1 — Characters First
 
-### 1. Characters First
+Characters are the emotional center of Dream Palace.
 
-Characters are more important than systems.
+Players should remember companions before mechanics.
 
-Every feature should strengthen the player's emotional connection with the seven companions.
+Every new feature should strengthen one or more of the seven companions.
 
-A system that does not make at least one companion more meaningful should be questioned.
+Never add systems that reduce companions into simple menu buttons.
 
-### 2. Living Kingdom
+Questions to ask:
 
-The kingdom should continue to change even without the player's direct involvement.
-
-Cities grow.
-
-People react.
-
-Resources move.
-
-Politics evolve.
-
-The world should feel like it has pressure, memory, and momentum.
-
-### 3. Decisions Matter
-
-Every important decision should leave visible consequences.
-
-Not only numbers.
-
-The world itself should change.
-
-Companions should also remember what the player chose and why.
-
-### 4. UI Is Character
-
-There are no generic major menus.
-
-Every major interface belongs to someone.
-
-The player should feel that information is being interpreted by a person with values, fears, and blind spots.
+- Does this feature create more interaction with companions?
+- Does this feature strengthen trust?
+- Does this make companions feel more alive?
 
 ---
 
-## Core Loop
+# Pillar 2 — Living Kingdom
 
-1. Enter the Morning Court.
-2. Listen to companions and kingdom signals.
-3. Choose priorities through character-owned interfaces.
-4. Commit resources, trust, and time.
-5. Watch consequences emerge in the kingdom.
-6. Return to the court with new tensions, opportunities, and relationships.
+The kingdom should never feel static.
 
----
+Even when the player is absent, the kingdom continues to live.
 
-## Game Feel
+Cities develop.
 
-Dream Palace should feel:
+Citizens react.
 
-- intimate rather than distant,
-- ceremonial rather than bureaucratic,
-- readable rather than spreadsheet-heavy,
-- emotional rather than purely optimal,
-- alive rather than static.
+Politics shift.
 
-The player should feel the weight of rulership, but not through clutter.
+Resources circulate.
 
-The weight should come from people, consequences, and memory.
+Companions continue working.
 
----
+The player should feel they are returning to an existing world, not restarting one.
 
-## Camera Philosophy
+Questions to ask:
 
-The camera should support the feeling of court, companionship, and consequence.
-
-In narrative moments, it should privilege faces, posture, silence, and reaction.
-
-In kingdom moments, it should show visible change in places the player has affected.
-
-The camera should never make the kingdom feel like a detached board unless the scene intentionally needs strategic distance.
+- What changes while the player is away?
+- Can the player see those changes?
+- Does the world feel alive today?
 
 ---
 
-## UI Philosophy
+# Pillar 3 — Meaningful Decisions
 
-UI should be treated as character performance.
+Choices should have visible consequences.
 
-A screen should answer:
+Players should understand that their leadership matters.
 
-- Which companion owns this information?
-- What does this companion notice first?
-- What do they hide, fear, exaggerate, or misunderstand?
-- How does this interface make the player feel closer to them?
+Consequences should appear through:
 
-If a UI element can be replaced by a generic management template without losing meaning, it is not finished.
+- characters
+- cities
+- resources
+- factions
+- relationships
+- future stories
 
----
+Avoid invisible calculations whenever possible.
 
-## Emotional Curve
-
-The early game should move from uncertainty to belonging.
-
-The player begins with an empty throne and an unknown court.
-
-Over time, the seven companions should become familiar voices.
-
-By the end of the first demo, the player should not only understand a kingdom problem.
-
-They should care which companion was right, who was hurt, and what the next morning may bring.
+Show consequences.
 
 ---
 
-## Project Promise
+# Pillar 4 — Leadership Before Power
 
-We are not building menus.
+Dream Palace is not a fantasy about domination.
 
-We are building companions.
+It is a fantasy about earning trust.
 
-We are not building only a kingdom.
+Leadership should be built through:
 
-We are building a world worth remembering.
+- responsibility
+- sacrifice
+- difficult decisions
+- cooperation
 
-Build companions before content.
+Players should rarely solve problems alone.
 
-Build experiences before mechanics.
+The kingdom succeeds because people work together.
+
+---
+
+# Pillar 5 — UI Is Character
+
+Interfaces should feel like conversations.
+
+Treasury belongs to MP.
+
+Technology belongs to Kel.
+
+Quality belongs to Tab.
+
+Investigation belongs to CX.
+
+Culture belongs to Mika.
+
+Events belong to Vincey.
+
+Planning belongs to Shian.
+
+The player should feel they are consulting advisors instead of opening software panels.
+
+---
+
+# Pillar 6 — Emotional Memory
+
+Numbers disappear.
+
+Stories remain.
+
+Dream Palace should maximize memorable moments rather than maximize feature count.
+
+Players should remember:
+
+- conversations
+- celebrations
+- failures
+- reunions
+- difficult choices
+
+More than statistics.
+
+---
+
+# Player Experience Goals
+
+Every play session should create this emotional rhythm.
+
+Morning Court
+
+↓
+
+Discussion
+
+↓
+
+Decision
+
+↓
+
+Action
+
+↓
+
+Visible Change
+
+↓
+
+Reflection
+
+↓
+
+Tomorrow
+
+Players should feel that every day matters.
+
+---
+
+# Design Checklist
+
+Before approving a new feature, ask:
+
+## Identity
+
+- Does it feel like Dream Palace?
+- Can another game use this feature without changes?
+
+If yes, it is probably too generic.
+
+---
+
+## Characters
+
+- Does it strengthen at least one companion?
+- Does it increase interaction?
+
+---
+
+## Kingdom
+
+- Does the kingdom visibly react?
+
+---
+
+## Decision
+
+- Does the player's choice matter?
+
+---
+
+## Emotion
+
+- Will players remember this moment?
+
+---
+
+## UI
+
+- Can this interface belong to a character?
+
+---
+
+# Things We Avoid
+
+To protect the identity of Dream Palace, avoid:
+
+- Generic menu-driven gameplay
+- Systems that exist only to increase playtime
+- Feature bloat
+- Invisible progression
+- Numbers without emotional meaning
+- Daily chores disguised as gameplay
+- Repetitive grinding without narrative purpose
+
+---
+
+# Design Priorities
+
+When two ideas conflict, prioritize them in this order.
+
+1. Player emotion
+2. Companion relationships
+3. Living Kingdom
+4. Meaningful decisions
+5. Gameplay systems
+6. Technical convenience
+
+Technology serves design.
+
+Design serves players.
+
+---
+
+# Vision Test
+
+Dream Palace succeeds when a player says:
+
+> "I wonder what happened while I was away."
+
+instead of
+
+> "I need to collect today's rewards."
+
+---
+
+# Final Reminder
+
+Whenever the team is uncertain about a feature, return to this document.
+
+If the feature strengthens the companions, the kingdom, and the player's emotional journey, it belongs in Dream Palace.
+
+If not, reconsider it.
+
+---
+
+> **A kingdom is remembered because of its people, not its numbers.**
+
+# Feature Approval Rule
+
+Every new feature must strengthen at least **two** of the following:
+
+- Companion Relationships
+- Living Kingdom
+- Meaningful Decisions
+- Emotional Memory
+- Leadership Fantasy
+
+If a feature strengthens only one or none of them, it should be redesigned before implementation.
