@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream Palace - The First Morning Court</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Dream Palace web demo">
+      <section class="court" aria-label="Morning Court">
+        <div class="ambient ambient-left"></div>
+        <div class="ambient ambient-right"></div>
+
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dream Palace Web Demo</p>
+            <h1>The First Morning Court</h1>
+          </div>
+          <div class="day-chip" id="dayChip">Day 1 - Morning</div>
+        </header>
+
+        <section class="stage">
+          <aside class="kingdom-card" aria-label="Kingdom state">
+            <p class="card-label">Kingdom State</p>
+            <dl id="kingdomStats"></dl>
+            <p class="village-status" id="villageStatus"></p>
+          </aside>
+
+          <section class="throne-space" aria-label="Court space">
+            <div class="throne-mark" aria-hidden="true"></div>
+            <p class="throne-caption">The throne is yours. The face is yours to imagine.</p>
+          </section>
+
+          <aside class="companion-stack" id="companionStack" aria-label="Companions"></aside>
+        </section>
+
+        <section class="dialogue" aria-label="Dialogue">
+          <div class="speaker-row">
+            <div class="speaker-token" id="speakerToken">MP</div>
+            <div>
+              <p class="speaker-name" id="speakerName">MP</p>
+              <p class="speaker-role" id="speakerRole">Treasury and responsibility</p>
+            </div>
+          </div>
+          <p class="dialogue-text" id="dialogueText"></p>
+          <div class="choice-row" id="choiceRow"></div>
+          <button class="continue-button" id="continueButton" type="button">Continue</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="src/demoData.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
