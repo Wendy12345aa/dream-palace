@@ -1,4 +1,4 @@
-# Dream Palace Character Bible
+# Chapter 4 — Character Bible
 
 ## Purpose
 

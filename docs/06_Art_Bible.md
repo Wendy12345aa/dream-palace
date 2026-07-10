@@ -1,4 +1,4 @@
-# Dream Palace Art Bible
+# Chapter 6 — Art Bible
 
 ## Purpose
 

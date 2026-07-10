@@ -18,12 +18,12 @@ If this is your first time joining the project:
 
 1. [Chapter 0 — Project Vision](00_Project_Vision.md)
 2. [Chapter 1 — Vision](01_Vision_Bible.md)
-3. [Chapter 2 — Characters](02_Character_Bible.md)
-4. [Chapter 3 — World](03_World_Bible.md)
-5. [Chapter 4 — Gameplay](04_Gameplay_Bible.md)
-6. [Chapter 5 — Demo](05_Demo_Bible.md)
-7. [Chapter 6 — UI / UX](06_UI_UX_Bible.md)
-8. [Chapter 7 — Art](07_Art_Bible.md)
+3. [Chapter 2 — World](02_World_Bible.md)
+4. [Chapter 3 — Gameplay](03_Gameplay_Bible.md)
+5. [Chapter 4 — Characters](04_Character_Bible.md)
+6. [Chapter 5 — UI / UX](05_UI_UX_Bible.md)
+7. [Chapter 6 — Art](06_Art_Bible.md)
+8. [Chapter 7 — Demo](07_Demo_Bible.md)
 9. Chapter 8 — Technical Architecture
 10. [Appendix — Production](../ROADMAP.md)
 
@@ -86,7 +86,39 @@ Includes:
 
 ---
 
-## Chapter 2 — Characters
+## Chapter 2 — World
+
+Defines how the living world operates.
+
+Contains:
+
+- Kingdom
+- Regions
+- Cities
+- Resources
+- Technology
+- Politics
+- Factions
+- Living Events
+
+---
+
+## Chapter 3 — Gameplay
+
+Defines how players play the game.
+
+Contains:
+
+- Core Loop
+- Progression
+- Kingdom Systems
+- Adventure
+- MMORPG Features
+- Economy
+
+---
+
+## Chapter 4 — Characters
 
 The complete character reference.
 
@@ -103,52 +135,7 @@ Contains:
 
 ---
 
-## Chapter 3 — World
-
-Everything about the world.
-
-Contains:
-
-- Kingdom
-- Geography
-- History
-- Resources
-- Technology
-- Politics
-- Factions
-
----
-
-## Chapter 4 — Gameplay
-
-Defines how players play the game.
-
-Contains:
-
-- Core Loop
-- Progression
-- Kingdom Systems
-- Adventure
-- MMORPG Features
-- Economy
-
----
-
-## Chapter 5 — Demo
-
-Everything related to the first playable demo.
-
-Contains:
-
-- Demo Scope
-- Story Flow
-- Gameplay Flow
-- Required Assets
-- Success Criteria
-
----
-
-## Chapter 6 — UI / UX
+## Chapter 5 — UI / UX
 
 Defines how players interact with the game.
 
@@ -163,7 +150,7 @@ Contains:
 
 ---
 
-## Chapter 7 — Art
+## Chapter 6 — Art
 
 Defines the visual identity.
 
@@ -176,6 +163,20 @@ Contains:
 - Lighting
 - Effects
 - Typography
+
+---
+
+## Chapter 7 — Demo
+
+Everything related to the first playable demo.
+
+Contains:
+
+- Demo Scope
+- Story Flow
+- Gameplay Flow
+- Required Assets
+- Success Criteria
 
 ---
 

@@ -1,4 +1,4 @@
-# Dream Palace UI/UX Bible
+# Chapter 5 — UI/UX Bible
 
 ## Purpose
 
