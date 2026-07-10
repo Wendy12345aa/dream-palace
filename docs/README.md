@@ -38,7 +38,7 @@ When starting a new task, read:
 3. [Vision](01_Vision_Bible.md)
 4. The document most relevant to the task
 5. [Roadmap](../ROADMAP.md)
-6. [Sprint 0](../tasks/Sprint_0.md)
+6. [Current Sprint](../tasks/Sprint_1.md)
 
 ---
 
@@ -202,7 +202,8 @@ Technical architecture is listed here as a planned chapter. It should be written
 Contains:
 
 - [Roadmap](../ROADMAP.md)
-- [Sprint Planning](../tasks/Sprint_0.md)
+- [Sprint 0: Documentation Foundation](../tasks/Sprint_0.md)
+- [Sprint 1: Morning Court Vertical Slice](../tasks/Sprint_1.md)
 - Asset List
 - Milestones
 
