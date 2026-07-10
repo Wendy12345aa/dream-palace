@@ -226,6 +226,18 @@ If yes, it is probably too generic.
 
 ---
 
+# Feature Approval Rule
+
+Every new feature must strengthen at least **two** of the following:
+
+- Companion Relationships
+- Living Kingdom
+- Meaningful Decisions
+- Emotional Memory
+- Leadership Fantasy
+
+If a feature strengthens only one or none of them, it should be redesigned before implementation.
+
 # Things We Avoid
 
 To protect the identity of Dream Palace, avoid:
@@ -273,22 +285,10 @@ instead of
 
 Whenever the team is uncertain about a feature, return to this document.
 
-If the feature strengthens the companions, the kingdom, and the player's emotional journey, it belongs in Dream Palace.
-
+If the feature strengthens at least two of the core pillars and does not conflict with the others, it may belong in Dream Palace.
 If not, reconsider it.
 
 ---
 
 > **A kingdom is remembered because of its people, not its numbers.**
 
-# Feature Approval Rule
-
-Every new feature must strengthen at least **two** of the following:
-
-- Companion Relationships
-- Living Kingdom
-- Meaningful Decisions
-- Emotional Memory
-- Leadership Fantasy
-
-If a feature strengthens only one or none of them, it should be redesigned before implementation.
