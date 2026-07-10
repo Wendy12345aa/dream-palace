@@ -7,7 +7,7 @@
 - [x] Gameplay Bible
 - [x] Character Bible
 - [x] UI/UX Bible
-- [ ] Art Bible
+- [x] Art Bible
 - [ ] Demo Bible
 
 ## Milestone 1: Web Demo
