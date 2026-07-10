@@ -16,8 +16,12 @@
           <div>
             <p class="eyebrow">Dream Palace Web Demo</p>
             <h1>The First Morning Court</h1>
+            <p class="tagline">A short playable vertical slice about responsibility, companions, and one village that remembers.</p>
           </div>
-          <div class="day-chip" id="dayChip">Day 1 - Morning</div>
+          <div class="topbar-chips" aria-label="Current time and scene">
+            <div class="day-chip" id="dayChip">Day 1 - Morning</div>
+            <div class="phase-chip" id="phaseChip">Morning Court</div>
+          </div>
         </header>
 
         <section class="stage">
@@ -27,9 +31,10 @@
             <p class="village-status" id="villageStatus"></p>
           </aside>
 
-          <section class="throne-space" aria-label="Court space">
+          <section class="throne-space" aria-label="Court map">
             <div class="throne-mark" aria-hidden="true"></div>
-            <p class="throne-caption">The throne is yours. The face is yours to imagine.</p>
+            <p class="throne-caption">The map answers every royal decision with a visible mark.</p>
+            <ul class="map-markers" id="mapMarkers" aria-label="Visible kingdom consequences"></ul>
           </section>
 
           <aside class="companion-stack" id="companionStack" aria-label="Companions"></aside>
@@ -47,6 +52,11 @@
           <div class="choice-row" id="choiceRow"></div>
           <button class="continue-button" id="continueButton" type="button">Continue</button>
         </section>
+
+        <aside class="consequence-panel" aria-label="Decision log">
+          <p class="card-label">Court Memory</p>
+          <ul id="consequenceLog"></ul>
+        </aside>
       </section>
     </main>
 

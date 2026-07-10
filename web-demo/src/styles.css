@@ -7,6 +7,7 @@
   --gold: #c08a2c;
   --green: #3f8f68;
   --blue: #477ea8;
+  --violet: #7c5fa8;
   --shadow: 0 24px 80px rgba(73, 50, 24, 0.18);
 }
 
@@ -95,8 +96,22 @@ h1 {
   letter-spacing: 0;
 }
 
-.day-chip {
-  min-width: 148px;
+.topbar-chips {
+  display: grid;
+  gap: 10px;
+  min-width: 170px;
+}
+
+.tagline {
+  max-width: 680px;
+  margin: 14px 0 0;
+  color: #6b5b44;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.day-chip,
+.phase-chip {
   padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -104,6 +119,11 @@ h1 {
   color: #6f5121;
   font-weight: 700;
   text-align: center;
+}
+
+.phase-chip {
+  border-color: rgba(63, 143, 104, 0.24);
+  color: #376f54;
 }
 
 .stage {
@@ -190,6 +210,52 @@ h1 {
   line-height: 1.6;
 }
 
+.map-markers {
+  display: grid;
+  width: min(100%, 480px);
+  gap: 10px;
+  margin: 22px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map-marker {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid rgba(116, 84, 40, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.66);
+  text-align: left;
+}
+
+.map-marker > span {
+  display: grid;
+  width: 38px;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(192, 138, 44, 0.16);
+  font-weight: 900;
+}
+
+.map-marker strong,
+.map-marker small {
+  display: block;
+}
+
+.map-marker small {
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.map-marker.hope > span { background: rgba(63, 143, 104, 0.18); }
+.map-marker.warning > span { background: rgba(192, 138, 44, 0.22); }
+.map-marker.blue > span { background: rgba(71, 126, 168, 0.16); }
+.map-marker.quiet > span { background: rgba(107, 114, 128, 0.12); }
+
 .companion-stack {
   display: grid;
   gap: 14px;
@@ -206,6 +272,10 @@ h1 {
   opacity: 0.7;
   transform: scale(0.985);
   transition: 180ms ease;
+}
+
+.companion-card.muted-card {
+  filter: grayscale(0.45);
 }
 
 .companion-card.active {
@@ -228,6 +298,7 @@ h1 {
 .gold .portrait { background: var(--gold); }
 .green .portrait { background: var(--green); }
 .blue .portrait { background: var(--blue); }
+.violet .portrait { background: var(--violet); }
 
 .companion-card h2 {
   margin: 0 0 4px;
@@ -246,6 +317,33 @@ h1 {
 .companion-card span {
   margin-top: 6px;
   color: #4f4538;
+}
+
+.consequence-panel {
+  position: relative;
+  z-index: 1;
+  margin: -8px 28px 28px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.consequence-panel ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.consequence-panel li {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.9);
+  color: #5f4a2d;
+  font-size: 0.9rem;
 }
 
 .dialogue {
@@ -375,6 +473,10 @@ h1 {
     flex-direction: column;
   }
 
+  .topbar-chips {
+    width: 100%;
+  }
+
   .stage {
     display: flex;
     flex-direction: column;
@@ -385,8 +487,9 @@ h1 {
     min-height: auto;
   }
 
-  .dialogue {
-    margin: 0 16px 16px;
+  .dialogue,
+  .consequence-panel {
+    margin-inline: 16px;
   }
 
   .choice-row {
