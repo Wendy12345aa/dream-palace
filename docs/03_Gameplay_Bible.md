@@ -1,4 +1,4 @@
-# Dream Palace Gameplay Bible
+# Chapter 3 — Gameplay Bible
 
 ## Purpose
 
