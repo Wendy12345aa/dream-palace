@@ -5,7 +5,7 @@
 - [x] Vision Bible
 - [x] World Bible
 - [x] Gameplay Bible
-- [ ] Character Bible
+- [x] Character Bible
 - [ ] UI/UX Bible
 - [ ] Art Bible
 - [ ] Demo Bible
