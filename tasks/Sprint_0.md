@@ -1,5 +1,13 @@
 # Sprint 0: Documentation Foundation
 
+## Status
+
+Complete.
+
+Sprint 0 established the project foundation and allowed Dream Palace to move into Sprint 1: Morning Court Vertical Slice.
+
+---
+
 ## Goal
 
 Create the design center for Dream Palace before adding gameplay systems, visual production, or implementation-heavy prototype work.
@@ -12,10 +20,10 @@ No new gameplay features should be added during this sprint.
 
 ## Required Deliverables
 
-1. [ ] `docs/README.md` — the documentation navigation hub.
-2. [ ] `docs/00_Project_Vision.md` — the project constitution.
-3. [ ] `docs/01_Vision_Bible.md` — the complete design philosophy.
-4. [ ] `tasks/Sprint_0.md` — the sprint backlog and definition of done.
+1. [x] `docs/README.md` — the documentation navigation hub.
+2. [x] `docs/00_Project_Vision.md` — the project constitution.
+3. [x] `docs/01_Vision_Bible.md` — the complete design philosophy.
+4. [x] `tasks/Sprint_0.md` — the sprint backlog and definition of done.
 
 ---
 
@@ -23,35 +31,35 @@ No new gameplay features should be added during this sprint.
 
 ### Documentation Hub
 
-- [ ] Make `docs/README.md` the first stop for contributors and AI agents.
-- [ ] Link every active bible, roadmap, sprint, and devlog document.
-- [ ] Define the preferred reading order for contributors and AI agents.
-- [ ] Record the core Dream Palace vocabulary.
+- [x] Make `docs/README.md` the first stop for contributors and AI agents.
+- [x] Link every active bible, roadmap, sprint, and devlog document.
+- [x] Define the preferred reading order for contributors and AI agents.
+- [x] Record the core Dream Palace vocabulary.
 
 ### Project Vision
 
-- [ ] Explain why Dream Palace exists.
-- [ ] Explain why the Morning Court is central.
-- [ ] Explain why UI belongs to characters.
-- [ ] Explain why the player has no fixed appearance.
-- [ ] Explain why Dream Palace avoids traditional quest thinking.
-- [ ] Add the core development question for judging future features.
+- [x] Explain why Dream Palace exists.
+- [x] Explain why the Morning Court is central.
+- [x] Explain why UI belongs to characters.
+- [x] Explain why the player has no fixed appearance.
+- [x] Explain why Dream Palace avoids traditional quest thinking.
+- [x] Add the core development question for judging future features.
 
 ### Vision Bible
 
-- [ ] Define the one-sentence identity.
-- [ ] Define the player fantasy.
-- [ ] Define the core experience.
-- [ ] Define the game pillars.
-- [ ] Define the core loop.
-- [ ] Define game feel, camera philosophy, UI philosophy, and emotional curve.
+- [x] Define the one-sentence identity.
+- [x] Define the player fantasy.
+- [x] Define the core experience.
+- [x] Define the game pillars.
+- [x] Define the core loop.
+- [x] Define game feel, camera philosophy, UI philosophy, and emotional curve.
 
 ### Sprint Control
 
-- [ ] Do not start Character Bible expansion during Sprint 0.
-- [ ] Do not start art production during Sprint 0.
-- [ ] Do not start gameplay prototyping during Sprint 0.
-- [ ] Convert any tempting feature ideas into notes for later bibles instead of implementation tasks.
+- [x] Do not start Character Bible expansion during Sprint 0.
+- [x] Do not start art production during Sprint 0.
+- [x] Do not start gameplay prototyping during Sprint 0.
+- [x] Convert any tempting feature ideas into notes for later bibles instead of implementation tasks.
 
 ---
 
