@@ -14,10 +14,14 @@
 
 **Dream Palace: The First Morning Court**
 
-- [ ] Define demo script and critical path.
-- [ ] Prototype companion-led UI.
-- [ ] Implement one complete decision and consequence chain.
-- [ ] Prepare a 15–20 minute playable experience.
+- [x] Define demo script and critical path.
+- [x] Create Sprint 1 Morning Court vertical slice plan.
+- [x] Scaffold a zero-dependency web demo prototype.
+- [x] Prototype companion-led UI.
+- [x] Implement one complete decision and consequence chain.
+- [ ] Expand the first-minute prototype into a 15-20 minute playable experience.
+- [ ] Replace placeholder presentation with production-ready art direction.
+- [ ] Validate the demo with external playtest feedback.
 
 ## Milestone 2: Steam Demo
 
