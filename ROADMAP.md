@@ -2,8 +2,8 @@
 
 ## Milestone 0: Project Foundation
 
-- [ ] Vision Bible
-- [ ] World Bible
+- [x] Vision Bible
+- [x] World Bible
 - [ ] Gameplay Bible
 - [ ] Character Bible
 - [ ] UI/UX Bible
