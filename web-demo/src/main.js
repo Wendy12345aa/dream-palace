@@ -137,9 +137,9 @@ function nextLine() {
       role: "Treasury and responsibility",
       text: "End of Sprint 1 prototype. The next morning is waiting."
     };
-    elements.continueButton.hidden = true;
     elements.choiceRow.innerHTML = "";
     renderLine(currentLine);
+    elements.continueButton.hidden = true;
     return;
   }
 
