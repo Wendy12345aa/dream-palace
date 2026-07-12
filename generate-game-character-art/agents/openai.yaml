@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Character Art"
+  short_description: "Generate proportionate game character artwork"
+  default_prompt: "Use $generate-game-character-art to create a full-body, non-chibi game character illustration."
