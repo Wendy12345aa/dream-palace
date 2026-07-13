@@ -1,6 +1,6 @@
 ---
 name: generate-dream-palace-character-art
-description: Create, edit, QA, and prepare Dream Palace character artwork using the project's Character, Art, UI/UX, and Demo Bible rules. Use when Codex is asked to generate Dream Palace companion portraits, transparent dialogue sprites, full-body character art, expression variants, costume variants, character sheets, turnaround/reference sheets, anonymous player/ruler images, or character-focused CGs for MP, Tab, Kel, CX, Mika, Vincey, Shian, or new Dream Palace-compatible characters.
+description: Create, edit, QA, and prepare Dream Palace character artwork using the project's Character, Art, UI/UX, and Demo Bible rules. Use when Codex is asked to generate Dream Palace companion portraits, transparent dialogue sprites, full-body character art, expression variants, costume variants, animated portrait assets, hair/sleeve/breathing animation layers, sprite frame loops, Live2D-prep layers, character sheets, turnaround/reference sheets, anonymous player/ruler images, or character-focused CGs for MP, Tab, Kel, CX, Mika, Vincey, Shian, or new Dream Palace-compatible characters.
 ---
 
 # Generate Dream Palace Character Art
@@ -36,7 +36,7 @@ When repo docs and bundled references disagree, follow the repo docs.
 
 If the user has not specified the character-art type, ask one concise choice question:
 
-> Which Dream Palace character art type do you want: dialogue portrait, full-body standing art, expression variant, costume variant, character sheet, turnaround/reference sheet, anonymous player/ruler image, or character-focused CG?
+> Which Dream Palace character art type do you want: dialogue portrait, full-body standing art, expression variant, costume variant, animated portrait assets, character sheet, turnaround/reference sheet, anonymous player/ruler image, or character-focused CG?
 
 If the type is clear from the request or filename, proceed without asking.
 
@@ -49,6 +49,7 @@ Load the latest repo docs first, then load fallback references as needed:
 - Use latest `docs/05_UI_UX_Bible.md` for dialogue portraits and UI-facing character assets; otherwise read `references/deliverable-types.md`.
 - Use latest `docs/07_Demo_Bible.md` for demo-specific portraits, CX teaser usage, and first-day companion scope; otherwise read `references/deliverable-types.md`.
 - Read `references/deliverable-types.md` when choosing framing, transparency, sheet structure, variants, or QA criteria.
+- Read `references/animated-portrait-assets.md` for hair sway, sleeve motion, breathing loops, layered web portraits, sprite-frame loops, or Live2D-prep requests.
 - Read `references/asset-naming.md` when naming files or suggesting repository placement.
 
 ## Tool Use
@@ -106,6 +107,14 @@ For character-focused CG:
 - keep UI absent
 - avoid lineup composition unless requested
 
+For animated portrait assets:
+
+- keep animation subtle and character-driven
+- prefer separated transparent layers for web demo use
+- generate base portrait and motion layers from the same identity
+- avoid changing the face, costume, proportions, or pose between frames
+- provide implementation notes for CSS, sprite-frame, or Live2D-prep usage
+
 ## Output Standard
 
 When not directly generating an image, provide:
@@ -117,7 +126,8 @@ When not directly generating an image, provide:
 5. Character art direction.
 6. Final prompt.
 7. Negative prompt / avoid list.
-8. QA checklist.
+8. Animation/layer plan when relevant.
+9. QA checklist.
 
 When directly generating an image, keep the final prompt self-contained and aligned to Dream Palace references.
 
@@ -131,6 +141,7 @@ Deliver only if:
 - hands, face, costume, and props are coherent
 - transparent assets are cleanly isolated
 - variants preserve identity
+- animated layers or frames preserve identity and registration
 - anonymous player/ruler art does not fix the player's face, gender, or official identity
 
 ## Project Rule
