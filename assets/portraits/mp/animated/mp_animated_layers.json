@@ -16,6 +16,6 @@
     "hairBack": "slow translate/rotate, 6-8s",
     "hairFront": "slightly faster translate/rotate, 4-6s",
     "sleeve": "subtle sway, 5-7s",
-    "blink": "opacity flash every 4-7s, no transform"
+    "blink": "brief full-portrait opacity swap every 5-7s, no transform"
   }
 }

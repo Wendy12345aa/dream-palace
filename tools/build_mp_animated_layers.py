@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -81,15 +81,10 @@ def make_blink_overlay(src: Image.Image) -> Image.Image:
     if blink.size != src.size:
         blink = blink.resize(src.size, Image.Resampling.LANCZOS)
 
-    mask = Image.new("L", src.size, 0)
-    draw = ImageDraw.Draw(mask)
-
-    # Only cover the two eye areas. A broad face-difference mask can pick up
-    # hidden source artifacts around the cheeks and nose.
-    draw.rounded_rectangle((420, 352, 555, 458), radius=28, fill=255)
-    draw.rounded_rectangle((540, 352, 675, 458), radius=28, fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(3.2))
-    return layer_from_mask(blink, mask)
+    # For the static GitHub Pages preview, a full closed-eye portrait overlay is
+    # cleaner than a partial eye patch: it avoids dark seams around the eyelids
+    # and reads clearly even when shown for only a short beat.
+    return blink
 
 
 def main() -> None:
@@ -121,7 +116,7 @@ def main() -> None:
     "hairBack": "slow translate/rotate, 6-8s",
     "hairFront": "slightly faster translate/rotate, 4-6s",
     "sleeve": "subtle sway, 5-7s",
-    "blink": "opacity flash every 4-7s, no transform"
+    "blink": "brief full-portrait opacity swap every 5-7s, no transform"
   }
 }
 """
