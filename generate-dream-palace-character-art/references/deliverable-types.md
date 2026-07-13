@@ -66,6 +66,42 @@ Default:
 - keep companion color identity and role symbols
 - do not redesign into unrelated character
 
+## Animated Portrait Assets
+
+Purpose: make dialogue portraits feel alive in the web demo without requiring full Live2D.
+
+Ask which animation mode is intended when unclear:
+
+1. Lightweight web layers: base portrait plus transparent hair/sleeve/accessory layers animated with CSS.
+2. Sprite-frame loop: 2-6 transparent frames for breathing, hair sway, blink, or sleeve motion.
+3. Live2D-prep layers: separated face, eyes, mouth, hair groups, torso, sleeves, props, and accessories.
+
+Default for Dream Palace demo:
+
+- lightweight web layers
+- transparent background
+- same crop and registration for all layers
+- subtle movement only
+- preserve the approved portrait identity
+- no text, UI, or background
+
+Recommended layers:
+
+- base body
+- front hair
+- back hair
+- sleeve or ribbon
+- optional blink/eye overlay
+- optional mouth shape if dialogue lip-sync is planned
+
+Avoid:
+
+- full-body action animation
+- large pose changes
+- changing face identity between frames
+- effects that distract from dialogue
+- rigid cutouts with visible gaps
+
 ## Character Sheet
 
 Purpose: production reference.
