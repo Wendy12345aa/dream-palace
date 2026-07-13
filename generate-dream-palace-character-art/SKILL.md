@@ -11,6 +11,27 @@ Create Dream Palace character art that preserves the project's anime fantasy ide
 
 Use this skill for character art only. Use `$generate-dream-palace-assets` for backgrounds, CGs without character focus, UI frames, icons, effects, or broad asset planning.
 
+## Source Of Truth
+
+Use the latest Dream Palace repository docs as the source of truth whenever they are available.
+
+Primary repo:
+
+```text
+Wendy12345aa/dream-palace
+```
+
+Before generating or judging character art, first try to read the relevant latest project docs from the repo:
+
+- `docs/04_Character_Bible.md`
+- `docs/06_Art_Bible.md`
+- `docs/05_UI_UX_Bible.md` for dialogue portraits or UI-facing character assets
+- `docs/07_Demo_Bible.md` for demo-specific companion scope and opening/teaser usage
+
+Prefer a local checked-out copy of the repo when the current workspace contains one. Otherwise use the GitHub connector or another available repository reader. If the repo docs cannot be accessed, fall back to this skill's bundled `references/` files.
+
+When repo docs and bundled references disagree, follow the repo docs.
+
 ## First Step
 
 If the user has not specified the character-art type, ask one concise choice question:
@@ -21,12 +42,14 @@ If the type is clear from the request or filename, proceed without asking.
 
 ## Required Reference Loading
 
-Load references as needed:
+Load the latest repo docs first, then load fallback references as needed:
 
-- `references/dream-palace-character-rules.md`: Always read before creating or judging character art.
-- `references/character-roster.md`: Read when using MP, Tab, Kel, CX, Mika, Vincey, Shian, or anonymous player/ruler.
-- `references/deliverable-types.md`: Read when choosing framing, transparency, sheet structure, variants, or QA criteria.
-- `references/asset-naming.md`: Read when naming files or suggesting repository placement.
+- Always use latest `docs/04_Character_Bible.md` when available; otherwise read `references/character-roster.md`.
+- Always use latest `docs/06_Art_Bible.md` when available; otherwise read `references/dream-palace-character-rules.md`.
+- Use latest `docs/05_UI_UX_Bible.md` for dialogue portraits and UI-facing character assets; otherwise read `references/deliverable-types.md`.
+- Use latest `docs/07_Demo_Bible.md` for demo-specific portraits, CX teaser usage, and first-day companion scope; otherwise read `references/deliverable-types.md`.
+- Read `references/deliverable-types.md` when choosing framing, transparency, sheet structure, variants, or QA criteria.
+- Read `references/asset-naming.md` when naming files or suggesting repository placement.
 
 ## Tool Use
 
