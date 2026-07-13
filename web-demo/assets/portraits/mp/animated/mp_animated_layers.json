@@ -31,7 +31,7 @@
     }
   ],
   "cssNotes": {
-    "base": "subtle breathing translate/scale, 4-5s",
+    "base": "static body; no breathing or hover drift",
     "hairBack": "slow translate/rotate, 6-8s",
     "hairFront": "slightly faster translate/rotate, 4-6s",
     "sleeve": "subtle sway, 5-7s",

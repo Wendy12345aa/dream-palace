@@ -39,7 +39,6 @@
         width: min(78vw, 720px);
         aspect-ratio: 1024 / 1536;
         filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.45));
-        animation: hover 8s ease-in-out infinite;
       }
 
       .portrait img {
@@ -53,7 +52,7 @@
       }
 
       .base {
-        animation: breathe 6.4s ease-in-out infinite;
+        transform: none;
       }
 
       .hair-front {
@@ -88,11 +87,6 @@
         letter-spacing: 0.03em;
       }
 
-      @keyframes breathe {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.001, 1.002); }
-      }
-
       @keyframes hairFront {
         0%, 100% { transform: translateX(0) rotate(0); }
         54% { transform: translateX(calc(var(--motion) * 1.6px)) rotate(calc(var(--motion) * 0.14deg)); }
@@ -108,10 +102,6 @@
         50% { opacity: 0.42; transform: scale(1.006); }
       }
 
-      @keyframes hover {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-0.5px); }
-      }
     </style>
   </head>
   <body>

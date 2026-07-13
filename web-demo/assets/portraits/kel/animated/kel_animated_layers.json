@@ -26,7 +26,7 @@
     }
   ],
   "cssNotes": {
-    "base": "subtle breathing translate/scale, 4-5s",
+    "base": "static body; no breathing or hover drift",
     "hairFront": "gentle short-hair sway, 4-6s",
     "sleeve": "subtle robe sway, 5-7s",
     "lanternGlow": "soft green-gold pulse, 3-5s"
