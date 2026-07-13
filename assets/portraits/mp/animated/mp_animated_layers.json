@@ -1,9 +1,9 @@
 {
   "character": "MP",
   "mode": "lightweight-web-layers",
-  "styleVariant": "bright_court_default",
-  "source": "assets/reference/concepts/characters/mp/mp-bright-full-body-cutout-generated-v01.png",
-  "blinkSource": "assets/reference/concepts/characters/mp/mp-bright-full-body-blink-generated-v01.png cleaned with tight eye-only masks",
+  "styleVariant": "bright_court_halfbody",
+  "source": "assets/reference/concepts/characters/mp/mp-bright-full-body-cutout-generated-v01.png cropped to dialogue half-body framing",
+  "blinkSource": "assets/reference/concepts/characters/mp/mp-bright-full-body-blink-generated-v01.png cropped with matching half-body registration",
   "canvas": {
     "width": 1024,
     "height": 1536
