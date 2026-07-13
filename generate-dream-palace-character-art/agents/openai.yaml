@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate Dream Palace Character Art"
+  short_description: "Create Dream Palace character art"
+  default_prompt: "Use $generate-dream-palace-character-art to create a Dream Palace portrait, expression, full-body, variant, sheet, or anonymous ruler character asset."
