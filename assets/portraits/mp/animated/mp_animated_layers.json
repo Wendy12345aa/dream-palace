@@ -2,7 +2,7 @@
   "character": "MP",
   "mode": "lightweight-web-layers",
   "source": "assets/reference/concepts/characters/mp/mp-dialogue-bust-concept-v01.png",
-  "blinkSource": "assets/reference/concepts/characters/mp/mp-dialogue-bust-blink-v01.png",
+  "blinkSource": "generated clean eyelid overlay from base portrait skin samples",
   "canvas": { "width": 1024, "height": 1536 },
   "layers": [
     { "file": "pt_mp_base.webp", "role": "base portrait" },

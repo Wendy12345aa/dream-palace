@@ -74,22 +74,54 @@ def make_masks(src: Image.Image) -> dict[str, Image.Image]:
 
 
 def make_blink_overlay(src: Image.Image) -> Image.Image:
-    if not BLINK_SOURCE.exists():
-        return Image.new("RGBA", src.size, (0, 0, 0, 0))
+    scale = 3
+    overlay = Image.new("RGBA", (src.width * scale, src.height * scale), (0, 0, 0, 0))
+    skin = Image.new("RGBA", overlay.size, (0, 0, 0, 0))
+    line = Image.new("RGBA", overlay.size, (0, 0, 0, 0))
 
-    blink = Image.open(BLINK_SOURCE).convert("RGBA")
-    if blink.size != src.size:
-        blink = blink.resize(src.size, Image.Resampling.LANCZOS)
+    def sample_skin(box: tuple[int, int, int, int]) -> tuple[int, int, int, int]:
+        crop = src.crop(box).convert("RGBA")
+        samples: list[tuple[int, int, int]] = []
+        for r, g, b, a in crop.getdata():
+            if a < 128:
+                continue
+            if r > 185 and g > 145 and b > 120 and r > b and g > b * 0.82:
+                samples.append((r, g, b))
+        if not samples:
+            return (238, 205, 188, 238)
+        samples.sort()
+        mid = len(samples) // 2
+        r, g, b = samples[mid]
+        return (min(255, r + 4), min(255, g + 3), min(255, b + 2), 238)
 
-    mask = Image.new("L", src.size, 0)
-    draw = ImageDraw.Draw(mask)
+    eye_patches = [
+        (
+            [(416, 379), (440, 368), (487, 364), (528, 377), (525, 396), (492, 405), (448, 402), (420, 391)],
+            (404, 340, 550, 448),
+            [(424, 390), (456, 397), (495, 396), (526, 386)],
+        ),
+        (
+            [(552, 378), (588, 366), (633, 368), (670, 384), (664, 398), (625, 407), (582, 402), (555, 391)],
+            (535, 340, 688, 448),
+            [(557, 386), (590, 396), (630, 397), (663, 390)],
+        ),
+    ]
 
-    # A tight eye-only patch keeps the blink natural: the base face stays in
-    # place while only the eyelids replace the open eyes.
-    draw.rounded_rectangle((418, 350, 558, 438), radius=22, fill=255)
-    draw.rounded_rectangle((538, 350, 678, 438), radius=22, fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(1.2))
-    return layer_from_mask(blink, mask)
+    skin_draw = ImageDraw.Draw(skin)
+    line_draw = ImageDraw.Draw(line)
+    for patch, sample_box, curve in eye_patches:
+        fill = sample_skin(sample_box)
+        skin_draw.polygon([(x * scale, y * scale) for x, y in patch], fill=fill)
+        pts = [(x * scale, y * scale) for x, y in curve]
+        line_draw.line(pts, fill=(76, 43, 36, 240), width=4 * scale, joint="curve")
+        line_draw.line([(x, y + 2 * scale) for x, y in pts], fill=(164, 108, 88, 95), width=2 * scale, joint="curve")
+
+    # Very light edge softening avoids a sticker edge without introducing source-image shadows.
+    skin_alpha = skin.getchannel("A").filter(ImageFilter.GaussianBlur(0.65 * scale))
+    skin.putalpha(skin_alpha)
+    overlay.alpha_composite(skin)
+    overlay.alpha_composite(line)
+    return overlay.resize(src.size, Image.Resampling.LANCZOS)
 
 
 def main() -> None:
@@ -107,7 +139,7 @@ def main() -> None:
   "character": "MP",
   "mode": "lightweight-web-layers",
   "source": "assets/reference/concepts/characters/mp/mp-dialogue-bust-concept-v01.png",
-  "blinkSource": "assets/reference/concepts/characters/mp/mp-dialogue-bust-blink-v01.png",
+  "blinkSource": "generated clean eyelid overlay from base portrait skin samples",
   "canvas": { "width": 1024, "height": 1536 },
   "layers": [
     { "file": "pt_mp_base.webp", "role": "base portrait" },
