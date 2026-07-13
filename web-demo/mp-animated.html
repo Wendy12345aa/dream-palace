@@ -7,7 +7,7 @@
     <style>
       :root {
         --gold: #d8ad59;
-        --motion: 0.55;
+        --motion: 0.35;
       }
 
       * {
@@ -90,22 +90,22 @@
 
       @keyframes breathe {
         0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.004, 1.007); }
+        50% { transform: scale(1.001, 1.002); }
       }
 
       @keyframes hairBack {
         0%, 100% { transform: translateX(0) rotate(0); }
-        48% { transform: translateX(calc(var(--motion) * -5px)) rotate(calc(var(--motion) * -0.45deg)); }
+        48% { transform: translateX(calc(var(--motion) * -2px)) rotate(calc(var(--motion) * -0.16deg)); }
       }
 
       @keyframes hairFront {
         0%, 100% { transform: translateX(0) rotate(0); }
-        54% { transform: translateX(calc(var(--motion) * 4px)) rotate(calc(var(--motion) * 0.35deg)); }
+        54% { transform: translateX(calc(var(--motion) * 1.6px)) rotate(calc(var(--motion) * 0.14deg)); }
       }
 
       @keyframes sleeve {
         0%, 100% { transform: translateX(0) rotate(0); }
-        50% { transform: translateX(calc(var(--motion) * 3px)) rotate(calc(var(--motion) * 0.28deg)); }
+        50% { transform: translateX(calc(var(--motion) * 1.4px)) rotate(calc(var(--motion) * 0.12deg)); }
       }
 
       @keyframes blink {
@@ -115,7 +115,7 @@
 
       @keyframes hover {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-3px); }
+        50% { transform: translateY(-0.5px); }
       }
     </style>
   </head>
