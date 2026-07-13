@@ -14,6 +14,27 @@ Use this skill for both:
 - **Direct image generation/editing** with the image generation tool.
 - **Production-ready prompts/specs** for Codex or another image-capable session to use later.
 
+## Source Of Truth
+
+Use the latest Dream Palace repository docs as the source of truth whenever they are available.
+
+Primary repo:
+
+```text
+Wendy12345aa/dream-palace
+```
+
+Before generating or judging an asset, first try to read the relevant latest project docs from the repo:
+
+- `docs/04_Character_Bible.md`
+- `docs/05_UI_UX_Bible.md`
+- `docs/06_Art_Bible.md`
+- `docs/07_Demo_Bible.md`
+
+Prefer a local checked-out copy of the repo when the current workspace contains one. Otherwise use the GitHub connector or another available repository reader. If the repo docs cannot be accessed, fall back to this skill's bundled `references/` files.
+
+When repo docs and bundled references disagree, follow the repo docs.
+
 ## First Step
 
 If the user did not specify the asset type, ask one concise question:
@@ -24,12 +45,13 @@ If the asset type is clear from the request or filename, proceed without asking.
 
 ## Required Reference Loading
 
-Load only the reference needed for the task:
+Load the latest repo docs first, then load only the fallback reference needed for the task:
 
-- `references/art-rules.md`: Always read before creating or judging any Dream Palace visual.
-- `references/asset-types.md`: Read when deciding prompt structure, asset requirements, transparency, dimensions, or output path.
-- `references/character-visuals.md`: Read for character portraits, companion-focused CG, player/ruler assets, or any image containing MP, Tab, Kel, CX, Mika, Vincey, or Shian.
-- `references/asset-naming.md`: Read when naming files, suggesting repo placement, or preparing assets for Codex implementation.
+- Always use latest `docs/06_Art_Bible.md` when available; otherwise read `references/art-rules.md`.
+- Use latest `docs/05_UI_UX_Bible.md` for UI assets and interface screenshots; otherwise read `references/asset-types.md`.
+- Use latest `docs/07_Demo_Bible.md` for opening CGs, demo screenshots, Morning Court, and first playable demo assets; otherwise read `references/asset-types.md`.
+- Use latest `docs/04_Character_Bible.md` for character portraits, companion-focused CG, player/ruler assets, or any image containing MP, Tab, Kel, CX, Mika, Vincey, or Shian; otherwise read `references/character-visuals.md`.
+- Read `references/asset-naming.md` when naming files or suggesting repo placement.
 
 ## Workflow
 
