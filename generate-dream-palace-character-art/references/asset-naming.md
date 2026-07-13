@@ -8,6 +8,7 @@ Use predictable names so Codex can implement assets without guessing.
 - `sp_`: sprite
 - `cg_`: character-focused CG
 - `sheet_`: character sheet or reference sheet
+- `anim_`: animated portrait package or layer
 
 ## Character Folders
 
@@ -44,6 +45,25 @@ pt_player_face_hidden.webp
 assets/sprites/mp/sp_mp_fullbody_idle.webp
 assets/sprites/tab/sp_tab_fullbody_idle.webp
 assets/sprites/kel/sp_kel_fullbody_idle.webp
+```
+
+## Animated Portrait Assets
+
+```text
+assets/portraits/mp/animated/pt_mp_base.webp
+assets/portraits/mp/animated/anim_mp_hair_front.webp
+assets/portraits/mp/animated/anim_mp_hair_back.webp
+assets/portraits/mp/animated/anim_mp_sleeve.webp
+assets/portraits/mp/animated/anim_mp_blink_01.webp
+assets/portraits/mp/animated/anim_mp_blink_02.webp
+```
+
+For sprite-frame loops:
+
+```text
+assets/portraits/mp/animated/frames/pt_mp_breath_01.webp
+assets/portraits/mp/animated/frames/pt_mp_breath_02.webp
+assets/portraits/mp/animated/frames/pt_mp_breath_03.webp
 ```
 
 ## Sheets
