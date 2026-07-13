@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream Palace - MP Animated Portrait</title>
+    <style>
+      :root {
+        --gold: #d8ad59;
+        --motion: 0.55;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 46% 22%, rgba(249, 219, 150, 0.28), transparent 31%),
+          linear-gradient(180deg, #2a241d, #08090d 78%);
+        color: #f5eee2;
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .portrait {
+        position: relative;
+        width: min(78vw, 720px);
+        aspect-ratio: 1024 / 1536;
+        filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.45));
+        animation: hover 8s ease-in-out infinite;
+      }
+
+      .portrait img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .base {
+        animation: breathe 6.4s ease-in-out infinite;
+      }
+
+      .hair-back {
+        animation: hairBack 7.6s ease-in-out infinite;
+      }
+
+      .sleeve {
+        animation: sleeve 6.8s ease-in-out infinite;
+      }
+
+      .hair-front {
+        animation: hairFront 5.4s ease-in-out infinite;
+      }
+
+      .caption {
+        position: absolute;
+        left: 28px;
+        bottom: 24px;
+        color: rgba(245, 238, 226, 0.72);
+        letter-spacing: 0.08em;
+      }
+
+      .caption strong {
+        display: block;
+        color: var(--gold);
+        font-family: Georgia, "Songti SC", serif;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+
+      @keyframes breathe {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.004, 1.007); }
+      }
+
+      @keyframes hairBack {
+        0%, 100% { transform: translateX(0) rotate(0); }
+        48% { transform: translateX(calc(var(--motion) * -5px)) rotate(calc(var(--motion) * -0.45deg)); }
+      }
+
+      @keyframes hairFront {
+        0%, 100% { transform: translateX(0) rotate(0); }
+        54% { transform: translateX(calc(var(--motion) * 4px)) rotate(calc(var(--motion) * 0.35deg)); }
+      }
+
+      @keyframes sleeve {
+        0%, 100% { transform: translateX(0) rotate(0); }
+        50% { transform: translateX(calc(var(--motion) * 3px)) rotate(calc(var(--motion) * 0.28deg)); }
+      }
+
+      @keyframes hover {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="portrait" aria-label="MP animated portrait preview">
+        <img class="base" src="assets/portraits/mp/animated/pt_mp_base.webp" alt="MP 动态立绘基础层" />
+        <img class="hair-back" src="assets/portraits/mp/animated/anim_mp_hair_back.webp" alt="" aria-hidden="true" />
+        <img class="sleeve" src="assets/portraits/mp/animated/anim_mp_sleeve.webp" alt="" aria-hidden="true" />
+        <img class="hair-front" src="assets/portraits/mp/animated/anim_mp_hair_front.webp" alt="" aria-hidden="true" />
+      </div>
+      <p class="caption"><strong>MP · Treasury Advisor</strong>Lightweight web layers for Dream Palace</p>
+    </main>
+  </body>
+</html>
