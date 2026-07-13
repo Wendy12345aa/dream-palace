@@ -71,6 +71,11 @@
         animation: lanternPulse 4.4s ease-in-out infinite;
       }
 
+      .blink {
+        opacity: 0;
+        animation: blink 6.2s ease-in-out infinite;
+      }
+
       .caption {
         position: absolute;
         left: 28px;
@@ -108,6 +113,11 @@
         50% { opacity: 0.42; transform: scale(1.006); }
       }
 
+      @keyframes blink {
+        0%, 80%, 88%, 100% { opacity: 0; }
+        82%, 86% { opacity: 1; }
+      }
+
     </style>
   </head>
   <body>
@@ -117,6 +127,7 @@
         <img class="sleeve" src="assets/portraits/kel/animated/anim_kel_sleeve.webp" alt="" aria-hidden="true" />
         <img class="hair-front" src="assets/portraits/kel/animated/anim_kel_hair_front.webp" alt="" aria-hidden="true" />
         <img class="lantern" src="assets/portraits/kel/animated/anim_kel_lantern_glow.webp" alt="" aria-hidden="true" />
+        <img class="blink" src="assets/portraits/kel/animated/anim_kel_blink_closed.webp" alt="" aria-hidden="true" />
       </div>
       <p class="caption"><strong>Kel · Engineering Companion</strong>Lightweight web layers for Dream Palace</p>
     </main>
