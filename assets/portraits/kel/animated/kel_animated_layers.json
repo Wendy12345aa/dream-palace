@@ -1,0 +1,18 @@
+{
+  "character": "Kel",
+  "mode": "lightweight-web-layers",
+  "source": "assets/reference/concepts/characters/kel/kel-full-body-cutout-generated-v01.png",
+  "canvas": { "width": 1024, "height": 1536 },
+  "layers": [
+    { "file": "pt_kel_base.webp", "role": "base portrait" },
+    { "file": "anim_kel_hair_front.webp", "role": "short hair sway" },
+    { "file": "anim_kel_sleeve.webp", "role": "robe and sleeve silk motion" },
+    { "file": "anim_kel_lantern_glow.webp", "role": "subtle lantern glow pulse" }
+  ],
+  "cssNotes": {
+    "base": "subtle breathing translate/scale, 4-5s",
+    "hairFront": "gentle short-hair sway, 4-6s",
+    "sleeve": "subtle robe sway, 5-7s",
+    "lanternGlow": "soft green-gold pulse, 3-5s"
+  }
+}
