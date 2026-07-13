@@ -9,16 +9,22 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "assets/reference/concepts/characters/kel/kel-full-body-cutout-generated-v01.png"
 OUT = ROOT / "assets/portraits/kel/animated"
 WEB_OUT = ROOT / "web-demo/assets/portraits/kel/animated"
+FULL_OUT = ROOT / "assets/portraits/kel/fullbody"
 
 
 def ensure_dirs() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     WEB_OUT.mkdir(parents=True, exist_ok=True)
+    FULL_OUT.mkdir(parents=True, exist_ok=True)
 
 
 def save_webp(image: Image.Image, name: str) -> None:
     for folder in (OUT, WEB_OUT):
         image.save(folder / name, "WEBP", lossless=True, quality=95, method=6)
+
+
+def save_fullbody(image: Image.Image) -> None:
+    image.save(FULL_OUT / "pt_kel_full_body.webp", "WEBP", lossless=True, quality=95, method=6)
 
 
 def is_checker_background(pixel: tuple[int, int, int, int]) -> bool:
@@ -90,15 +96,15 @@ def make_masks(src: Image.Image) -> dict[str, Image.Image]:
                 continue
 
             is_dark_hair = r < 95 and g < 75 and b < 55
-            if 310 < x < 610 and 35 < y < 360 and is_dark_hair:
+            if 290 < x < 720 and 70 < y < 560 and is_dark_hair:
                 hair[x, y] = a
 
             is_green_fabric = g > r * 0.82 and g > b * 0.8 and 45 < g < 150 and r < 135
-            lower_or_side = y > 500 or x < 300 or x > 625
+            lower_or_side = y > 620 or x < 270 or x > 700
             if lower_or_side and is_green_fabric:
                 sleeve[x, y] = a
 
-            is_lantern_green = g > 145 and b > 90 and r < 190 and x < 330 and 60 < y < 520
+            is_lantern_green = g > 145 and b > 90 and r < 190 and x < 360 and 90 < y < 720
             if is_lantern_green:
                 lantern[x, y] = min(255, a + 30)
 
@@ -112,10 +118,25 @@ def layer_from_mask(src: Image.Image, mask: Image.Image) -> Image.Image:
     return layer
 
 
+def make_dialogue_bust(full_body: Image.Image) -> Image.Image:
+    # Preserve Kel's face, upper robe, lantern staff, and engineering identity
+    # while matching MP's dialogue-portrait style instead of full-body framing.
+    crop = full_body.crop((135, 0, 815, 945))
+    target_h = 1420
+    target_w = round(crop.width * target_h / crop.height)
+    bust = crop.resize((target_w, target_h), Image.Resampling.LANCZOS)
+    canvas = Image.new("RGBA", full_body.size, (0, 0, 0, 0))
+    canvas.alpha_composite(bust, ((canvas.width - target_w) // 2, 96))
+    return canvas
+
+
 def main() -> None:
     ensure_dirs()
     src = Image.open(SOURCE).convert("RGBA")
-    base = remove_baked_checkerboard(src)
+    full_body = remove_baked_checkerboard(src)
+    save_fullbody(full_body)
+
+    base = make_dialogue_bust(full_body)
     save_webp(base, "pt_kel_base.webp")
 
     masks = make_masks(base)
@@ -126,7 +147,7 @@ def main() -> None:
     manifest = """{
   "character": "Kel",
   "mode": "lightweight-web-layers",
-  "source": "assets/reference/concepts/characters/kel/kel-full-body-cutout-generated-v01.png",
+  "source": "assets/reference/concepts/characters/kel/kel-full-body-cutout-generated-v01.png cropped to dialogue-bust framing",
   "canvas": { "width": 1024, "height": 1536 },
   "layers": [
     { "file": "pt_kel_base.webp", "role": "base portrait" },

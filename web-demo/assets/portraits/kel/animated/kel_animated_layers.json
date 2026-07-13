@@ -1,7 +1,7 @@
 {
   "character": "Kel",
   "mode": "lightweight-web-layers",
-  "source": "assets/reference/concepts/characters/kel/kel-full-body-cutout-generated-v01.png",
+  "source": "assets/reference/concepts/characters/kel/kel-full-body-cutout-generated-v01.png cropped to dialogue-bust framing",
   "canvas": { "width": 1024, "height": 1536 },
   "layers": [
     { "file": "pt_kel_base.webp", "role": "base portrait" },
