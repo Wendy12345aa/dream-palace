@@ -21,11 +21,11 @@ require art-direction approval.
 | `characters/mp/mp-full-body-concept-v02.png` | MP | Alternate black-and-gold silhouette with staff. |
 | `characters/mp/mp-turnaround-concept-v01.png` | MP | Useful costume turnaround; mage staff is not established in the Character Bible. |
 | `characters/mp/mp-dialogue-bust-concept-v01.png` | MP | Dialogue portrait reference; same staff caveat applies. |
-| `characters/tab/tab-full-body-concept-v01.png` | Tab | Formal inspector silhouette; props and azure identity need strengthening. |
+| `characters/tab/tab-full-body-concept-v01.png` | Tab | Reassigned from `unassigned`; purple/black mage-like styling still needs an azure inspector art-direction pass. |
+| `characters/shian/shian-full-body-concept-v01.png` | Shian | Reassigned from `tab`; silver hair, composed posture, book/tablet prop, and black-gold strategist formality better fit Shian than Tab. |
 | `characters/kel/kel-full-body-concept-v01.png` | Kel | Tool companion and practical silhouette fit engineering; green identity is subtle. |
 | `characters/mika/mika-full-body-concept-v01.png` | Mika | Light-blue palette and delicate styling fit the culture role. |
 | `characters/vincey/vincey-full-body-concept-v01.png` | Vincey | Warm gold/orange energy fits events; scroll/announcement prop needs confirmation. |
-| `characters/unassigned/dark-purple-mage-full-body-concept-v01.png` | Unassigned | Dark-purple palette suggests CX, but gender and mage presentation conflict with the current CX brief. |
 
 ## Cleanup Record
 
