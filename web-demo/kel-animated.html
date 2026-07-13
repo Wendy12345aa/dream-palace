@@ -52,7 +52,8 @@
       }
 
       .base {
-        transform: none;
+        transform-origin: 50% 72%;
+        animation: breathe 5.6s ease-in-out infinite;
       }
 
       .hair-front {
@@ -90,6 +91,11 @@
       @keyframes hairFront {
         0%, 100% { transform: translateX(0) rotate(0); }
         54% { transform: translateX(calc(var(--motion) * 1.6px)) rotate(calc(var(--motion) * 0.14deg)); }
+      }
+
+      @keyframes breathe {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(calc(var(--motion) * -1.3px)) scale(1.004); }
       }
 
       @keyframes sleeve {
