@@ -2,17 +2,20 @@
   "character": "MP",
   "mode": "lightweight-web-layers",
   "source": "assets/reference/concepts/characters/mp/mp-dialogue-bust-concept-v01.png",
+  "blinkSource": "assets/reference/concepts/characters/mp/mp-dialogue-bust-blink-v01.png",
   "canvas": { "width": 1024, "height": 1536 },
   "layers": [
     { "file": "pt_mp_base.webp", "role": "base portrait" },
     { "file": "anim_mp_hair_back.webp", "role": "slow back hair sway" },
     { "file": "anim_mp_hair_front.webp", "role": "front hair strand sway" },
-    { "file": "anim_mp_sleeve.webp", "role": "sleeve and cape silk motion" }
+    { "file": "anim_mp_sleeve.webp", "role": "sleeve and cape silk motion" },
+    { "file": "anim_mp_blink_closed.webp", "role": "brief closed-eye blink overlay" }
   ],
   "cssNotes": {
     "base": "subtle breathing translate/scale, 4-5s",
     "hairBack": "slow translate/rotate, 6-8s",
     "hairFront": "slightly faster translate/rotate, 4-6s",
-    "sleeve": "subtle sway, 5-7s"
+    "sleeve": "subtle sway, 5-7s",
+    "blink": "opacity flash every 4-7s, no transform"
   }
 }

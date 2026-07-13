@@ -1,10 +1,11 @@
 from pathlib import Path
 
-from PIL import Image, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "assets/reference/concepts/characters/mp/mp-dialogue-bust-concept-v01.png"
+BLINK_SOURCE = ROOT / "assets/reference/concepts/characters/mp/mp-dialogue-bust-blink-v01.png"
 OUT = ROOT / "assets/portraits/mp/animated"
 WEB_OUT = ROOT / "web-demo/assets/portraits/mp/animated"
 
@@ -21,8 +22,14 @@ def save_webp(img: Image.Image, name: str) -> None:
 
 def layer_from_mask(src: Image.Image, mask: Image.Image) -> Image.Image:
     out = Image.new("RGBA", src.size, (0, 0, 0, 0))
-    out.paste(src, (0, 0), mask)
+    safe_mask = ImageChops.multiply(mask, src.getchannel("A"))
+    out.paste(src, (0, 0), safe_mask)
     return out
+
+
+def in_face_protection_zone(x: int, y: int) -> bool:
+    """Keep animated hair/sleeve masks out of MP's facial features."""
+    return 330 <= x <= 700 and 310 <= y <= 655
 
 
 def make_masks(src: Image.Image) -> dict[str, Image.Image]:
@@ -45,6 +52,8 @@ def make_masks(src: Image.Image) -> dict[str, Image.Image]:
 
             is_hair = r > 160 and g > 130 and b > 130 and (r + g + b) > 440
             if is_hair:
+                if in_face_protection_zone(x, y):
+                    continue
                 # Front hair: strands around the face and upper bust.
                 if 250 <= x <= 760 and 230 <= y <= 980:
                     hair_front[x, y] = a
@@ -57,11 +66,30 @@ def make_masks(src: Image.Image) -> dict[str, Image.Image]:
             is_dark_fabric = r < 95 and g < 90 and b < 115
             is_blue_shadow = b > r + 18 and b > g + 8 and r < 95
             side_or_lower = (x < 355 and y > 690) or (x > 665 and y > 690) or y > 1030
-            if side_or_lower and (is_dark_fabric or is_blue_shadow):
+            if side_or_lower and not in_face_protection_zone(x, y) and (is_dark_fabric or is_blue_shadow):
                 sleeve[x, y] = a
 
     # Soften only the mask edge very slightly. Keep crisp enough for anime line art.
     return {key: value.filter(ImageFilter.GaussianBlur(0.35)) for key, value in masks.items()}
+
+
+def make_blink_overlay(src: Image.Image) -> Image.Image:
+    if not BLINK_SOURCE.exists():
+        return Image.new("RGBA", src.size, (0, 0, 0, 0))
+
+    blink = Image.open(BLINK_SOURCE).convert("RGBA")
+    if blink.size != src.size:
+        blink = blink.resize(src.size, Image.Resampling.LANCZOS)
+
+    mask = Image.new("L", src.size, 0)
+    draw = ImageDraw.Draw(mask)
+
+    # Only cover the two eye areas. A broad face-difference mask can pick up
+    # hidden source artifacts around the cheeks and nose.
+    draw.rounded_rectangle((420, 352, 555, 458), radius=28, fill=255)
+    draw.rounded_rectangle((540, 352, 675, 458), radius=28, fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(3.2))
+    return layer_from_mask(blink, mask)
 
 
 def main() -> None:
@@ -73,23 +101,27 @@ def main() -> None:
     save_webp(layer_from_mask(src, masks["hair_front"]), "anim_mp_hair_front.webp")
     save_webp(layer_from_mask(src, masks["hair_back"]), "anim_mp_hair_back.webp")
     save_webp(layer_from_mask(src, masks["sleeve"]), "anim_mp_sleeve.webp")
+    save_webp(make_blink_overlay(src), "anim_mp_blink_closed.webp")
 
     manifest = """{
   "character": "MP",
   "mode": "lightweight-web-layers",
   "source": "assets/reference/concepts/characters/mp/mp-dialogue-bust-concept-v01.png",
+  "blinkSource": "assets/reference/concepts/characters/mp/mp-dialogue-bust-blink-v01.png",
   "canvas": { "width": 1024, "height": 1536 },
   "layers": [
     { "file": "pt_mp_base.webp", "role": "base portrait" },
     { "file": "anim_mp_hair_back.webp", "role": "slow back hair sway" },
     { "file": "anim_mp_hair_front.webp", "role": "front hair strand sway" },
-    { "file": "anim_mp_sleeve.webp", "role": "sleeve and cape silk motion" }
+    { "file": "anim_mp_sleeve.webp", "role": "sleeve and cape silk motion" },
+    { "file": "anim_mp_blink_closed.webp", "role": "brief closed-eye blink overlay" }
   ],
   "cssNotes": {
     "base": "subtle breathing translate/scale, 4-5s",
     "hairBack": "slow translate/rotate, 6-8s",
     "hairFront": "slightly faster translate/rotate, 4-6s",
-    "sleeve": "subtle sway, 5-7s"
+    "sleeve": "subtle sway, 5-7s",
+    "blink": "opacity flash every 4-7s, no transform"
   }
 }
 """
