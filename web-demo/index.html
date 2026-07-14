@@ -3,60 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#171714" />
     <title>Dream Palace - The First Morning Court</title>
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
     <main class="app" aria-label="Dream Palace web demo">
-      <section class="court" aria-label="Morning Court">
-        <div class="ambient ambient-left"></div>
-        <div class="ambient ambient-right"></div>
+      <section class="opening" id="openingSequence" aria-label="Opening sequence">
+        <figure class="opening-frame">
+          <img id="openingImage" alt="" />
+          <div class="opening-shade" aria-hidden="true"></div>
+          <figcaption class="opening-copy">
+            <p id="openingKicker">Before the first bell</p>
+            <h1 id="openingTitle">The kingdom was already awake.</h1>
+          </figcaption>
+        </figure>
 
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">Dream Palace Web Demo</p>
-            <h1>The First Morning Court</h1>
-            <p class="tagline">A short playable vertical slice about responsibility, companions, and one village that remembers.</p>
+        <div class="opening-controls">
+          <div class="opening-progress" id="openingProgress" aria-label="Opening progress"></div>
+          <button class="text-command" id="skipOpening" type="button">Skip opening</button>
+        </div>
+      </section>
+
+      <section class="court-scene" id="courtScene" aria-label="Morning Court" hidden>
+        <div class="scene-image" aria-hidden="true"></div>
+        <div class="scene-light" aria-hidden="true"></div>
+        <div class="scene-vignette" aria-hidden="true"></div>
+
+        <header class="court-header">
+          <div class="wordmark">
+            <span>Dream Palace</span>
+            <strong>The First Morning Court</strong>
           </div>
-          <div class="topbar-chips" aria-label="Current time and scene">
-            <div class="day-chip" id="dayChip">Day 1 - Morning</div>
-            <div class="phase-chip" id="phaseChip">Morning Court</div>
+          <div class="scene-time" aria-label="Current time and scene">
+            <span id="dayChip">Day 1 - Morning</span>
+            <strong id="phaseChip">Morning Court</strong>
           </div>
         </header>
 
-        <section class="stage">
-          <aside class="kingdom-card" aria-label="Kingdom state">
-            <p class="card-label">Kingdom State</p>
-            <dl id="kingdomStats"></dl>
-            <p class="village-status" id="villageStatus"></p>
-          </aside>
+        <div class="presence-layer" aria-hidden="true">
+          <span class="presence presence-mp" data-companion="mp">MP</span>
+          <span class="presence presence-kel" data-companion="kel">Kel</span>
+          <span class="presence presence-tab" data-companion="tab">Tab</span>
+        </div>
 
-          <section class="throne-space" aria-label="Court map">
-            <div class="throne-mark" aria-hidden="true"></div>
-            <p class="throne-caption">The map answers every royal decision with a visible mark.</p>
-            <ul class="map-markers" id="mapMarkers" aria-label="Visible kingdom consequences"></ul>
-          </section>
-
-          <aside class="companion-stack" id="companionStack" aria-label="Companions"></aside>
+        <section class="northbridge-focus" id="northbridgeFocus" aria-label="Northbridge status">
+          <span class="focus-pulse" aria-hidden="true"></span>
+          <div>
+            <strong>Northbridge</strong>
+            <span id="bridgeStatus">Old supply bridge damaged</span>
+          </div>
         </section>
 
-        <section class="dialogue" aria-label="Dialogue">
-          <div class="speaker-row">
-            <div class="speaker-token" id="speakerToken">MP</div>
-            <div>
+        <aside class="ledger-slip" id="ledgerSlip" aria-label="Treasury note">
+          <span>Emergency reserve</span>
+          <strong id="reserveStatus">Sealed</strong>
+          <small id="villageStatus">Northbridge is waiting for the court's first decision.</small>
+        </aside>
+
+        <div class="consequence-toast" id="consequenceToast" role="status" aria-live="polite"></div>
+
+        <section class="dialogue-layer" aria-label="Dialogue">
+          <div class="speaker-mark" id="speakerToken">MP</div>
+          <div class="dialogue-content">
+            <div class="speaker-heading">
               <p class="speaker-name" id="speakerName">MP</p>
               <p class="speaker-role" id="speakerRole">Treasury and responsibility</p>
             </div>
+            <p class="dialogue-text" id="dialogueText" aria-live="polite"></p>
+            <div class="choice-row" id="choiceRow"></div>
           </div>
-          <p class="dialogue-text" id="dialogueText"></p>
-          <div class="choice-row" id="choiceRow"></div>
-          <button class="continue-button" id="continueButton" type="button">Continue</button>
+          <button class="continue-button" id="continueButton" type="button" aria-label="Continue dialogue">
+            <span>Continue</span>
+            <b aria-hidden="true">&gt;</b>
+          </button>
         </section>
-
-        <aside class="consequence-panel" aria-label="Decision log">
-          <p class="card-label">Court Memory</p>
-          <ul id="consequenceLog"></ul>
-        </aside>
       </section>
     </main>
 

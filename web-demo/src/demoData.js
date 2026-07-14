@@ -1,71 +1,89 @@
 window.DREAM_PALACE_DEMO = {
+  openingShots: [
+    {
+      src: "../assets/cg/opening/cg_opening_01_city_before_dawn.png",
+      kicker: "Before the first bell",
+      title: "The kingdom was already awake.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_02_petition_handover.png",
+      kicker: "Northbridge Village",
+      title: "A request left home before sunrise.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_03_messenger_to_capital.png",
+      kicker: "The northern road",
+      title: "One message crossed the waking kingdom.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_04_mp_ledger.png",
+      kicker: "The treasury",
+      title: "Every answer would cost something.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_05_tab_review.png",
+      kicker: "The review chamber",
+      title: "Every exception would leave a precedent.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_06_kel_blueprint.png",
+      kicker: "The workshop",
+      title: "Someone still had to build the answer.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_07_empty_morning_court.png",
+      kicker: "Morning Court",
+      title: "The court was ready. The decision was missing.",
+      position: "center center"
+    },
+    {
+      src: "../assets/cg/opening/cg_opening_08_court_turns_to_player.png",
+      kicker: "Your first morning",
+      title: "Then the doors opened.",
+      position: "center center"
+    }
+  ],
+
   initialState: {
     day: "Day 1 - Morning",
     phase: "Morning Court",
+    sceneTone: "morning",
     kingdom: {
       grain: 8200,
       gold: 16000,
       trust: 42,
       stability: 58,
-      villageStatus: "Northbridge Village is waiting for the court's first decision.",
+      reserveStatus: "Sealed",
+      villageStatus: "Northbridge is waiting for the court's first decision.",
       bridgeStatus: "Old supply bridge damaged"
     },
-    consequences: ["The court has opened its first ledger."],
-    mapMarkers: [
-      {
-        id: "palace",
-        icon: "♕",
-        label: "Dream Palace",
-        status: "Morning court assembled",
-        tone: "gold"
-      },
-      {
-        id: "northbridge",
-        icon: "⚠",
-        label: "Northbridge Village",
-        status: "Bridge damaged after rain",
-        tone: "warning"
-      },
-      {
-        id: "storehouse",
-        icon: "◎",
-        label: "Royal Storehouse",
-        status: "Emergency reserve sealed",
-        tone: "quiet"
-      }
-    ],
+    consequences: [],
     companions: {
       mp: {
         id: "mp",
         name: "MP",
-        role: "Treasury and responsibility",
-        color: "gold",
-        emotion: "concerned",
-        status: "Waiting with the morning ledger"
+        role: "Treasury and responsibility"
       },
       tab: {
         id: "tab",
         name: "Tab",
-        role: "Quality and risk",
-        color: "blue",
-        emotion: "reserved",
-        status: "Reviewing emergency procedures"
+        role: "Quality and risk"
       },
       kel: {
         id: "kel",
         name: "Kel",
-        role: "Engineering and construction",
-        color: "green",
-        emotion: "quiet",
-        status: "Preparing repair sketches"
+        role: "Engineering and construction"
       },
       cx: {
         id: "cx",
         name: "CX",
-        role: "Mystery and tomorrow's hook",
-        color: "violet",
-        emotion: "watching",
-        status: "Watching from the balcony",
+        role: "Intelligence and tomorrow's hook",
         hidden: true,
         revealed: false
       }
@@ -75,103 +93,91 @@ window.DREAM_PALACE_DEMO = {
   beats: [
     {
       speaker: "mp",
-      text: "Your Highness, Northbridge Village sent its first petition before dawn.",
-      role: "Treasury and responsibility"
+      focus: "mp",
+      text: "Your Highness, Northbridge sent its first petition before dawn."
     },
     {
       speaker: "mp",
-      text: "Their granary is intact, but the supply bridge failed after last night's rain. Grain exists. People cannot reach it.",
-      role: "Treasury and responsibility"
+      focus: "northbridge",
+      revealLedger: true,
+      text: "Their granary is intact, but the supply bridge failed after last night's rain. Grain exists. People cannot reach it."
     },
     {
       speaker: "tab",
-      text: "Emergency release is possible, but it will reduce our reserve margin. If this becomes habit, the treasury will break before winter.",
-      role: "Quality and risk"
+      focus: "tab",
+      text: "Emergency release is possible, but it reduces our margin before winter. Mercy without a repair plan only postpones the same failure."
+    },
+    {
+      speaker: "kel",
+      focus: "kel",
+      text: "Give me stored timber and a work crew. I can put a temporary frame across the river before the last cart leaves."
     },
     {
       speaker: "mp",
-      text: "The court needs your first decision. Do we release grain immediately, or audit the shortage before spending reserves?",
-      role: "Treasury and responsibility",
+      focus: "northbridge",
+      text: "The village is waiting. Do we release grain now, or verify the shortage before opening the reserve?",
       choices: [
         {
           id: "release_grain",
           label: "Release emergency grain",
-          description: "Protect the village now, but reduce reserves.",
+          description: "Protect the village now and begin a temporary bridge repair.",
           stateChange: {
             grain: -900,
             trust: 8,
             stability: 2,
-            villageStatus: "Grain carts are leaving the palace storehouse for Northbridge Village.",
-            bridgeStatus: "Temporary repair approved"
+            reserveStatus: "Opened before noon",
+            villageStatus: "Grain carts are leaving the palace storehouse for Northbridge.",
+            bridgeStatus: "Temporary repair underway"
           },
-          mapUpdate: {
-            id: "northbridge",
-            icon: "✚",
-            status: "Grain carts en route; repair crew approved",
-            tone: "hope"
-          },
-          consequence: "You released emergency grain before noon.",
-          companionStatus: {
-            mp: "Coordinating emergency supply carts",
-            tab: "Recording conditional approval",
-            kel: "Sketching a temporary bridge repair"
-          },
+          consequence: "Emergency grain released. Repair crews dispatched.",
+          tableState: "release",
           followUps: [
             {
               speaker: "mp",
-              text: "Understood. I will open the reserve ledger and send the carts before noon.",
-              role: "Treasury and responsibility"
+              focus: "mp",
+              text: "Understood. I will open the reserve ledger and send the carts before noon."
             },
             {
               speaker: "tab",
-              text: "Approved with conditions. Kel must repair the bridge, or this solution becomes tomorrow's problem.",
-              role: "Quality and risk"
+              focus: "tab",
+              text: "Approved with conditions. Kel's repair report will be on this table by sunset."
             },
             {
               speaker: "kel",
-              text: "I can reinforce the old bridge with stored timber. It will not be beautiful, but it will hold.",
-              role: "Engineering and construction"
+              focus: "northbridge",
+              text: "The first beams are moving now. It will not be beautiful, but people will cross it safely."
             }
           ]
         },
         {
           id: "audit_first",
           label: "Audit before release",
-          description: "Protect reserves, but make the village wait.",
+          description: "Protect the reserve and dispatch an inspection team first.",
           stateChange: {
             gold: -400,
             trust: -3,
             stability: 5,
-            villageStatus: "Tab dispatches auditors while Northbridge Village waits under ration control.",
+            reserveStatus: "Held for audit",
+            villageStatus: "Auditors travel north while the village remains under ration control.",
             bridgeStatus: "Inspection team dispatched"
           },
-          mapUpdate: {
-            id: "northbridge",
-            icon: "⌕",
-            status: "Auditors dispatched; ration line forming",
-            tone: "blue"
-          },
-          consequence: "You ordered an audit before opening the reserve.",
-          companionStatus: {
-            mp: "Protecting reserves while watching public trust",
-            tab: "Dispatching auditors to Northbridge",
-            kel: "Sketching a temporary bridge repair"
-          },
+          consequence: "Reserve held. Auditors sent to Northbridge.",
+          tableState: "audit",
           followUps: [
             {
               speaker: "tab",
-              text: "A cautious decision. I will verify the report and identify who allowed the bridge to decay.",
-              role: "Quality and risk"
+              focus: "tab",
+              text: "A cautious decision. I will verify the report and find who allowed the bridge to decay."
             },
             {
               speaker: "mp",
-              text: "The reserve remains protected, but the village will remember the delay. We should answer them before sunset.",
-              role: "Treasury and responsibility"
+              focus: "mp",
+              text: "The reserve remains protected, but Northbridge will remember the delay. We must answer before sunset."
             },
             {
               speaker: "kel",
-              text: "If the bridge is the real issue, I can start a temporary frame while Tab checks the accounts.",
-              role: "Engineering and construction"
+              focus: "northbridge",
+              text: "I will prepare the timber anyway. If the report is true, we should not lose another hour."
             }
           ]
         }
@@ -179,46 +185,42 @@ window.DREAM_PALACE_DEMO = {
     },
     {
       speaker: "kel",
-      phase: "Palace Walk",
-      mapUpdate: {
-        id: "storehouse",
-        status: "Palace workers await your evening review",
-        tone: "quiet"
-      },
-      text: "Walk with me to the western window. From here, every bridge is a line on paper until someone has to cross it.",
-      role: "Engineering and construction"
+      focus: "northbridge",
+      phase: "Visible Consequence",
+      text: "Look closely, Your Highness. The table is already answering you."
     },
     {
       speaker: "mp",
+      focus: "mp",
       phase: "Evening Reflection",
-      consequence: "Northbridge is now marked on the court map.",
-      text: "Your first morning has ended, Your Highness. The kingdom has already changed because you answered it.",
-      role: "Treasury and responsibility"
+      sceneTone: "evening",
+      text: "Your first morning has ended. Northbridge will remember not only what the court decided, but how quickly we saw them."
     },
     {
       speaker: "cx",
+      focus: "cx",
       day: "Day 2 - Dawn",
       phase: "Tomorrow Teaser",
-      text: "One village saw your answer. Tomorrow, someone who did not petition will test whether you were kind, careful, or merely lucky.",
-      role: "Mystery and tomorrow's hook"
+      sceneTone: "dawn",
+      text: "One village saw your answer. Tomorrow, someone who never petitioned will test what kind of ruler gave it."
     }
   ],
 
   endings: {
     release_grain: {
       speaker: "cx",
-      role: "Mystery and tomorrow's hook",
-      text: "End of demo. Northbridge eats tonight, and the reserve ledger has a red mark waiting for dawn. Return tomorrow?"
+      focus: "cx",
+      text: "Northbridge eats tonight. A red mark waits in the reserve ledger for dawn. End of demo."
     },
     audit_first: {
       speaker: "cx",
-      role: "Mystery and tomorrow's hook",
-      text: "End of demo. The reserve is safe tonight, and Northbridge is counting the hours until dawn. Return tomorrow?"
+      focus: "cx",
+      text: "The reserve is safe tonight. Northbridge is counting the hours until dawn. End of demo."
     },
     default: {
       speaker: "mp",
-      role: "Treasury and responsibility",
-      text: "End of demo. The next morning is waiting."
+      focus: "mp",
+      text: "The next morning is waiting. End of demo."
     }
   }
 };
