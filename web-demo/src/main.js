@@ -33,11 +33,12 @@ const elements = {
   continueButton: document.querySelector("#continueButton")
 };
 
-function preloadOpening() {
-  demo.openingShots.forEach((shot) => {
-    const image = new Image();
-    image.src = shot.src;
-  });
+function preloadOpeningShot(index) {
+  const shot = demo.openingShots[index];
+  if (!shot) return;
+
+  const image = new Image();
+  image.src = shot.src;
 }
 
 function renderOpeningProgress() {
@@ -64,6 +65,7 @@ function showOpeningShot(index) {
     elements.openingTitle.textContent = shot.title;
     renderOpeningProgress();
     elements.openingSequence.classList.remove("is-changing");
+    preloadOpeningShot(index + 1);
   }, index === 0 ? 0 : 420);
 
   window.clearTimeout(openingTimer);
@@ -221,5 +223,4 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-preloadOpening();
 showOpeningShot(openingIndex);

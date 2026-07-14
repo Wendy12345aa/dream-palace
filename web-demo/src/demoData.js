@@ -1,49 +1,49 @@
 window.DREAM_PALACE_DEMO = {
   openingShots: [
     {
-      src: "../assets/cg/opening/cg_opening_01_city_before_dawn.png",
+      src: "../assets/cg/opening/cg_opening_01_city_before_dawn.webp",
       kicker: "Before the first bell",
       title: "The kingdom was already awake.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_02_petition_handover.png",
+      src: "../assets/cg/opening/cg_opening_02_petition_handover.webp",
       kicker: "Northbridge Village",
       title: "A request left home before sunrise.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_03_messenger_to_capital.png",
+      src: "../assets/cg/opening/cg_opening_03_messenger_to_capital.webp",
       kicker: "The northern road",
       title: "One message crossed the waking kingdom.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_04_mp_ledger.png",
+      src: "../assets/cg/opening/cg_opening_04_mp_ledger.webp",
       kicker: "The treasury",
       title: "Every answer would cost something.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_05_tab_review.png",
+      src: "../assets/cg/opening/cg_opening_05_tab_review.webp",
       kicker: "The review chamber",
       title: "Every exception would leave a precedent.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_06_kel_blueprint.png",
+      src: "../assets/cg/opening/cg_opening_06_kel_blueprint.webp",
       kicker: "The workshop",
       title: "Someone still had to build the answer.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_07_empty_morning_court.png",
+      src: "../assets/cg/opening/cg_opening_07_empty_morning_court.webp",
       kicker: "Morning Court",
       title: "The court was ready. The decision was missing.",
       position: "center center"
     },
     {
-      src: "../assets/cg/opening/cg_opening_08_court_turns_to_player.png",
+      src: "../assets/cg/opening/cg_opening_08_court_turns_to_player.webp",
       kicker: "Your first morning",
       title: "Then the doors opened.",
       position: "center center"
