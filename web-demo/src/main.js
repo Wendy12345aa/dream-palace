@@ -10,6 +10,7 @@ let openingTimer = null;
 let openingFinished = false;
 let experienceStarted = false;
 let currentLanguage = "en";
+let kingdomAnswerTimer = null;
 
 const elements = {
   languageGate: document.querySelector("#languageGate"),
@@ -23,6 +24,10 @@ const elements = {
   dayChip: document.querySelector("#dayChip"),
   phaseChip: document.querySelector("#phaseChip"),
   northbridgeFocus: document.querySelector("#northbridgeFocus"),
+  kingdomAnswer: document.querySelector("#kingdomAnswer"),
+  answerKicker: document.querySelector("#answerKicker"),
+  answerTitle: document.querySelector("#answerTitle"),
+  answerDetail: document.querySelector("#answerDetail"),
   bridgeStatus: document.querySelector("#bridgeStatus"),
   ledgerSlip: document.querySelector("#ledgerSlip"),
   reserveStatus: document.querySelector("#reserveStatus"),
@@ -69,6 +74,46 @@ function setLanguage(language) {
   }
 
   if (!elements.courtScene.hidden) renderLine(currentLine);
+}
+
+function getAnswerType() {
+  if (selectedChoice === "release_grain") return "release";
+  if (selectedChoice === "audit_first") return "audit";
+  return "pending";
+}
+
+function renderKingdomAnswer() {
+  const answerType = getAnswerType();
+  elements.kingdomAnswer.dataset.answer = answerType;
+
+  if (answerType === "release") {
+    elements.answerKicker.textContent = translate("answerReleaseKicker");
+    elements.answerTitle.textContent = translate("answerReleaseTitle");
+    elements.answerDetail.textContent = translate("answerReleaseDetail");
+  } else if (answerType === "audit") {
+    elements.answerKicker.textContent = translate("answerAuditKicker");
+    elements.answerTitle.textContent = translate("answerAuditTitle");
+    elements.answerDetail.textContent = translate("answerAuditDetail");
+  }
+}
+
+function playKingdomAnswer() {
+  const answerDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 250 : 3200;
+  window.clearTimeout(kingdomAnswerTimer);
+  renderKingdomAnswer();
+  elements.kingdomAnswer.classList.remove("is-playing", "is-settled");
+  elements.courtScene.classList.add("is-answering");
+  elements.continueButton.disabled = true;
+
+  void elements.kingdomAnswer.offsetWidth;
+  elements.kingdomAnswer.classList.add("is-playing");
+
+  kingdomAnswerTimer = window.setTimeout(() => {
+    elements.kingdomAnswer.classList.remove("is-playing");
+    elements.kingdomAnswer.classList.add("is-settled");
+    elements.courtScene.classList.remove("is-answering");
+    elements.continueButton.disabled = false;
+  }, answerDuration);
 }
 
 function startExperience(language) {
@@ -163,6 +208,7 @@ function renderState() {
   elements.courtScene.dataset.focus = currentLine.focus || currentLine.speaker;
   elements.courtScene.dataset.tone = state.sceneTone;
   elements.courtScene.dataset.tableState = tableState;
+  renderKingdomAnswer();
 
   document.querySelectorAll("[data-companion]").forEach((presence) => {
     presence.classList.toggle("active", presence.dataset.companion === currentLine.speaker);
@@ -183,6 +229,9 @@ function renderLine(line) {
   if (line.phase) state.phase = line.phase;
   if (line.day) state.day = line.day;
   if (line.sceneTone) state.sceneTone = line.sceneTone;
+  if (line.sceneTone && line.sceneTone !== "morning") {
+    elements.kingdomAnswer.classList.remove("is-playing", "is-settled");
+  }
   if (line.revealLedger) elements.ledgerSlip.classList.add("is-visible");
 
   elements.speakerToken.textContent = companion.name;
@@ -233,6 +282,7 @@ function applyChoice(choice) {
   currentLine = pendingFollowUps.shift();
   renderLine(currentLine);
   showConsequence(choice.consequence);
+  playKingdomAnswer();
 }
 
 function nextLine() {
@@ -277,7 +327,12 @@ elements.choiceRow.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && experienceStarted && !openingFinished) enterCourt();
-  if ((event.key === "Enter" || event.key === " ") && openingFinished && !elements.continueButton.hidden) {
+  if (
+    (event.key === "Enter" || event.key === " ") &&
+    openingFinished &&
+    !elements.continueButton.hidden &&
+    !elements.continueButton.disabled
+  ) {
     event.preventDefault();
     nextLine();
   }

@@ -11,7 +11,13 @@ window.DREAM_PALACE_DEMO = {
       morningCourt: "Morning Court",
       visibleConsequence: "Visible Consequence",
       eveningReflection: "Evening Reflection",
-      tomorrowTeaser: "Tomorrow Teaser"
+      tomorrowTeaser: "Tomorrow Teaser",
+      answerReleaseKicker: "Kel begins construction",
+      answerReleaseTitle: "Grain moves. The bridge rises.",
+      answerReleaseDetail: "Supply carts depart while a temporary crossing takes shape.",
+      answerAuditKicker: "Tab begins inspection",
+      answerAuditTitle: "The reserve holds. The inquiry begins.",
+      answerAuditDetail: "Inspectors reach the damaged bridge while Northbridge remains on ration control."
     },
     zh: {
       demoTitle: "第一次早朝",
@@ -24,7 +30,13 @@ window.DREAM_PALACE_DEMO = {
       morningCourt: "第一次早朝",
       visibleConsequence: "王国的回应",
       eveningReflection: "暮色复盘",
-      tomorrowTeaser: "明日悬念"
+      tomorrowTeaser: "明日悬念",
+      answerReleaseKicker: "Kel 开始施工",
+      answerReleaseTitle: "粮车启程，桥梁升起。",
+      answerReleaseDetail: "补给车队驶向北桥村，临时通道正在成形。",
+      answerAuditKicker: "Tab 启动核查",
+      answerAuditTitle: "储备封存，调查开始。",
+      answerAuditDetail: "监察队抵达断桥，北桥村暂时维持配给。"
     }
   },
 
