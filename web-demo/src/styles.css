@@ -42,10 +42,106 @@ button:focus-visible {
 }
 
 .app,
+.language-gate,
 .opening,
 .court-scene {
   width: 100%;
   min-height: 100vh;
+}
+
+.language-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, rgba(8, 13, 20, 0.84), rgba(8, 13, 20, 0.3)),
+    url("../../assets/cg/opening/cg_opening_01_city_before_dawn.webp");
+  background-position: center;
+  background-size: cover;
+  color: white;
+  opacity: 1;
+  transition: opacity 420ms ease;
+}
+
+.language-gate.is-leaving {
+  opacity: 0;
+}
+
+.language-gate-inner {
+  width: min(680px, calc(100vw - 48px));
+  margin-right: 24vw;
+}
+
+.language-gate-inner > p,
+.language-gate-inner > h1,
+.language-gate-inner > span {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.language-gate-inner > p {
+  color: #efd59b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+}
+
+.language-gate-inner > h1 {
+  margin-top: 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.language-gate-inner > span {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 1.1rem;
+}
+
+.language-gate-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.language-gate-options button {
+  cursor: pointer;
+  min-height: 96px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 227, 160, 0.34);
+  border-radius: 4px;
+  background: rgba(16, 18, 20, 0.64);
+  color: white;
+  text-align: left;
+  backdrop-filter: blur(8px);
+  transition: 180ms ease;
+}
+
+.language-gate-options button:hover {
+  border-color: #f1d48c;
+  background: rgba(41, 38, 31, 0.82);
+  transform: translateY(-2px);
+}
+
+.language-gate-options strong,
+.language-gate-options small {
+  display: block;
+}
+
+.language-gate-options strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+}
+
+.language-gate-options small {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
 }
 
 .opening {
@@ -136,6 +232,37 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
+}
+
+.opening-actions,
+.court-tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.language-switch {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 36px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(10, 12, 14, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.language-switch button {
+  cursor: pointer;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.language-switch button.active {
+  background: rgba(239, 213, 155, 0.92);
+  color: #231e17;
 }
 
 .opening-progress {
@@ -283,6 +410,10 @@ button:focus-visible {
 
 .scene-time {
   text-align: right;
+}
+
+.court-language {
+  border-color: rgba(255, 231, 175, 0.32);
 }
 
 .scene-time strong {
@@ -626,6 +757,24 @@ button:focus-visible {
 }
 
 @media (max-width: 760px) {
+  .language-gate-inner {
+    width: calc(100vw - 40px);
+    margin-right: 0;
+  }
+
+  .language-gate-inner > h1 {
+    font-size: 2rem;
+  }
+
+  .language-gate-options {
+    grid-template-columns: 1fr;
+    margin-top: 26px;
+  }
+
+  .language-gate-options button {
+    min-height: 78px;
+  }
+
   .opening-copy {
     left: 24px;
     bottom: 100px;
@@ -642,6 +791,14 @@ button:focus-visible {
     left: 20px;
   }
 
+  .opening-actions {
+    gap: 10px;
+  }
+
+  .opening-actions .language-switch {
+    display: none;
+  }
+
   .scene-image {
     background-position: center center;
   }
@@ -653,6 +810,12 @@ button:focus-visible {
 
   .court-header {
     padding: 18px 18px;
+  }
+
+  .court-tools {
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    gap: 8px;
   }
 
   .wordmark span {

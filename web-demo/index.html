@@ -9,7 +9,25 @@
   </head>
   <body>
     <main class="app" aria-label="Dream Palace web demo">
-      <section class="opening" id="openingSequence" aria-label="Opening sequence">
+      <section class="language-gate" id="languageGate" aria-labelledby="languageTitle">
+        <div class="language-gate-inner">
+          <p>Dream Palace</p>
+          <h1 id="languageTitle">Choose your language</h1>
+          <span>选择语言</span>
+          <div class="language-gate-options">
+            <button type="button" data-language="zh">
+              <strong>中文</strong>
+              <small>进入第一次早朝</small>
+            </button>
+            <button type="button" data-language="en">
+              <strong>English</strong>
+              <small>Enter the First Morning Court</small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="opening" id="openingSequence" aria-label="Opening sequence" hidden>
         <figure class="opening-frame">
           <img id="openingImage" alt="" />
           <div class="opening-shade" aria-hidden="true"></div>
@@ -21,7 +39,13 @@
 
         <div class="opening-controls">
           <div class="opening-progress" id="openingProgress" aria-label="Opening progress"></div>
-          <button class="text-command" id="skipOpening" type="button">Skip opening</button>
+          <div class="opening-actions">
+            <div class="language-switch" aria-label="Language">
+              <button type="button" data-language="zh">中</button>
+              <button type="button" data-language="en">EN</button>
+            </div>
+            <button class="text-command" id="skipOpening" type="button" data-i18n="skipOpening">Skip opening</button>
+          </div>
         </div>
       </section>
 
@@ -33,11 +57,17 @@
         <header class="court-header">
           <div class="wordmark">
             <span>Dream Palace</span>
-            <strong>The First Morning Court</strong>
+            <strong data-i18n="demoTitle">The First Morning Court</strong>
           </div>
-          <div class="scene-time" aria-label="Current time and scene">
-            <span id="dayChip">Day 1 - Morning</span>
-            <strong id="phaseChip">Morning Court</strong>
+          <div class="court-tools">
+            <div class="language-switch court-language" aria-label="Language">
+              <button type="button" data-language="zh">中</button>
+              <button type="button" data-language="en">EN</button>
+            </div>
+            <div class="scene-time" aria-label="Current time and scene">
+              <span id="dayChip">Day 1 - Morning</span>
+              <strong id="phaseChip">Morning Court</strong>
+            </div>
           </div>
         </header>
 
@@ -50,13 +80,13 @@
         <section class="northbridge-focus" id="northbridgeFocus" aria-label="Northbridge status">
           <span class="focus-pulse" aria-hidden="true"></span>
           <div>
-            <strong>Northbridge</strong>
+            <strong data-i18n="northbridge">Northbridge</strong>
             <span id="bridgeStatus">Old supply bridge damaged</span>
           </div>
         </section>
 
         <aside class="ledger-slip" id="ledgerSlip" aria-label="Treasury note">
-          <span>Emergency reserve</span>
+          <span data-i18n="emergencyReserve">Emergency reserve</span>
           <strong id="reserveStatus">Sealed</strong>
           <small id="villageStatus">Northbridge is waiting for the court's first decision.</small>
         </aside>
@@ -74,7 +104,7 @@
             <div class="choice-row" id="choiceRow"></div>
           </div>
           <button class="continue-button" id="continueButton" type="button" aria-label="Continue dialogue">
-            <span>Continue</span>
+            <span data-i18n="continue">Continue</span>
             <b aria-hidden="true">&gt;</b>
           </button>
         </section>
