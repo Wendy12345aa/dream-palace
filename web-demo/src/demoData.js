@@ -44,7 +44,7 @@ window.DREAM_PALACE_DEMO = {
     {
       src: "../assets/cg/opening/cg_opening_01_city_before_dawn.webp",
       kicker: { en: "Before the first bell", zh: "晨钟响起之前" },
-      title: { en: "The kingdom was already awake.", zh: "王国早已醒来。" },
+      title: { en: "The capital was already in motion.", zh: "王城已经忙碌起来。" },
       position: "center center"
     },
     {
