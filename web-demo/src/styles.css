@@ -1057,6 +1057,15 @@ button:focus-visible {
   transform: translate(-50%, 0);
 }
 
+.court-scene[data-focus="kel"] .ledger-slip {
+  left: clamp(24px, 3vw, 48px);
+  transform: translate(0, -12px);
+}
+
+.court-scene[data-focus="kel"] .ledger-slip.is-visible {
+  transform: translate(0, 0);
+}
+
 .ledger-slip span,
 .ledger-slip strong,
 .ledger-slip small {
