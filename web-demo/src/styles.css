@@ -573,79 +573,44 @@ button:focus-visible {
 }
 
 .cx-silhouette {
-  opacity: 0.94;
-  filter: drop-shadow(-8px 0 20px rgba(94, 65, 143, 0.62));
+  opacity: 0.96;
+  filter: drop-shadow(-10px 4px 24px rgba(76, 46, 126, 0.72));
 }
 
-.cx-head,
-.cx-shoulders,
-.cx-scroll {
+.cx-silhouette-art {
   position: absolute;
-  display: block;
-  background: linear-gradient(90deg, #121019, #21172f 68%, #7b5aac 100%);
+  inset: -1%;
+  width: 102%;
+  height: 102%;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
+  animation: cx-shadow-breathe 7.2s ease-in-out infinite;
 }
 
-.cx-head {
-  top: 17%;
-  left: 43%;
-  width: 18%;
-  aspect-ratio: 0.76;
-  border-radius: 46% 54% 48% 44%;
-  transform: rotate(3deg);
-}
-
-.cx-head::before {
+.cx-glasses-glint {
   position: absolute;
-  top: -12%;
-  right: -42%;
-  width: 142%;
-  height: 122%;
-  background: #16111e;
-  clip-path: polygon(8% 23%, 24% 8%, 52% 0, 78% 11%, 100% 34%, 86% 31%, 94% 66%, 70% 52%, 64% 100%, 44% 73%, 23% 91%, 29% 53%, 0 65%);
-  content: "";
-  transform: rotate(8deg);
+  top: 20.8%;
+  left: 48.6%;
+  width: 10%;
+  height: 3px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, rgba(178, 131, 255, 0.95), transparent);
+  box-shadow: 0 0 13px 3px rgba(126, 79, 211, 0.66);
+  opacity: 0.18;
+  transform: rotate(-2deg);
+  animation: cx-glint 5.6s ease-in-out infinite;
 }
 
-.cx-shoulders {
-  bottom: 5%;
-  left: 12%;
-  width: 78%;
-  height: 64%;
-  clip-path: polygon(42% 0, 58% 0, 65% 9%, 91% 22%, 100% 100%, 3% 100%, 10% 23%, 36% 9%);
+@keyframes cx-shadow-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.006); }
 }
 
-.cx-shoulders::before {
-  position: absolute;
-  top: 4%;
-  left: 39%;
-  width: 24%;
-  height: 25%;
-  border-right: 1px solid rgba(185, 143, 229, 0.62);
-  border-bottom: 1px solid rgba(185, 143, 229, 0.62);
-  content: "";
-  transform: rotate(45deg);
-}
-
-.cx-shoulders::after {
-  position: absolute;
-  top: 28%;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: linear-gradient(rgba(174, 127, 219, 0.5), transparent);
-  content: "";
-}
-
-.cx-scroll {
-  right: 16%;
-  bottom: 25%;
-  width: 7%;
-  height: 30%;
-  border: 1px solid rgba(194, 160, 236, 0.52);
-  border-radius: 45%;
-  background: linear-gradient(90deg, rgba(60, 40, 86, 0.9), rgba(130, 91, 169, 0.66));
-  box-shadow: 0 0 18px rgba(105, 72, 151, 0.25);
-  transform: rotate(8deg);
+@keyframes cx-glint {
+  0%, 72%, 100% { opacity: 0.14; transform: rotate(-2deg) scaleX(0.78); }
+  78% { opacity: 0.72; transform: rotate(-2deg) scaleX(1.08); }
+  84% { opacity: 0.2; transform: rotate(-2deg) scaleX(0.9); }
 }
 
 .court-scene.is-answering .companion-stage {
