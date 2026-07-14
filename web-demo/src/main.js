@@ -11,6 +11,8 @@ let openingFinished = false;
 let experienceStarted = false;
 let currentLanguage = "en";
 let kingdomAnswerTimer = null;
+let stagedSpeaker = null;
+let supportingSpeaker = null;
 
 const elements = {
   languageGate: document.querySelector("#languageGate"),
@@ -21,6 +23,7 @@ const elements = {
   openingProgress: document.querySelector("#openingProgress"),
   skipOpening: document.querySelector("#skipOpening"),
   courtScene: document.querySelector("#courtScene"),
+  companionStage: document.querySelector("#companionStage"),
   dayChip: document.querySelector("#dayChip"),
   phaseChip: document.querySelector("#phaseChip"),
   northbridgeFocus: document.querySelector("#northbridgeFocus"),
@@ -195,6 +198,27 @@ function getCompanion(id) {
   return companion;
 }
 
+function renderCompanionStage(speaker) {
+  const knownSpeaker = state.companions[speaker] ? speaker : "mp";
+
+  if (knownSpeaker !== stagedSpeaker) {
+    if (stagedSpeaker && stagedSpeaker !== "cx" && knownSpeaker !== "cx") {
+      supportingSpeaker = stagedSpeaker;
+    } else if (knownSpeaker === "cx") {
+      supportingSpeaker = null;
+    }
+    stagedSpeaker = knownSpeaker;
+  }
+
+  elements.companionStage.dataset.speaker = knownSpeaker;
+  document.querySelectorAll("[data-companion]").forEach((actor) => {
+    const id = actor.dataset.companion;
+    actor.classList.toggle("is-active", id === stagedSpeaker);
+    actor.classList.toggle("is-supporting", id === supportingSpeaker && id !== stagedSpeaker);
+    actor.classList.toggle("is-revealed", id !== "cx" || state.companions.cx.revealed);
+  });
+}
+
 function renderState() {
   const tableState =
     selectedChoice === "release_grain" ? "release" : selectedChoice === "audit_first" ? "audit" : "pending";
@@ -209,10 +233,7 @@ function renderState() {
   elements.courtScene.dataset.tone = state.sceneTone;
   elements.courtScene.dataset.tableState = tableState;
   renderKingdomAnswer();
-
-  document.querySelectorAll("[data-companion]").forEach((presence) => {
-    presence.classList.toggle("active", presence.dataset.companion === currentLine.speaker);
-  });
+  renderCompanionStage(currentLine.speaker);
 }
 
 function showConsequence(message) {

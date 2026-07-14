@@ -326,6 +326,7 @@ button:focus-visible {
   background-image: url("../../assets/cg/concepts/cg_kingdom_table_concept.webp");
   background-position: center center;
   background-size: cover;
+  filter: brightness(0.72) saturate(0.82);
   transform: scale(1.035);
   transition: transform 1400ms ease, filter 1100ms ease, background-position 1400ms ease;
 }
@@ -341,21 +342,25 @@ button:focus-visible {
 
 .court-scene[data-focus="mp"] .scene-image {
   background-position: 38% center;
+  filter: brightness(0.58) saturate(0.7) blur(1px);
   transform: scale(1.09);
 }
 
 .court-scene[data-focus="tab"] .scene-image {
   background-position: 68% center;
+  filter: brightness(0.58) saturate(0.7) blur(1px);
   transform: scale(1.09);
 }
 
 .court-scene[data-focus="kel"] .scene-image {
   background-position: 53% center;
+  filter: brightness(0.58) saturate(0.7) blur(1px);
   transform: scale(1.1);
 }
 
 .court-scene[data-focus="northbridge"] .scene-image {
   background-position: 52% 60%;
+  filter: brightness(0.7) saturate(0.78);
   transform: scale(1.14);
 }
 
@@ -428,49 +433,224 @@ button:focus-visible {
   font-size: 0.85rem;
 }
 
-.presence-layer {
+.companion-stage {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 4;
+  overflow: hidden;
   pointer-events: none;
 }
 
-.presence {
+.court-actor {
+  --actor-accent: var(--gold);
+  --actor-x: 0px;
   position: absolute;
-  min-width: 44px;
-  padding: 6px 9px;
-  border-bottom: 2px solid currentColor;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.7rem;
-  font-weight: 850;
-  text-align: center;
-  text-shadow: 0 2px 8px black;
+  bottom: 124px;
+  width: clamp(300px, 34vw, 590px);
+  height: min(79vh, 840px);
+  margin: 0;
   opacity: 0;
-  transform: translateY(8px);
-  transition: 260ms ease;
+  filter: brightness(0.58) saturate(0.65) blur(0.5px);
+  transform: translate3d(var(--actor-x), 30px, 0) scale(0.96);
+  transform-origin: 50% 100%;
+  transition: opacity 440ms ease, filter 440ms ease, transform 580ms cubic-bezier(0.2, 0.75, 0.25, 1);
 }
 
-.presence.active {
+.court-actor.is-active {
+  z-index: 3;
   opacity: 1;
-  transform: translateY(0);
+  filter: brightness(1.02) saturate(1);
+  transform: translate3d(var(--actor-x), 0, 0) scale(1);
 }
 
-.presence-mp {
-  top: 37%;
-  left: 31%;
-  color: var(--gold);
+.court-actor.is-supporting {
+  z-index: 2;
+  opacity: 0.3;
+  filter: brightness(0.54) saturate(0.5) blur(0.7px);
+  transform: translate3d(var(--actor-x), 14px, 0) scale(0.91);
 }
 
-.presence-kel {
-  top: 41%;
-  left: 51%;
-  color: var(--green);
+.court-actor:not(.is-revealed) {
+  visibility: hidden;
 }
 
-.presence-tab {
-  top: 34%;
-  right: 26%;
-  color: var(--blue);
+.actor-mp {
+  left: -1vw;
+}
+
+.actor-kel {
+  left: 34vw;
+  --actor-accent: var(--green);
+}
+
+.actor-tab {
+  right: 0;
+  --actor-accent: var(--blue);
+}
+
+.actor-tab.is-supporting {
+  --actor-x: 10vw;
+}
+
+.actor-cx {
+  right: 5vw;
+  width: clamp(260px, 28vw, 470px);
+  --actor-accent: #a98adb;
+}
+
+.portrait-rig,
+.cx-silhouette {
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 28px 32px rgba(0, 0, 0, 0.42));
+}
+
+.portrait-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+.portrait-base {
+  transform-origin: 50% 74%;
+  animation: portrait-breathe 5.8s ease-in-out infinite;
+}
+
+.portrait-hair-back {
+  animation: portrait-hair-back 7.6s ease-in-out infinite;
+}
+
+.portrait-hair-front {
+  animation: portrait-hair-front 5.4s ease-in-out infinite;
+}
+
+.portrait-sleeve {
+  animation: portrait-sleeve 6.8s ease-in-out infinite;
+}
+
+.portrait-lantern {
+  mix-blend-mode: screen;
+  opacity: 0.32;
+  filter: drop-shadow(0 0 16px rgba(123, 207, 157, 0.6));
+  animation: portrait-lantern 4.4s ease-in-out infinite;
+}
+
+.portrait-blink {
+  opacity: 0;
+  animation: portrait-blink 6.3s ease-in-out infinite;
+}
+
+.portrait-rig-tab {
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse 56% 54% at 50% 47%, #000 48%, transparent 94%);
+  mask-image: radial-gradient(ellipse 56% 54% at 50% 47%, #000 48%, transparent 94%);
+}
+
+.portrait-rig-tab .portrait-base {
+  object-fit: cover;
+  object-position: center 42%;
+  transform: scale(1.02);
+  animation: tab-stillness 6.2s ease-in-out infinite;
+}
+
+.tab-review-glint {
+  position: absolute;
+  top: 23%;
+  left: 46%;
+  width: 18px;
+  height: 2px;
+  background: rgba(150, 220, 255, 0.92);
+  box-shadow: 0 0 16px 4px rgba(71, 176, 230, 0.62);
+  opacity: 0;
+  transform: rotate(-8deg);
+}
+
+.actor-tab.is-active .tab-review-glint {
+  animation: tab-glint 3.8s 500ms ease-in-out infinite;
+}
+
+.cx-silhouette {
+  opacity: 0.94;
+  filter: drop-shadow(-8px 0 20px rgba(94, 65, 143, 0.62));
+}
+
+.cx-head,
+.cx-shoulders,
+.cx-scroll {
+  position: absolute;
+  display: block;
+  background: linear-gradient(90deg, #121019, #21172f 68%, #7b5aac 100%);
+}
+
+.cx-head {
+  top: 17%;
+  left: 43%;
+  width: 18%;
+  aspect-ratio: 0.76;
+  border-radius: 46% 54% 48% 44%;
+  transform: rotate(3deg);
+}
+
+.cx-head::before {
+  position: absolute;
+  top: -12%;
+  right: -42%;
+  width: 142%;
+  height: 122%;
+  background: #16111e;
+  clip-path: polygon(8% 23%, 24% 8%, 52% 0, 78% 11%, 100% 34%, 86% 31%, 94% 66%, 70% 52%, 64% 100%, 44% 73%, 23% 91%, 29% 53%, 0 65%);
+  content: "";
+  transform: rotate(8deg);
+}
+
+.cx-shoulders {
+  bottom: 5%;
+  left: 12%;
+  width: 78%;
+  height: 64%;
+  clip-path: polygon(42% 0, 58% 0, 65% 9%, 91% 22%, 100% 100%, 3% 100%, 10% 23%, 36% 9%);
+}
+
+.cx-shoulders::before {
+  position: absolute;
+  top: 4%;
+  left: 39%;
+  width: 24%;
+  height: 25%;
+  border-right: 1px solid rgba(185, 143, 229, 0.62);
+  border-bottom: 1px solid rgba(185, 143, 229, 0.62);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.cx-shoulders::after {
+  position: absolute;
+  top: 28%;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(rgba(174, 127, 219, 0.5), transparent);
+  content: "";
+}
+
+.cx-scroll {
+  right: 16%;
+  bottom: 25%;
+  width: 7%;
+  height: 30%;
+  border: 1px solid rgba(194, 160, 236, 0.52);
+  border-radius: 45%;
+  background: linear-gradient(90deg, rgba(60, 40, 86, 0.9), rgba(130, 91, 169, 0.66));
+  box-shadow: 0 0 18px rgba(105, 72, 151, 0.25);
+  transform: rotate(8deg);
+}
+
+.court-scene.is-answering .companion-stage {
+  opacity: 0.2;
+  transition: opacity 300ms ease;
 }
 
 .northbridge-focus {
@@ -894,8 +1074,8 @@ button:focus-visible {
 .ledger-slip {
   position: absolute;
   z-index: 6;
-  top: 110px;
-  left: 32px;
+  top: 96px;
+  left: 50%;
   width: 230px;
   padding: 14px 16px;
   border-left: 3px solid var(--gold);
@@ -903,13 +1083,13 @@ button:focus-visible {
   color: white;
   opacity: 0;
   backdrop-filter: blur(8px);
-  transform: translateX(-20px);
+  transform: translate(-50%, -12px);
   transition: 340ms ease;
 }
 
 .ledger-slip.is-visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate(-50%, 0);
 }
 
 .ledger-slip span,
@@ -1111,6 +1291,47 @@ button:focus-visible {
   opacity: 0.38;
 }
 
+@keyframes portrait-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.004); }
+}
+
+@keyframes portrait-hair-back {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  48% { transform: translateX(-1px) rotate(-0.06deg); }
+}
+
+@keyframes portrait-hair-front {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  54% { transform: translateX(1px) rotate(0.05deg); }
+}
+
+@keyframes portrait-sleeve {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  50% { transform: translateX(1px) rotate(0.04deg); }
+}
+
+@keyframes portrait-lantern {
+  0%, 100% { opacity: 0.22; transform: scale(1); }
+  50% { opacity: 0.42; transform: scale(1.006); }
+}
+
+@keyframes portrait-blink {
+  0%, 80%, 88%, 100% { opacity: 0; }
+  82%, 86% { opacity: 1; }
+}
+
+@keyframes tab-stillness {
+  0%, 100% { transform: translateY(0) scale(1.02); }
+  50% { transform: translateY(-1px) scale(1.024); }
+}
+
+@keyframes tab-glint {
+  0%, 74%, 100% { opacity: 0; transform: translateX(-7px) rotate(-8deg); }
+  81% { opacity: 0.9; }
+  88% { opacity: 0; transform: translateX(9px) rotate(-8deg); }
+}
+
 @keyframes place-beam {
   from { opacity: 0; transform: translateY(-34px) scaleX(0.35); }
   to { opacity: 1; transform: translateY(0) scaleX(1); }
@@ -1236,9 +1457,26 @@ button:focus-visible {
     font-size: 0.72rem;
   }
 
-  .presence-layer,
   .ledger-slip {
     display: none;
+  }
+
+  .court-actor {
+    right: auto;
+    bottom: 154px;
+    left: 50%;
+    width: min(88vw, 470px);
+    height: 62vh;
+    --actor-x: -50%;
+  }
+
+  .court-actor.is-supporting {
+    display: none;
+  }
+
+  .court-scene[data-focus="northbridge"] .companion-stage,
+  .court-scene.is-answering .companion-stage {
+    opacity: 0.18;
   }
 
   .northbridge-focus {
@@ -1345,6 +1583,11 @@ button:focus-visible {
 }
 
 @media (max-height: 660px) and (min-width: 761px) {
+  .court-actor {
+    bottom: 92px;
+    height: 82vh;
+  }
+
   .dialogue-layer {
     right: 24px;
     bottom: 20px;

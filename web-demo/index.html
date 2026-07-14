@@ -71,10 +71,41 @@
           </div>
         </header>
 
-        <div class="presence-layer" aria-hidden="true">
-          <span class="presence presence-mp" data-companion="mp">MP</span>
-          <span class="presence presence-kel" data-companion="kel">Kel</span>
-          <span class="presence presence-tab" data-companion="tab">Tab</span>
+        <div class="companion-stage" id="companionStage" aria-hidden="true">
+          <figure class="court-actor actor-mp" data-companion="mp">
+            <div class="portrait-rig portrait-rig-mp">
+              <img class="portrait-layer portrait-base" src="assets/portraits/mp/animated/pt_mp_base.webp" alt="" />
+              <img class="portrait-layer portrait-hair-back" src="assets/portraits/mp/animated/anim_mp_hair_back.webp" alt="" />
+              <img class="portrait-layer portrait-sleeve" src="assets/portraits/mp/animated/anim_mp_sleeve.webp" alt="" />
+              <img class="portrait-layer portrait-hair-front" src="assets/portraits/mp/animated/anim_mp_hair_front.webp" alt="" />
+              <img class="portrait-layer portrait-blink" src="assets/portraits/mp/animated/anim_mp_blink_closed.webp" alt="" />
+            </div>
+          </figure>
+
+          <figure class="court-actor actor-kel" data-companion="kel">
+            <div class="portrait-rig portrait-rig-kel">
+              <img class="portrait-layer portrait-base" src="assets/portraits/kel/animated/pt_kel_base.webp" alt="" />
+              <img class="portrait-layer portrait-sleeve" src="assets/portraits/kel/animated/anim_kel_sleeve.webp" alt="" />
+              <img class="portrait-layer portrait-hair-front" src="assets/portraits/kel/animated/anim_kel_hair_front.webp" alt="" />
+              <img class="portrait-layer portrait-lantern" src="assets/portraits/kel/animated/anim_kel_lantern_glow.webp" alt="" />
+              <img class="portrait-layer portrait-blink" src="assets/portraits/kel/animated/anim_kel_blink_closed.webp" alt="" />
+            </div>
+          </figure>
+
+          <figure class="court-actor actor-tab" data-companion="tab">
+            <div class="portrait-rig portrait-rig-tab">
+              <img class="portrait-layer portrait-base" src="assets/portraits/tab/pt_tab_idle_preview.png" alt="" />
+              <span class="tab-review-glint"></span>
+            </div>
+          </figure>
+
+          <figure class="court-actor actor-cx" data-companion="cx">
+            <div class="cx-silhouette">
+              <span class="cx-head"></span>
+              <span class="cx-shoulders"></span>
+              <span class="cx-scroll"></span>
+            </div>
+          </figure>
         </div>
 
         <section class="northbridge-focus" id="northbridgeFocus" aria-label="Northbridge status">
