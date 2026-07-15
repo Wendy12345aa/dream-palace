@@ -1,6 +1,6 @@
 # Dream Palace Web Demo
 
-This folder contains the first playable prototype for **Dream Palace: The First Morning Court**.
+This folder contains the internal alpha vertical slice for **Dream Palace: The First Morning Court**.
 
 The goal is not to build the full game.
 
@@ -24,20 +24,24 @@ No build step is required for the first prototype.
 
 Included:
 
+- Chinese and English language selection
+- eight-shot cinematic opening
 - Morning Court scene
-- MP first report
-- one player decision
-- Tab reaction
-- Kel construction response
-- small kingdom state update
+- layered MP and Kel portrait motion
+- production Tab portrait staging and a CX ending teaser
+- the Northbridge petition with two player decisions
+- immediate Kingdom Table consequence animation
+- evening reflection and tomorrow hook
+- character-free Kingdom Table background
+- paced dialogue reveal, dialogue log, and replay controls
 
 Excluded:
 
 - real AI
 - backend
 - save system
-- full asset pipeline
-- full Demo Bible runtime
+- Auto mode
+- facial expression variants
 - all seven active companions
 
 ## Design Rule

@@ -19,8 +19,14 @@
 - [x] Scaffold a zero-dependency web demo prototype.
 - [x] Prototype companion-led UI.
 - [x] Implement one complete decision and consequence chain.
-- [ ] Expand the first-minute prototype into a 15-20 minute playable experience.
-- [ ] Replace placeholder presentation with production-ready art direction.
+- [x] Integrate the eight-shot cinematic opening.
+- [x] Replace the dashboard layout with a scene-based Morning Court.
+- [x] Add Chinese and English localization.
+- [x] Add layered MP and Kel portrait motion, Tab preview staging, and the CX teaser.
+- [x] Animate the visible release-grain and audit-first consequences.
+- [x] Complete Sprint 2.3 public playtest readiness.
+- [x] Replace the character-baked Kingdom Table and Tab preview with production assets.
+- [x] Add dialogue pacing, dialogue log, and replay controls.
 - [ ] Validate the demo with external playtest feedback.
 
 ## Milestone 2: Steam Demo

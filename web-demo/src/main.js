@@ -13,6 +13,11 @@ let currentLanguage = "en";
 let kingdomAnswerTimer = null;
 let stagedSpeaker = null;
 let supportingSpeaker = null;
+let typingTimer = null;
+let typingComplete = true;
+let fullLineText = "";
+let currentLineIsEnding = false;
+let dialogueHistory = [];
 
 const elements = {
   languageGate: document.querySelector("#languageGate"),
@@ -36,12 +41,18 @@ const elements = {
   reserveStatus: document.querySelector("#reserveStatus"),
   villageStatus: document.querySelector("#villageStatus"),
   consequenceToast: document.querySelector("#consequenceToast"),
+  dialogueLayer: document.querySelector(".dialogue-layer"),
   speakerToken: document.querySelector("#speakerToken"),
   speakerName: document.querySelector("#speakerName"),
   speakerRole: document.querySelector("#speakerRole"),
   dialogueText: document.querySelector("#dialogueText"),
   choiceRow: document.querySelector("#choiceRow"),
-  continueButton: document.querySelector("#continueButton")
+  continueButton: document.querySelector("#continueButton"),
+  endActions: document.querySelector("#endActions"),
+  dialogueLogButton: document.querySelector("#dialogueLogButton"),
+  dialogueLog: document.querySelector("#dialogueLog"),
+  dialogueLogClose: document.querySelector("#dialogueLogClose"),
+  dialogueLogList: document.querySelector("#dialogueLogList")
 };
 
 function localize(value) {
@@ -76,7 +87,10 @@ function setLanguage(language) {
     elements.openingImage.alt = localize(shot.title);
   }
 
-  if (!elements.courtScene.hidden) renderLine(currentLine);
+  if (!elements.courtScene.hidden) {
+    renderLine(currentLine, { record: false, animate: false, ending: currentLineIsEnding });
+  }
+  renderDialogueLog();
 }
 
 function getAnswerType() {
@@ -97,6 +111,10 @@ function renderKingdomAnswer() {
     elements.answerKicker.textContent = translate("answerAuditKicker");
     elements.answerTitle.textContent = translate("answerAuditTitle");
     elements.answerDetail.textContent = translate("answerAuditDetail");
+  } else {
+    elements.answerKicker.textContent = "";
+    elements.answerTitle.textContent = "";
+    elements.answerDetail.textContent = "";
   }
 }
 
@@ -152,6 +170,7 @@ function renderOpeningProgress() {
 function showOpeningShot(index) {
   const shot = demo.openingShots[index];
   if (!shot || openingFinished) return;
+  const transitionDelay = index === 0 ? 0 : 420;
 
   elements.openingSequence.classList.add("is-changing");
 
@@ -165,7 +184,7 @@ function showOpeningShot(index) {
     renderOpeningProgress();
     elements.openingSequence.classList.remove("is-changing");
     preloadOpeningShot(index + 1);
-  }, index === 0 ? 0 : 420);
+  }, transitionDelay);
 
   window.clearTimeout(openingTimer);
   openingTimer = window.setTimeout(() => {
@@ -175,7 +194,7 @@ function showOpeningShot(index) {
     } else {
       enterCourt();
     }
-  }, 3200);
+  }, transitionDelay + (shot.duration ?? 4800));
 }
 
 function enterCourt() {
@@ -244,8 +263,99 @@ function showConsequence(message) {
   window.setTimeout(() => elements.consequenceToast.classList.remove("show"), 3600);
 }
 
-function renderLine(line) {
+function recordDialogue(line) {
+  dialogueHistory.push({
+    speaker: line.speaker,
+    role: line.role || getCompanion(line.speaker).role,
+    text: line.text
+  });
+  renderDialogueLog();
+}
+
+function recordChoice(choice) {
+  dialogueHistory.push({
+    speaker: "throne",
+    role: { en: "Ruler's decision", zh: "你的决定" },
+    text: choice.label
+  });
+  renderDialogueLog();
+}
+
+function renderDialogueLog() {
+  if (!elements.dialogueLogList) return;
+  elements.dialogueLogList.innerHTML = dialogueHistory
+    .map((entry) => {
+      const name = entry.speaker === "throne" ? translate("throne") : getCompanion(entry.speaker).name;
+      return `
+        <article class="dialogue-log-entry">
+          <div>
+            <strong>${name}</strong>
+            <span>${localize(entry.role)}</span>
+          </div>
+          <p>${localize(entry.text)}</p>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function completeLineReveal() {
+  typingComplete = true;
+
+  if (currentLineIsEnding) {
+    elements.choiceRow.innerHTML = "";
+    elements.continueButton.hidden = true;
+    elements.endActions.hidden = false;
+    return;
+  }
+
+  renderChoices(currentLine.choices || []);
+}
+
+function revealFullLine() {
+  window.clearTimeout(typingTimer);
+  elements.dialogueText.textContent = fullLineText;
+  completeLineReveal();
+}
+
+function revealLine(text, animate) {
+  window.clearTimeout(typingTimer);
+  fullLineText = text;
+  elements.dialogueText.textContent = "";
+  elements.choiceRow.innerHTML = "";
+  elements.endActions.hidden = true;
+  elements.continueButton.hidden = false;
+  typingComplete = false;
+
+  if (!animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revealFullLine();
+    return;
+  }
+
+  const characters = Array.from(text);
+  const delay = currentLanguage === "zh" ? 34 : 22;
+  let characterIndex = 0;
+
+  const typeNextCharacter = () => {
+    characterIndex += 1;
+    elements.dialogueText.textContent = characters.slice(0, characterIndex).join("");
+
+    if (characterIndex >= characters.length) {
+      completeLineReveal();
+      return;
+    }
+
+    const character = characters[characterIndex - 1];
+    const pause = /[.!?。！？]/.test(character) ? delay * 5 : /[,;，；]/.test(character) ? delay * 2.5 : delay;
+    typingTimer = window.setTimeout(typeNextCharacter, pause);
+  };
+
+  typeNextCharacter();
+}
+
+function renderLine(line, { record = true, animate = true, ending = false } = {}) {
   const companion = getCompanion(line.speaker);
+  currentLineIsEnding = ending;
 
   if (line.phase) state.phase = line.phase;
   if (line.day) state.day = line.day;
@@ -258,10 +368,10 @@ function renderLine(line) {
   elements.speakerToken.textContent = companion.name;
   elements.speakerName.textContent = companion.name;
   elements.speakerRole.textContent = localize(line.role || companion.role);
-  elements.dialogueText.textContent = localize(line.text);
 
   renderState();
-  renderChoices(line.choices || []);
+  if (record) recordDialogue(line);
+  revealLine(localize(line.text), animate);
 }
 
 function renderChoices(choices) {
@@ -289,6 +399,7 @@ function renderChoices(choices) {
 
 function applyChoice(choice) {
   selectedChoice = choice.id;
+  recordChoice(choice);
 
   for (const [key, value] of Object.entries(choice.stateChange || {})) {
     if (typeof state.kingdom[key] === "number") {
@@ -301,7 +412,7 @@ function applyChoice(choice) {
   elements.ledgerSlip.classList.add("is-visible");
   pendingFollowUps = [...choice.followUps];
   currentLine = pendingFollowUps.shift();
-  renderLine(currentLine);
+  renderLine(currentLine, { ending: false });
   showConsequence(choice.consequence);
   playKingdomAnswer();
 }
@@ -309,7 +420,7 @@ function applyChoice(choice) {
 function nextLine() {
   if (pendingFollowUps.length > 0) {
     currentLine = pendingFollowUps.shift();
-    renderLine(currentLine);
+    renderLine(currentLine, { ending: false });
     return;
   }
 
@@ -317,17 +428,110 @@ function nextLine() {
 
   if (beatIndex >= demo.beats.length) {
     currentLine = demo.endings[selectedChoice] || demo.endings.default;
-    renderLine(currentLine);
-    elements.continueButton.hidden = true;
+    renderLine(currentLine, { ending: true });
     return;
   }
 
   currentLine = demo.beats[beatIndex];
-  renderLine(currentLine);
+  renderLine(currentLine, { ending: false });
+}
+
+function advanceDialogue() {
+  if (!typingComplete) {
+    revealFullLine();
+    return;
+  }
+  nextLine();
+}
+
+function resetRunState() {
+  window.clearTimeout(openingTimer);
+  window.clearTimeout(kingdomAnswerTimer);
+  window.clearTimeout(typingTimer);
+
+  const freshState = structuredClone(demo.initialState);
+  Object.keys(state).forEach((key) => delete state[key]);
+  Object.assign(state, freshState);
+
+  beatIndex = 0;
+  pendingFollowUps = [];
+  currentLine = demo.beats[0];
+  selectedChoice = null;
+  openingIndex = 0;
+  kingdomAnswerTimer = null;
+  stagedSpeaker = null;
+  supportingSpeaker = null;
+  typingComplete = true;
+  fullLineText = "";
+  currentLineIsEnding = false;
+  dialogueHistory = [];
+
+  elements.openingSequence.classList.remove("is-leaving", "is-changing");
+  elements.courtScene.classList.remove("is-visible", "is-answering");
+  elements.ledgerSlip.classList.remove("is-visible");
+  elements.kingdomAnswer.classList.remove("is-playing", "is-settled");
+  elements.consequenceToast.classList.remove("show");
+  elements.consequenceToast.textContent = "";
+  elements.choiceRow.innerHTML = "";
+  elements.endActions.hidden = true;
+  elements.continueButton.hidden = false;
+  elements.continueButton.disabled = false;
+  renderDialogueLog();
+}
+
+function restartDemo() {
+  resetRunState();
+  experienceStarted = true;
+  openingFinished = false;
+  elements.languageGate.hidden = true;
+  elements.openingSequence.hidden = false;
+  elements.courtScene.hidden = true;
+  showOpeningShot(0);
+}
+
+function replayOtherChoice() {
+  resetRunState();
+  experienceStarted = true;
+  openingFinished = true;
+  elements.languageGate.hidden = true;
+  elements.openingSequence.hidden = true;
+  elements.courtScene.hidden = false;
+  beatIndex = demo.beats.findIndex((beat) => beat.choices?.length);
+  currentLine = demo.beats[beatIndex];
+  requestAnimationFrame(() => elements.courtScene.classList.add("is-visible"));
+  renderLine(currentLine, { ending: false });
+}
+
+function returnToTitle() {
+  resetRunState();
+  experienceStarted = false;
+  openingFinished = false;
+  elements.openingSequence.hidden = true;
+  elements.courtScene.hidden = true;
+  elements.languageGate.hidden = false;
+  elements.languageGate.classList.remove("is-leaving");
 }
 
 elements.skipOpening.addEventListener("click", enterCourt);
-elements.continueButton.addEventListener("click", nextLine);
+elements.continueButton.addEventListener("click", advanceDialogue);
+
+elements.dialogueLogButton.addEventListener("click", () => {
+  renderDialogueLog();
+  elements.dialogueLog.showModal();
+});
+
+elements.dialogueLogClose.addEventListener("click", () => elements.dialogueLog.close());
+
+elements.dialogueLog.addEventListener("click", (event) => {
+  if (event.target === elements.dialogueLog) elements.dialogueLog.close();
+});
+
+elements.endActions.addEventListener("click", (event) => {
+  const action = event.target.closest("[data-end-action]")?.dataset.endAction;
+  if (action === "other") replayOtherChoice();
+  if (action === "restart") restartDemo();
+  if (action === "title") returnToTitle();
+});
 
 elements.languageGate.addEventListener("click", (event) => {
   const button = event.target.closest("[data-language]");
@@ -355,7 +559,7 @@ document.addEventListener("keydown", (event) => {
     !elements.continueButton.disabled
   ) {
     event.preventDefault();
-    nextLine();
+    advanceDialogue();
   }
 });
 

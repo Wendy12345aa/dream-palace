@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#171714" />
     <title>Dream Palace - The First Morning Court</title>
-    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="src/styles.css?v=20260715-feedback-4" />
   </head>
   <body>
     <main class="app" aria-label="Dream Palace web demo">
@@ -17,7 +17,7 @@
           <div class="language-gate-options">
             <button type="button" data-language="zh">
               <strong>中文</strong>
-              <small>步入初次早朝</small>
+              <small>进入第一次早朝</small>
             </button>
             <button type="button" data-language="en">
               <strong>English</strong>
@@ -60,6 +60,9 @@
             <strong data-i18n="demoTitle">The First Morning Court</strong>
           </div>
           <div class="court-tools">
+            <button class="text-command log-command" id="dialogueLogButton" type="button" data-i18n="dialogueLog">
+              Dialogue log
+            </button>
             <div class="language-switch court-language" aria-label="Language">
               <button type="button" data-language="zh">中</button>
               <button type="button" data-language="en">EN</button>
@@ -94,7 +97,7 @@
 
           <figure class="court-actor actor-tab" data-companion="tab">
             <div class="portrait-rig portrait-rig-tab">
-              <img class="portrait-layer portrait-base" src="assets/portraits/tab/pt_tab_idle_preview.png" alt="" />
+              <img class="portrait-layer portrait-base" src="assets/portraits/tab/pt_tab_idle.png" alt="" />
               <span class="tab-review-glint"></span>
             </div>
           </figure>
@@ -170,16 +173,32 @@
             </div>
             <p class="dialogue-text" id="dialogueText" aria-live="polite"></p>
             <div class="choice-row" id="choiceRow"></div>
+            <div class="end-actions" id="endActions" hidden>
+              <button type="button" data-end-action="other" data-i18n="replayOther">Replay another choice</button>
+              <button type="button" data-end-action="restart" data-i18n="restartDemo">Restart demo</button>
+              <button type="button" data-end-action="title" data-i18n="returnTitle">Return to title</button>
+            </div>
           </div>
           <button class="continue-button" id="continueButton" type="button" aria-label="Continue dialogue">
             <span data-i18n="continue">Continue</span>
             <b aria-hidden="true">&gt;</b>
           </button>
         </section>
+
+        <dialog class="dialogue-log" id="dialogueLog" aria-labelledby="dialogueLogTitle">
+          <header>
+            <div>
+              <span>Dream Palace</span>
+              <h2 id="dialogueLogTitle" data-i18n="dialogueLog">Dialogue log</h2>
+            </div>
+            <button class="dialogue-log-close" id="dialogueLogClose" type="button" data-i18n="closeLog">Close</button>
+          </header>
+          <div class="dialogue-log-list" id="dialogueLogList"></div>
+        </dialog>
       </section>
     </main>
 
-    <script src="src/demoData.js"></script>
-    <script src="src/main.js"></script>
+    <script src="src/demoData.js?v=20260715-feedback-2"></script>
+    <script src="src/main.js?v=20260715-feedback-2"></script>
   </body>
 </html>

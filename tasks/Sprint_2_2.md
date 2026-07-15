@@ -72,9 +72,11 @@ CX remains an intentionally anonymous silhouette in this sprint.
 
 ## Production Follow-Ups
 
-- replace `pt_tab_idle_preview.png` with an approved transparent production portrait
-- replace the current character-baked Kingdom Table concept with a character-free table background when that asset is produced
-- keep typewriter pacing and dialogue log work in Sprint 2.3
+Completed in Sprint 2.3:
+
+- replaced `pt_tab_idle_preview.png` with an approved transparent production portrait
+- replaced the character-baked Kingdom Table concept with a character-free Northbridge background
+- added typewriter pacing, dialogue log, and replay controls
 
 ---
 
