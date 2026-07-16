@@ -26,6 +26,9 @@ let dragState = null;
 let ignoreTokenClickUntil = 0;
 let tutorialTimer = null;
 let tutorialStep = null;
+let revealTimer = null;
+let activeRevealId = null;
+let revealIsSettled = false;
 
 const elements = {
   languageGate: document.querySelector("#languageGate"),
@@ -83,6 +86,10 @@ const elements = {
   reserveStatus: document.querySelector("#reserveStatus"),
   villageStatus: document.querySelector("#villageStatus"),
   consequenceToast: document.querySelector("#consequenceToast"),
+  characterReveal: document.querySelector("#characterReveal"),
+  revealName: document.querySelector("#revealName"),
+  revealRole: document.querySelector("#revealRole"),
+  revealTagline: document.querySelector("#revealTagline"),
   dialogueLayer: document.querySelector(".dialogue-layer"),
   speakerToken: document.querySelector("#speakerToken"),
   speakerName: document.querySelector("#speakerName"),
@@ -161,7 +168,7 @@ const workbenchCopy = {
 };
 
 function localize(value) {
-  if (value && typeof value === "object" && (value.en || value.zh)) {
+  if (value && typeof value === "object" && ("en" in value || "zh" in value)) {
     return value[currentLanguage] || value.en || value.zh;
   }
   return value;
@@ -649,18 +656,35 @@ function enterCourt() {
 }
 
 function getCompanion(id) {
-  const companion = state.companions[id] || state.companions.mp;
-  if (companion.hidden) companion.revealed = true;
-  return companion;
+  return state.companions[id] || state.companions.mp;
+}
+
+function isCharacterIdentityRevealed(companion) {
+  return Boolean(companion.revealed || (companion.identityRevealedKey && state[companion.identityRevealedKey]));
+}
+
+function isCharacterVisible(companion) {
+  if (!companion.hidden) return true;
+  return Boolean(isCharacterIdentityRevealed(companion) || (companion.teaserSeenKey && state[companion.teaserSeenKey]));
+}
+
+function resolveCharacterIdentity(id) {
+  const companion = getCompanion(id);
+  const isHidden = companion.hidden && !isCharacterIdentityRevealed(companion);
+  return {
+    name: isHidden ? companion.hiddenName : companion.name || companion.canonicalName,
+    role: isHidden ? companion.hiddenRole : companion.role || companion.canonicalRole
+  };
 }
 
 function renderCompanionStage(speaker) {
   const knownSpeaker = state.companions[speaker] ? speaker : "mp";
+  const knownSpeakerIsHidden = Boolean(getCompanion(knownSpeaker).hidden);
 
   if (knownSpeaker !== stagedSpeaker) {
-    if (stagedSpeaker && stagedSpeaker !== "cx" && knownSpeaker !== "cx") {
+    if (stagedSpeaker && !getCompanion(stagedSpeaker).hidden && !knownSpeakerIsHidden) {
       supportingSpeaker = stagedSpeaker;
-    } else if (knownSpeaker === "cx") {
+    } else if (knownSpeakerIsHidden) {
       supportingSpeaker = null;
     }
     stagedSpeaker = knownSpeaker;
@@ -669,9 +693,10 @@ function renderCompanionStage(speaker) {
   elements.companionStage.dataset.speaker = knownSpeaker;
   document.querySelectorAll("[data-companion]").forEach((actor) => {
     const id = actor.dataset.companion;
+    const companion = getCompanion(id);
     actor.classList.toggle("is-active", id === stagedSpeaker);
     actor.classList.toggle("is-supporting", id === supportingSpeaker && id !== stagedSpeaker);
-    actor.classList.toggle("is-revealed", id !== "cx" || state.companions.cx.revealed);
+    actor.classList.toggle("is-revealed", isCharacterVisible(companion));
   });
 }
 
@@ -701,9 +726,11 @@ function showConsequence(message) {
 }
 
 function recordDialogue(line) {
+  const identity = resolveCharacterIdentity(line.speaker);
   dialogueHistory.push({
     speaker: line.speaker,
-    role: line.role || getCompanion(line.speaker).role,
+    name: identity.name,
+    role: line.role || identity.role,
     text: line.text
   });
   renderDialogueLog();
@@ -722,7 +749,7 @@ function renderDialogueLog() {
   if (!elements.dialogueLogList) return;
   elements.dialogueLogList.innerHTML = dialogueHistory
     .map((entry) => {
-      const name = entry.speaker === "throne" ? translate("throne") : localize(getCompanion(entry.speaker).name);
+      const name = entry.speaker === "throne" ? translate("throne") : localize(entry.name || resolveCharacterIdentity(entry.speaker).name);
       return `
         <article class="dialogue-log-entry">
           <div>
@@ -793,6 +820,7 @@ function revealLine(text, animate) {
 
 function renderLine(line, { record = true, animate = true, ending = false } = {}) {
   const companion = getCompanion(line.speaker);
+  const identity = resolveCharacterIdentity(line.speaker);
   currentLineIsEnding = ending;
 
   if (line.phase) state.phase = line.phase;
@@ -803,14 +831,56 @@ function renderLine(line, { record = true, animate = true, ending = false } = {}
     elements.courtScene.classList.remove("has-kingdom-answer");
   }
   if (line.revealLedger) elements.ledgerSlip.classList.add("is-visible");
+  if (companion.hidden && companion.teaserSeenKey) state[companion.teaserSeenKey] = true;
 
-  elements.speakerToken.textContent = localize(companion.name);
-  elements.speakerName.textContent = localize(companion.name);
-  elements.speakerRole.textContent = localize(line.role || companion.role);
+  elements.speakerToken.textContent = localize(identity.name);
+  elements.speakerName.textContent = localize(identity.name);
+  elements.speakerRole.textContent = localize(line.role || identity.role) || "";
 
   renderState();
   if (record) recordDialogue(line);
   revealLine(localize(line.text), animate);
+}
+
+function getPendingRevealId() {
+  const revealId = currentLine.revealAfter;
+  if (!revealId || !demo.characterReveals?.[revealId]) return null;
+  return state.revealsSeen?.[revealId] ? null : revealId;
+}
+
+function finishCharacterReveal({ advance = false } = {}) {
+  window.clearTimeout(revealTimer);
+  revealTimer = null;
+
+  if (advance) {
+    elements.characterReveal.hidden = true;
+    elements.characterReveal.className = "character-reveal";
+    activeRevealId = null;
+    revealIsSettled = false;
+    nextLine();
+    return;
+  }
+
+  revealIsSettled = true;
+  elements.characterReveal.classList.add("is-settled");
+}
+
+function showCharacterReveal(revealId) {
+  const reveal = demo.characterReveals[revealId];
+  const companion = getCompanion(revealId);
+  state.revealsSeen[revealId] = true;
+  activeRevealId = revealId;
+  revealIsSettled = false;
+
+  elements.revealName.textContent = localize(companion.name);
+  elements.revealRole.textContent = localize(reveal.role);
+  elements.revealTagline.textContent = localize(reveal.tagline);
+  elements.characterReveal.className = `character-reveal is-active theme-${reveal.theme}`;
+  elements.characterReveal.hidden = false;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const duration = prefersReducedMotion ? 650 : revealId === "kel" ? 1700 : 1450;
+  revealTimer = window.setTimeout(() => finishCharacterReveal({ advance: true }), duration);
 }
 
 function renderChoices(choices) {
@@ -869,10 +939,26 @@ function nextLine() {
 }
 
 function advanceDialogue() {
+  if (activeRevealId) {
+    if (revealIsSettled) {
+      finishCharacterReveal({ advance: true });
+      return;
+    }
+    finishCharacterReveal();
+    return;
+  }
+
   if (!typingComplete) {
     revealFullLine();
     return;
   }
+
+  const pendingRevealId = getPendingRevealId();
+  if (pendingRevealId) {
+    showCharacterReveal(pendingRevealId);
+    return;
+  }
+
   nextLine();
 }
 
@@ -881,6 +967,7 @@ function resetRunState() {
   window.clearTimeout(kingdomAnswerTimer);
   window.clearTimeout(typingTimer);
   window.clearTimeout(decisionTimer);
+  window.clearTimeout(revealTimer);
 
   const freshState = structuredClone(demo.initialState);
   Object.keys(state).forEach((key) => delete state[key]);
@@ -899,6 +986,9 @@ function resetRunState() {
   currentLineIsEnding = false;
   dialogueHistory = [];
   decisionTimer = null;
+  revealTimer = null;
+  activeRevealId = null;
+  revealIsSettled = false;
   window.clearTimeout(tutorialTimer);
   ledgerOpened = false;
   bridgeInspected = false;
@@ -913,6 +1003,8 @@ function resetRunState() {
   elements.kingdomAnswer.classList.remove("is-playing", "is-settled");
   elements.consequenceToast.classList.remove("show");
   elements.consequenceToast.textContent = "";
+  elements.characterReveal.hidden = true;
+  elements.characterReveal.className = "character-reveal";
   elements.choiceRow.innerHTML = "";
   elements.workbenchChoiceFallback.innerHTML = "";
   elements.decisionWorkbench.hidden = true;

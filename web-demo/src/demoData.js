@@ -130,6 +130,13 @@
       bridgeStatus: { en: "Old supply bridge damaged", zh: "运粮用的旧桥断了" }
     },
     consequences: [],
+    revealsSeen: {
+      mp: false,
+      tab: false,
+      kel: false
+    },
+    cxTeaserSeen: false,
+    cxIdentityRevealed: false,
     companions: {
       mp: {
         id: "mp",
@@ -148,10 +155,41 @@
       },
       cx: {
         id: "cx",
-        name: { en: "Cheng Xuan", zh: "承玄" },
-        role: { en: "Shadow Investigator", zh: "暗线调查官" },
+        canonicalName: { en: "Cheng Xuan", zh: "承玄" },
+        hiddenName: { en: "???", zh: "？？？" },
+        canonicalRole: { en: "Shadow Investigator", zh: "密查使" },
+        hiddenRole: { en: "", zh: "" },
         hidden: true,
-        revealed: false
+        revealed: false,
+        teaserSeenKey: "cxTeaserSeen",
+        identityRevealedKey: "cxIdentityRevealed"
+      }
+    }
+  },
+
+  characterReveals: {
+    mp: {
+      theme: "gold-ledger",
+      role: { en: "Treasury Advisor", zh: "司库顾问" },
+      tagline: {
+        en: "Every decision needs room to endure.",
+        zh: "让每一个决定，都留有余地。"
+      }
+    },
+    tab: {
+      theme: "blue-seal",
+      role: { en: "Court Inspector", zh: "监察使" },
+      tagline: {
+        en: "Standards are not obstacles. They are protection.",
+        zh: "标准不是阻碍，是保护。"
+      }
+    },
+    kel: {
+      theme: "green-blueprint",
+      role: { en: "Court Engineer", zh: "工造官" },
+      tagline: {
+        en: "If perfection must wait, build what works.",
+        zh: "没有完美方案，就先造出能用的。"
       }
     }
   },
@@ -169,6 +207,7 @@
       speaker: "mp",
       focus: "northbridge",
       revealLedger: true,
+      revealAfter: "mp",
       text: {
         en: "Their granary is intact, but the supply bridge failed after last night's rain. Grain exists. People cannot reach it.",
         zh: "村里的粮仓没有坏，但昨晚的暴雨冲断了运粮桥。粮食在河对岸，村民过不去，也运不回来。"
@@ -177,6 +216,7 @@
     {
       speaker: "tab",
       focus: "tab",
+      revealAfter: "tab",
       text: {
         en: "Emergency release is possible. Without a repair plan, mercy only postpones the same failure.",
         zh: "可以马上送粮。但如果没有修桥计划，今天的仁慈只会把同样的问题推迟几天。"
@@ -185,6 +225,7 @@
     {
       speaker: "kel",
       focus: "kel",
+      revealAfter: "kel",
       text: {
         en: "Give me timber and a crew. I can make the crossing hold before the last cart leaves.",
         zh: "给我木料和一队工人。我能先把临时桥撑起来，让今天的粮车过河。"

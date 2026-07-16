@@ -143,7 +143,47 @@ Optional late-demo appearance.
 
 CX should introduce mystery and tomorrow's hook rather than dominate the first day.
 
+In the current web demo, CX is an unknown presence. His canonical identity remains internal; player-facing labels, log entries, teaser copy, and accessibility text should show only ??? / ？？？ until a later formal reveal.
+
 The remaining companions can be referenced, seen in the environment, or teased, but they do not need full gameplay presence in the first demo.
+
+---
+
+# Companion Entrance & Reveal
+
+Sprint 2.5 adds short first-introduction reveals for the visible Morning Court companions without rewriting the Northbridge storyline.
+
+Core sequence:
+
+```text
+Meaningful companion action or line
+
+↓
+
+Short reveal card
+
+↓
+
+Return to normal dialogue
+```
+
+The reveal card confirms identity. It does not replace characterization.
+
+Current reveal timing:
+
+- Mu Ping reveals after she explains the Northbridge ledger situation.
+- Qing Tang reveals after her first clear risk and standards judgment.
+- Kai Ning reveals after he offers timber, crew, and a practical temporary crossing.
+
+Reveal behavior:
+
+- each visible reveal plays once per normal run
+- reveal state is independent from dialogue replay and route replay
+- normal continue input may complete the reveal without skipping the next dialogue line
+- reduced motion keeps the same copy and order with simplified motion
+- reveal copy is localized data, not rendering logic
+
+The CX teaser is not a formal reveal card. It may show only ??? / ？？？ and should preserve mystery.
 
 ---
 

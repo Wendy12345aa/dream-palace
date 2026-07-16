@@ -29,6 +29,7 @@
 - [x] Replace the character-baked Kingdom Table and Tab preview with production assets.
 - [x] Add dialogue pacing, dialogue log, and replay controls.
 - [x] Complete Sprint 2.4 Character & Narrative Lock.
+- [x] Complete Sprint 2.5 Companion Entrance & Reveal.
 - [ ] Validate the demo with external playtest feedback.
 
 ## Milestone 2: Steam Demo

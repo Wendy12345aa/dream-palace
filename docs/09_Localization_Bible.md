@@ -73,6 +73,39 @@ Internal IDs remain unchanged and are the only approved implementation identifie
 
 ---
 
+# Hidden Identity Localization
+
+The current web demo intentionally withholds CX's identity. Canonical text may keep Cheng Xuan / 承玄 and Shadow Investigator / 密查使 in internal data, documentation, and future-scene planning, but the current player-facing demo must not display them.
+
+Current demo player-facing CX identity:
+
+| Language | Name shown | Role shown |
+|---|---|---|
+| English | ??? | *(blank)* |
+| Chinese | ？？？ | *(blank)* |
+
+This rule applies to speaker labels, dialogue log entries, portrait or teaser labels, tooltips, accessibility labels, and ending dialogue presentation.
+
+Do not localize the current CX teaser as Unknown Investigator, Mysterious Man, Shadow Agent, Shadow Investigator, 密查使, or any phrase that describes his story function. The mystery is the point.
+
+---
+
+# Companion Reveal Localization
+
+First reveal cards for visible companions are short identity confirmations. They contain only display name, reveal role, and one thematic line.
+
+Approved current demo reveal copy:
+
+| Internal ID | English Name | English Role | English Line | Chinese Name | Chinese Role | Chinese Line |
+|---|---|---|---|---|---|---|
+| `mp` | Mu Ping | Treasury Advisor | Every decision needs room to endure. | 慕平 | 司库顾问 | 让每一个决定，都留有余地。 |
+| `tab` | Qing Tang | Court Inspector | Standards are not obstacles. They are protection. | 清棠 | 监察使 | 标准不是阻碍，是保护。 |
+| `kel` | Kai Ning | Court Engineer | If perfection must wait, build what works. | 恺宁 | 工造官 | 没有完美方案，就先造出能用的。 |
+
+Reveal copy should remain in localization data. Rendering logic should request localized reveal fields and must not hardcode English or Chinese strings.
+
+---
+
 # Chinese Style Guide
 
 Chinese copy should feel like modern Chinese with court etiquette.

@@ -56,6 +56,22 @@ Dream Palace is an original Eastern fantasy kingdom, not historical China. Names
 
 For localization rules, dialogue rhythm, forbidden wording, and relationship address defaults, use `docs/09_Localization_Bible.md`.
 
+## First Demo Reveal Rule
+
+Characterization comes before identification. In the current Morning Court demo, Mu Ping, Qing Tang, and Kai Ning must each demonstrate their role through action or dialogue before a reveal card confirms their identity.
+
+Reveal cards are confirmation moments only. They may contain the official display name, the demo reveal role, and one short thematic line. They must not include biography, relationship state, gameplay statistics, archive content, department exposition, or long personality descriptions.
+
+Current approved reveal copy:
+
+| Internal ID | Chinese Name | English Name | Chinese Role | English Role | Chinese Line | English Line |
+|---|---|---|---|---|---|---|
+| `mp` | 慕平 | Mu Ping | 司库顾问 | Treasury Advisor | 让每一个决定，都留有余地。 | Every decision needs room to endure. |
+| `tab` | 清棠 | Qing Tang | 监察使 | Court Inspector | 标准不是阻碍，是保护。 | Standards are not obstacles. They are protection. |
+| `kel` | 恺宁 | Kai Ning | 工造官 | Court Engineer | 没有完美方案，就先造出能用的。 | If perfection must wait, build what works. |
+
+CX is the exception in the current demo. He remains internally `cx` / 承玄 / Cheng Xuan, but player-facing UI must show only ??? / ？？？ until a later formal reveal. Seeing the current teaser does not count as revealing his identity.
+
 ---
 # Character Philosophy
 

@@ -56,3 +56,19 @@ Reason: future dialogue, CG, portraits, audio, animation, UI, and localization n
 Decision: the Sprint 2.4 canonical character registry is locked exactly as listed: Mu Ping / 慕平, Kai Ning / 恺宁, Qing Tang / 清棠, Cheng Xuan / 承玄, Hui Ying / 慧莹, Yuan Ning / 圆宁 with nickname 小圆, and Xiu Yuan / 修远.
 
 Reason: prior Sprint 2.4 implementation substituted several names. Future work must not infer, swap, optimize, or respell approved display names.
+
+## 2026-07-16: Companion Reveals Confirm, Not Replace, Characterization
+
+Decision: a visible companion's meaningful action or line must precede the first reveal card. Reveal cards contain only name, role, and one thematic line, using Dream Palace's restrained Eastern fantasy language rather than Persona-like composition or timing.
+
+Current demo application: Mu Ping, Qing Tang, and Kai Ning each reveal once after demonstrating their role in the Northbridge scene.
+
+Reason: first-time players should remember companions as people before the UI confirms identity.
+
+## 2026-07-16: CX Identity Remains Hidden In Current Demo
+
+Decision: canonical identity and player-facing identity are separate. CX remains internally Cheng Xuan / 承玄, but the current demo shows only ??? / ？？？ and does not reveal his title.
+
+Current demo application: seeing the CX teaser does not set `cxIdentityRevealed`; speaker labels, dialogue log entries, and player-facing teaser presentation must use the hidden identity resolver.
+
+Reason: the ending should create curiosity about an unknown presence, not formally introduce Cheng Xuan yet.
