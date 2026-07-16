@@ -136,9 +136,22 @@ See the full roadmap in [ROADMAP.md](ROADMAP.md) and the documentation hub in [d
 
 ---
 
+## Project Brain
+
+AI collaborators start with [AGENTS.md](AGENTS.md) and the compact [`.memory/`](.memory/README.md) context pack.
+
+Project Brain contains identity, current status, routing, and task-specific summaries. The full `docs/` Bible remains the detailed reference and should be loaded only when a task needs it.
+
+The version-controlled source for the cross-task Codex skill is in [`work-on-dream-palace/`](work-on-dream-palace/). Install it as the user-level `$work-on-dream-palace` skill to reuse this routing in any Codex task.
+
+---
+
 # Repository Structure
 
 ```text
+.memory/     Compact cross-tool project context and current state
+AGENTS.md    Default reading and context-routing rules for AI collaborators
+work-on-dream-palace/  Version-controlled source for the cross-task Codex skill
 docs/        Project vision, design, world, characters, UI, art, and production documents
 assets/      Concept art, character art, backgrounds, UI, music, and SFX
 prototype/   Experiments and early gameplay prototypes

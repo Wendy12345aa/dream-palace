@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dream Palace Project Brain"
+  short_description: "Route Dream Palace work through compact project memory"
+  default_prompt: "Use $work-on-dream-palace to continue the current Dream Palace task with the minimum relevant project context."
