@@ -26,19 +26,19 @@ Every companion should grow together with the player and the kingdom.
 
 > **Golden Rule: Players should fall in love with the companions, not admire the writing.**
 
-Sprint 2.4 locks the official companion names, identity, voice, and relationship style. Internal IDs remain unchanged for code and asset continuity. Display names below are the official in-game names for UI, dialogue, CG briefs, audio scripts, and localization.
+Sprint 2.4 locks the official companion names, identity, voice, and relationship style. Internal IDs remain unchanged for code and asset continuity. Display names below are the official in-game names for UI, dialogue, CG briefs, audio scripts, and localization. Do not infer, substitute, optimize, or replace display names.
 
 ## Official Companion Identity Lock
 
 | Internal ID | Chinese Display Name | English Display Name | Title | Nickname | Personality Summary | Core Motivation | Speaking Style | Emotional Keywords |
 |---|---|---|---|---|---|---|---|---|
 | `mp` | 慕平 | Mu Ping | Treasury Advisor | 慕平姐, Mu | Warm, mature, calm, practical, quietly protective | Keep the kingdom stable enough that no one is abandoned by a decision | Patient, composed, gently direct; explains cost without losing warmth | safety, trust, restraint, care |
-| `kel` | 修远 | Xiu Yuan | Court Engineer | - | Earnest, direct, hopeful, hands-on, emotionally transparent | Build working answers that let people survive the decision | Short practical sentences; action first; honest hope | effort, repair, invention, reliability |
+| `kel` | 恺宁 | Kai Ning | Court Engineer | - | Earnest, direct, hopeful, hands-on, emotionally transparent | Build working answers that let people survive the decision | Short practical sentences; action first; honest hope | effort, repair, invention, reliability |
 | `tab` | 清棠 | Qing Tang | Court Inspector | - | Precise, disciplined, principled, firm but not cruel | Protect people by refusing unsafe shortcuts | Concise verdicts; clear conditions; professional pressure | accountability, standards, restraint, approval |
-| `cx` | 成玄 | Cheng Xuan | Shadow Investigator | - | Quiet, observant, dry, guarded, difficult to deceive | Reveal hidden causes before they become public disasters | Minimal words; controlled reveals; understated warning | suspense, truth, threat, uncertainty |
-| `mika` | 明夏 | Ming Xia | Cultural Designer | - | Gentle, imaginative, emotionally perceptive, tender | Help the kingdom remember beauty, grief, hope, and identity | Soft, visual, emotionally plain; image before argument | wonder, memory, healing, beauty |
-| `vincey` | 开宁 | Kai Ning | Public Events Lead | 小宁 | Bright, energetic, persuasive, socially intelligent | Turn policy into public belief and emotional momentum | Fast, optimistic, action-first; playful but purposeful | morale, momentum, celebration, courage |
-| `shian` | 识安 | Shi An | Strategic Planner | - | Measured, strategic, long-view focused, composed | Make choices fit a future the kingdom can actually sustain | Deliberate, structured, calm; trade-offs over slogans | perspective, structure, patience, future |
+| `cx` | 承玄 | Cheng Xuan | Shadow Investigator | - | Quiet, observant, dry, guarded, difficult to deceive | Reveal hidden causes before they become public disasters | Minimal words; controlled reveals; understated warning | suspense, truth, threat, uncertainty |
+| `mika` | 慧莹 | Hui Ying | Cultural Designer | - | Gentle, imaginative, emotionally perceptive, tender | Help the kingdom remember beauty, grief, hope, and identity | Soft, visual, emotionally plain; image before argument | wonder, memory, healing, beauty |
+| `vincey` | 圆宁 | Yuan Ning | Public Events Lead | 小圆 | Bright, energetic, persuasive, socially intelligent | Turn policy into public belief and emotional momentum | Fast, optimistic, action-first; playful but purposeful | morale, momentum, celebration, courage |
+| `shian` | 修远 | Xiu Yuan | Strategic Planner | - | Measured, strategic, long-view focused, composed | Make choices fit a future the kingdom can actually sustain | Deliberate, structured, calm; trade-offs over slogans | perspective, structure, patience, future |
 
 ## Naming Lock
 
@@ -47,12 +47,12 @@ Dream Palace is an original Eastern fantasy kingdom, not historical China. Names
 ## Voice Lock
 
 - Mu Ping comforts through clarity. She should never panic or reduce people to numbers.
-- Xiu Yuan solves by building. He should sound like someone already reaching for the tools.
+- Kai Ning solves by building. He should sound like someone already reaching for the tools.
 - Qing Tang protects through standards. She should be concise, never cruel for comedy.
 - Cheng Xuan creates suspense through restraint. He should reveal, not lecture.
-- Ming Xia makes emotional damage visible. She should be gentle without becoming vague.
-- Kai Ning moves public feeling. She should be energetic without becoming empty hype.
-- Shi An gives the long view. He should stay human, not abstract.
+- Hui Ying makes emotional damage visible. She should be gentle without becoming vague.
+- Yuan Ning moves public feeling. She should be energetic without becoming empty hype.
+- Xiu Yuan gives the long view. He should stay human, not abstract.
 
 For localization rules, dialogue rhythm, forbidden wording, and relationship address defaults, use `docs/09_Localization_Bible.md`.
 
@@ -521,7 +521,7 @@ The player should feel that trust was earned through effort.
 
 ---
 
-# 03 — Kel / 修远 / Xiu Yuan
+# 03 — Kel / 恺宁 / Kai Ning
 
 ## Identity
 
@@ -663,7 +663,7 @@ The player should feel that infrastructure became hope.
 
 ---
 
-# 04 — CX / 成玄 / Cheng Xuan
+# 04 — CX / 承玄 / Cheng Xuan
 
 ## Identity
 
@@ -804,7 +804,7 @@ The player should feel the world suddenly become deeper.
 
 ---
 
-# 05 — Mika / 明夏 / Ming Xia
+# 05 — Mika / 慧莹 / Hui Ying
 
 ## Identity
 
@@ -945,7 +945,7 @@ The player should feel that culture can heal.
 
 ---
 
-# 06 — Vincey / 开宁 / Kai Ning
+# 06 — Vincey / 圆宁 / Yuan Ning
 
 ## Identity
 
@@ -1089,7 +1089,7 @@ The player should feel that morale is not decoration.
 
 ---
 
-# 07 — Shian / 识安 / Shi An
+# 07 — Shian / 修远 / Xiu Yuan
 
 ## Identity
 

@@ -19,30 +19,34 @@ This sprint does not add new gameplay. It makes the existing demo and future pro
 - [x] Reviewed and lightly rewrote the current Northbridge dialogue for readability, pacing, and stronger character distinction.
 - [x] Updated Project Brain memory for current state, compact character context, and durable decision history.
 
+## Naming Correction
+
+The initial Sprint 2.4 implementation used incorrect inferred names. The registry below is the corrected canonical lock and must be used exactly.
+
 ## Official Names
 
 | Internal ID | Chinese Display Name | English Display Name | Title |
 |---|---|---|---|
 | `mp` | 慕平 | Mu Ping | Treasury Advisor |
-| `kel` | 修远 | Xiu Yuan | Court Engineer |
+| `kel` | 恺宁 | Kai Ning | Court Engineer |
 | `tab` | 清棠 | Qing Tang | Court Inspector |
-| `cx` | 成玄 | Cheng Xuan | Shadow Investigator |
-| `mika` | 明夏 | Ming Xia | Cultural Designer |
-| `vincey` | 开宁 | Kai Ning | Public Events Lead |
-| `shian` | 识安 | Shi An | Strategic Planner |
+| `cx` | 承玄 | Cheng Xuan | Shadow Investigator |
+| `mika` | 慧莹 | Hui Ying | Cultural Designer |
+| `vincey` | 圆宁 | Yuan Ning | Public Events Lead |
+| `shian` | 修远 | Xiu Yuan | Strategic Planner |
 
 ## Demo Dialogue Review Notes
 
 The current demo remains the same playable slice:
 
-`language -> eight-shot opening -> Morning Court -> Northbridge report -> Mu Ping ledger -> Xiu Yuan bridge inspection -> grain/audit decision -> visible table consequence -> evening reflection -> Cheng Xuan hook -> replay/restart/title`
+`language -> eight-shot opening -> Morning Court -> Northbridge report -> Mu Ping ledger -> Kai Ning bridge inspection -> grain/audit decision -> visible table consequence -> evening reflection -> Cheng Xuan hook -> replay/restart/title`
 
 Dialogue changes focused on:
 
 - clearer one-idea dialogue boxes
 - stronger Mu Ping warmth and responsibility
 - sharper Qing Tang conditional approval
-- more practical Xiu Yuan engineering language
+- more practical Kai Ning engineering language
 - quieter Cheng Xuan ending hook
 - avoiding literary flourish that competes with companion memory
 

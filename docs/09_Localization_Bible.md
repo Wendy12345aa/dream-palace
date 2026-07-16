@@ -2,7 +2,7 @@
 
 > **Golden Rule: Players should fall in love with the companions, not admire the writing.**
 
-Dream Palace is an original Eastern fantasy kingdom. Its language should feel warm, readable, and native in both Chinese and English. The writing is successful when players remember Mu Ping, Xiu Yuan, Qing Tang, Cheng Xuan, Ming Xia, Kai Ning, and Shi An as people, not when they stop to admire the prose.
+Dream Palace is an original Eastern fantasy kingdom. Its language should feel warm, readable, and native in both Chinese and English. The writing is successful when players remember Mu Ping, Kai Ning, Qing Tang, Cheng Xuan, Hui Ying, Yuan Ning, and Xiu Yuan as people, not when they stop to admire the prose.
 
 ---
 
@@ -53,14 +53,23 @@ Internal IDs remain unchanged for code and assets. Display names are the officia
 | Internal ID | Chinese Display Name | English Display Name | Title |
 |---|---|---|---|
 | `mp` | 慕平 | Mu Ping | Treasury Advisor |
-| `kel` | 修远 | Xiu Yuan | Court Engineer |
+| `kel` | 恺宁 | Kai Ning | Court Engineer |
 | `tab` | 清棠 | Qing Tang | Court Inspector |
-| `cx` | 成玄 | Cheng Xuan | Shadow Investigator |
-| `mika` | 明夏 | Ming Xia | Cultural Designer |
-| `vincey` | 开宁 | Kai Ning | Public Events Lead |
-| `shian` | 识安 | Shi An | Strategic Planner |
+| `cx` | 承玄 | Cheng Xuan | Shadow Investigator |
+| `mika` | 慧莹 | Hui Ying | Cultural Designer |
+| `vincey` | 圆宁 | Yuan Ning | Public Events Lead |
+| `shian` | 修远 | Xiu Yuan | Strategic Planner |
 
 Use the internal ID only in code, filenames, implementation notes, or debugging. Use the display name in player-facing text unless a UI element intentionally needs a short system identifier.
+---
+
+# Name Lock Rule
+
+These display names are approved canon.
+
+Do not create alternatives. Do not derive names from old English placeholders. Do not swap names between characters. Do not alter Chinese characters while preserving pronunciation.
+
+Internal IDs remain unchanged and are the only approved implementation identifiers: `mp`, `kel`, `tab`, `cx`, `mika`, `vincey`, and `shian`.
 
 ---
 
@@ -194,7 +203,7 @@ Forbidden wording:
 - cold accounting that forgets people
 - heroic speeches
 
-## Xiu Yuan / 修远
+## Kai Ning / 恺宁
 
 Voice: earnest, direct, hopeful, hands-on.
 
@@ -250,7 +259,7 @@ Forbidden wording:
 - long lectures
 - vague suspicion without standards
 
-## Cheng Xuan / 成玄
+## Cheng Xuan / 承玄
 
 Voice: quiet, observant, economical, dry.
 
@@ -278,7 +287,7 @@ Forbidden wording:
 - needless mystery words
 - explaining what the player can already infer
 
-## Ming Xia / 明夏
+## Hui Ying / 慧莹
 
 Voice: gentle, imaginative, emotionally perceptive.
 
@@ -306,7 +315,7 @@ Forbidden wording:
 - excessive poetry
 - helplessness as her default
 
-## Kai Ning / 开宁
+## Yuan Ning / 圆宁
 
 Voice: bright, energetic, persuasive, action-first.
 
@@ -334,7 +343,7 @@ Forbidden wording:
 - slangy modern hype
 - jokes that erase crisis
 
-## Shi An / 识安
+## Xiu Yuan / 修远
 
 Voice: measured, strategic, long-view focused.
 
@@ -370,15 +379,15 @@ Small address differences should reveal relationships naturally.
 
 Use these as defaults and revise only when a scene has a clear emotional reason.
 
-| Speaker | Mu Ping | Xiu Yuan | Qing Tang | Cheng Xuan | Ming Xia | Kai Ning | Shi An |
+| Speaker | Mu Ping | Kai Ning | Qing Tang | Cheng Xuan | Hui Ying | Yuan Ning | Xiu Yuan |
 |---|---|---|---|---|---|---|---|
-| Mu Ping | - | 修远 | 清棠 | 成玄 | 明夏 | 开宁 | 识安 |
-| Xiu Yuan | 慕平姐 | - | 清棠 | 成玄 | 明夏 | 开宁 | 识安 |
-| Qing Tang | 慕平 | 修远 | - | 成玄 | 明夏 | 开宁 | 识安 |
-| Cheng Xuan | 慕平 | 工程师 | 清棠 | - | 明夏 | 开宁 | 策士 |
-| Ming Xia | 慕平 | 修远 | 清棠 | 成玄 | - | 小宁 | 识安 |
-| Kai Ning | 慕平姐 | 修远！ | 清棠 | 成玄 | 明夏 | - | 识安 |
-| Shi An | 慕平 | 修远 | 清棠 | 成玄 | 明夏 | 开宁 | - |
+| Mu Ping | - | 恺宁 | 清棠 | 承玄 | 慧莹 | 圆宁 | 修远 |
+| Kai Ning | 慕平姐 | - | 清棠 | 承玄 | 慧莹 | 圆宁 | 修远 |
+| Qing Tang | 慕平 | 恺宁 | - | 承玄 | 慧莹 | 圆宁 | 修远 |
+| Cheng Xuan | 慕平 | 工程师 | 清棠 | - | 慧莹 | 圆宁 | 策士 |
+| Hui Ying | 慕平 | 恺宁 | 清棠 | 承玄 | - | 小圆 | 修远 |
+| Yuan Ning | 慕平姐 | 恺宁！ | 清棠 | 承玄 | 慧莹 | - | 修远 |
+| Xiu Yuan | 慕平 | 恺宁 | 清棠 | 承玄 | 慧莹 | 圆宁 | - |
 
 English should usually use display names. Titles are reserved for distance, teasing, respect, or tension.
 
@@ -398,7 +407,7 @@ Literal and weak:
 
 > I will conduct the construction of the temporary bridge.
 
-Better Xiu Yuan:
+Better Kai Ning:
 
 > Give me timber and a crew. I can make the crossing hold.
 

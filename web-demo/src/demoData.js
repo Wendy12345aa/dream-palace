@@ -19,7 +19,7 @@
       visibleConsequence: "Visible Consequence",
       eveningReflection: "Evening Reflection",
       tomorrowTeaser: "Tomorrow Teaser",
-      answerReleaseKicker: "Xiu Yuan begins construction",
+      answerReleaseKicker: "Kai Ning begins construction",
       answerReleaseTitle: "Grain moves. The bridge rises.",
       answerReleaseDetail: "Supply carts depart while a temporary crossing takes shape.",
       answerAuditKicker: "Qing Tang begins inspection",
@@ -45,7 +45,7 @@
       visibleConsequence: "决定带来的变化",
       eveningReflection: "当天总结",
       tomorrowTeaser: "明天的线索",
-      answerReleaseKicker: "修远开始施工",
+      answerReleaseKicker: "恺宁开始施工",
       answerReleaseTitle: "粮车出发，临时桥开工。",
       answerReleaseDetail: "运粮车正赶往北桥村，工人也开始搭建临时桥。",
       answerAuditKicker: "清棠开始调查",
@@ -143,12 +143,12 @@
       },
       kel: {
         id: "kel",
-        name: { en: "Xiu Yuan", zh: "修远" },
+        name: { en: "Kai Ning", zh: "恺宁" },
         role: { en: "Court Engineer", zh: "朝廷工程师" }
       },
       cx: {
         id: "cx",
-        name: { en: "Cheng Xuan", zh: "成玄" },
+        name: { en: "Cheng Xuan", zh: "承玄" },
         role: { en: "Shadow Investigator", zh: "暗线调查官" },
         hidden: true,
         revealed: false
@@ -233,8 +233,8 @@
               speaker: "tab",
               focus: "tab",
               text: {
-                en: "Approved with conditions. Xiu Yuan's repair report must be on this table by sunset.",
-                zh: "同意，但有条件：天黑前，我要看到修远的修桥报告。"
+                en: "Approved with conditions. Kai Ning's repair report must be on this table by sunset.",
+                zh: "同意，但有条件：天黑前，我要看到恺宁的修桥报告。"
               }
             },
             {

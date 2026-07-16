@@ -12,16 +12,16 @@ Last verified: 2026-07-16.
 
 The zero-dependency web demo currently supports:
 
-`language -> eight-shot opening -> Morning Court -> Northbridge report -> Mu Ping ledger -> Xiu Yuan bridge inspection -> grain/audit decision -> visible table consequence -> evening reflection -> Cheng Xuan hook -> replay/restart/title`
+`language -> eight-shot opening -> Morning Court -> Northbridge report -> Mu Ping ledger -> Kai Ning bridge inspection -> grain/audit decision -> visible table consequence -> evening reflection -> Cheng Xuan hook -> replay/restart/title`
 
 Implemented presentation:
 
 - Chinese and English.
 - Scene-based Morning Court UI.
-- Mu Ping, Qing Tang, Xiu Yuan staging and Cheng Xuan teaser.
+- Mu Ping, Qing Tang, Kai Ning staging and Cheng Xuan teaser.
 - Dialogue pacing, log, replay controls, and responsive layouts.
 - Character-free Kingdom Table background and two visual consequence scenes.
-- Three-step physical workbench onboarding: open Mu Ping's ledger, fit Xiu Yuan's support beam, place a policy prop.
+- Three-step physical workbench onboarding: open Mu Ping's ledger, fit Kai Ning's support beam, place a policy prop.
 
 ## Current Product Question
 
