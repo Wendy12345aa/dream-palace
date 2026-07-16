@@ -1,4 +1,4 @@
-# Dream Palace Roadmap
+﻿# Dream Palace Roadmap
 
 ## Milestone 0: Project Foundation
 
@@ -9,6 +9,7 @@
 - [x] UI/UX Bible
 - [x] Art Bible
 - [x] Demo Bible
+- [x] Localization Bible
 
 ## Milestone 1: Web Demo
 
@@ -27,6 +28,7 @@
 - [x] Complete Sprint 2.3 public playtest readiness.
 - [x] Replace the character-baked Kingdom Table and Tab preview with production assets.
 - [x] Add dialogue pacing, dialogue log, and replay controls.
+- [x] Complete Sprint 2.4 Character & Narrative Lock.
 - [ ] Validate the demo with external playtest feedback.
 
 ## Milestone 2: Steam Demo

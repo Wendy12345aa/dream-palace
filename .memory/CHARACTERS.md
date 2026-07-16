@@ -1,34 +1,34 @@
-# Character Memory
+﻿# Character Memory
 
 ## Cast
 
-| Character | Responsibility | Gameplay ownership | Emotional role | Color | Core voice |
-|---|---|---|---|---|---|
-| MP | Treasury and resources | Budget, allocation, stability | Reassurance under pressure | Royal gold | Mature, calm, practical; never panics |
-| Tab | Quality and administration | Audits, standards, risk | Accountability and restraint | Azure blue | Precise, concise, firm; not cruel |
-| Kel | Technology and construction | Engineering, infrastructure | Effort, invention, vulnerability | Emerald green | Earnest, direct, hopeful; solves by building |
-| CX | Investigation and intelligence | Secrets, threats, hidden causes | Suspense and warning | Dark purple | Observant, dry, economical; reveals rather than lectures |
-| Mika | Art and culture | Morale, identity, visual development | Wonder and tenderness | Soft pink and light blue | Gentle, imaginative, emotionally perceptive |
-| Vincey | Events and public mood | Festivals, announcements, support | Energy and release | Orange | Fast, bright, persuasive, idea-driven |
-| Shian | Planning and strategy | Logistics, expansion, structure | Clarity and perspective | Silver | Measured, strategic, long-term thinker |
+| Internal ID | Official name | Responsibility | Gameplay ownership | Emotional role | Color | Core voice |
+|---|---|---|---|---|---|---|
+| mp | 慕平 / Mu Ping | Treasury and resources | Budget, allocation, stability | Reassurance under pressure | Royal gold | Warm, patient, practical; never panics or forgets people |
+| tab | 清棠 / Qing Tang | Quality and administration | Audits, standards, risk | Accountability and restraint | Azure blue | Precise, concise, firm; not cruel |
+| kel | 修远 / Xiu Yuan | Technology and construction | Engineering, infrastructure | Effort, invention, vulnerability | Emerald green | Earnest, direct, hopeful; solves by building |
+| cx | 成玄 / Cheng Xuan | Investigation and intelligence | Secrets, threats, hidden causes | Suspense and warning | Dark purple | Observant, dry, economical; reveals rather than lectures |
+| mika | 明夏 / Ming Xia | Art and culture | Morale, identity, visual development | Wonder and tenderness | Soft pink and light blue | Gentle, imaginative, emotionally perceptive |
+| vincey | 开宁 / Kai Ning | Events and public mood | Festivals, announcements, support | Energy and release | Orange | Fast, bright, persuasive, idea-driven |
+| shian | 识安 / Shi An | Planning and strategy | Logistics, expansion, structure | Clarity and perspective | Silver | Measured, strategic, long-term thinker |
 
 ## Demo Roles
 
-- MP owns the ledger and frames the resource cost.
-- Tab owns the risk and audit interpretation.
-- Kel owns the bridge model and actionable repair.
-- CX appears only as the final hidden-cause hook.
-- Mika, Vincey, and Shian are not active demo systems yet.
+- Mu Ping owns the ledger and frames the resource cost.
+- Qing Tang owns the risk and audit interpretation.
+- Xiu Yuan owns the bridge model and actionable repair.
+- Cheng Xuan appears only as the final hidden-cause hook.
+- Ming Xia, Kai Ning, and Shi An are not active demo systems yet.
 
 ## Relationship Anchors
 
-- MP and Kel: budget versus necessary invention.
-- Tab and Kel: quality versus speed; rejection should produce growth, not a running joke only.
-- Tab and CX: procedure versus hidden truth.
-- Shian and Kel: architecture versus implementation.
-- MP and Vincey: fiscal restraint versus public momentum.
-- Mika and Vincey: culture and public celebration.
-- CX can unsettle every relationship by revealing missing context.
+- Mu Ping and Xiu Yuan: budget versus necessary invention.
+- Qing Tang and Xiu Yuan: quality versus speed; rejection should produce growth, not a running joke only.
+- Qing Tang and Cheng Xuan: procedure versus hidden truth.
+- Shi An and Xiu Yuan: architecture versus implementation.
+- Mu Ping and Kai Ning: fiscal restraint versus public momentum.
+- Ming Xia and Kai Ning: culture and public celebration.
+- Cheng Xuan can unsettle every relationship by revealing missing context.
 
 ## Player
 

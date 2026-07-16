@@ -1,4 +1,4 @@
-# Decision Log
+﻿# Decision Log
 
 Only durable, approved choices belong here.
 
@@ -33,7 +33,7 @@ Reason: validate whether Morning Court itself is compelling.
 
 Decision: add physical workbench actions inside the existing scene, not disconnected minigames.
 
-Current example: open MP's ledger, fit Kel's support beam, then place a grain cart or audit flag.
+Current example: open Mu Ping's ledger, fit Xiu Yuan's support beam, then place a grain cart or audit flag.
 
 Reason: the player should participate in forming a judgment, not only read dialogue and choose A/B.
 
@@ -42,3 +42,11 @@ Reason: the player should participate in forming a judgment, not only read dialo
 Decision: `.memory/` is the compact cross-tool context; `docs/` remains the detailed source.
 
 Reason: reduce repeated context tokens while preserving stable project identity and current state.
+
+## 2026-07-16: Character & Narrative Lock
+
+Decision: Sprint 2.4 locks official companion display names, voice rules, relationship address style, and localization philosophy in `docs/04_Character_Bible.md` and `docs/09_Localization_Bible.md`.
+
+Current official names: Mu Ping / 慕平, Xiu Yuan / 修远, Qing Tang / 清棠, Cheng Xuan / 成玄, Ming Xia / 明夏, Kai Ning / 开宁, Shi An / 识安.
+
+Reason: future dialogue, CG, portraits, audio, animation, UI, and localization need a stable character foundation. The writing goal is for players to love the companions, not admire the prose.

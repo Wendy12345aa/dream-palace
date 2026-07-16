@@ -1,4 +1,4 @@
-const demo = window.DREAM_PALACE_DEMO;
+﻿const demo = window.DREAM_PALACE_DEMO;
 
 const state = structuredClone(demo.initialState);
 let beatIndex = 0;
@@ -100,11 +100,11 @@ const elements = {
 const workbenchCopy = {
   en: {
     kicker: "The Kingdom Table",
-    closedInstruction: "Open MP's ledger before moving the court's resources.",
-    bridgeInstruction: "Inspect the damaged span with Kel's support beam.",
+    closedInstruction: "Open Mu Ping's ledger before moving the court's resources.",
+    bridgeInstruction: "Inspect the damaged span with Xiu Yuan's support beam.",
     readyInstruction: "Drag a court prop to Northbridge, or tap it to decide.",
-    ledgerTutorial: "Open MP's ledger to review the available resources.",
-    bridgeTutorial: "Fit Kel's support beam to the damaged span and inspect what failed.",
+    ledgerTutorial: "Open Mu Ping's ledger to review the available resources.",
+    bridgeTutorial: "Fit Xiu Yuan's support beam to the damaged span and inspect what failed.",
     propsTutorial: "Now decide. Drag a court prop to Northbridge, or tap it.",
     ledgerTitle: "Reserve ledger",
     reserveLabel: "Emergency grain",
@@ -115,26 +115,26 @@ const workbenchCopy = {
     dropLabel: "Northbridge",
     dropHint: "Place your decision here",
     inspectionDropHint: "Fit the support beam here",
-    bridgeLabel: "Kel's support beam",
+    bridgeLabel: "Xiu Yuan's support beam",
     bridgeHint: "Fit it to the damaged span",
-    findingKicker: "Kel / inspection",
+    findingKicker: "Xiu Yuan / inspection",
     findingText: "The iron pins are rusted through. This damage began long before last night.",
     grainLabel: "Grain cart",
     grainHint: "Release grain and repair",
     auditLabel: "Audit flag",
     auditHint: "Hold reserve and inspect",
     fallback: "Keyboard or tap alternative",
-    ledgerOpened: "Reserve ledger opened. Kel's bridge model is ready.",
+    ledgerOpened: "Reserve ledger opened. Xiu Yuan's bridge model is ready.",
     bridgeInspected: "Bridge inspected. The court now has enough evidence to decide.",
     choicePlaced: "Decision placed on Northbridge."
   },
   zh: {
     kicker: "\u738b\u56fd\u6c99\u76d8",
-    closedInstruction: "\u5148\u7ffb\u5f00 MP \u7684\u8d26\u672c\uff0c\u518d\u8c03\u52a8\u671d\u5ef7\u8d44\u6e90\u3002",
-    bridgeInstruction: "\u7528 Kel \u7684\u652f\u6491\u6881\u68c0\u67e5\u65ad\u6865\u7ed3\u6784\u3002",
+    closedInstruction: "\u5148\u7ffb\u5f00\u6155\u5e73\u7684\u8d26\u672c\uff0c\u518d\u8c03\u52a8\u671d\u5ef7\u8d44\u6e90\u3002",
+    bridgeInstruction: "\u7528\u4fee\u8fdc\u7684\u652f\u6491\u6881\u68c0\u67e5\u65ad\u6865\u7ed3\u6784\u3002",
     readyInstruction: "\u5c06\u4e00\u4e2a\u671d\u5ef7\u9053\u5177\u62d6\u5230\u5317\u6865\u6751\uff0c\u6216\u76f4\u63a5\u70b9\u51fb\u505a\u51fa\u51b3\u5b9a\u3002",
-    ledgerTutorial: "\u5148\u70b9\u51fb MP \u7684\u8d26\u672c\uff0c\u67e5\u770b\u5f53\u524d\u53ef\u7528\u8d44\u6e90\u3002",
-    bridgeTutorial: "\u628a Kel \u7684\u652f\u6491\u6881\u653e\u5230\u65ad\u6865\u5904\uff0c\u68c0\u67e5\u7a76\u7adf\u662f\u54ea\u91cc\u5931\u6548\u3002",
+    ledgerTutorial: "\u5148\u70b9\u51fb\u6155\u5e73\u7684\u8d26\u672c\uff0c\u67e5\u770b\u5f53\u524d\u53ef\u7528\u8d44\u6e90\u3002",
+    bridgeTutorial: "\u628a\u4fee\u8fdc\u7684\u652f\u6491\u6881\u653e\u5230\u65ad\u6865\u5904\uff0c\u68c0\u67e5\u7a76\u7adf\u662f\u54ea\u91cc\u5931\u6548\u3002",
     propsTutorial: "\u73b0\u5728\u505a\u51fa\u51b3\u5b9a\uff1a\u5c06\u4e00\u4e2a\u671d\u5ef7\u9053\u5177\u62d6\u5230\u5317\u6865\u6751\uff0c\u6216\u76f4\u63a5\u70b9\u51fb\u3002",
     ledgerTitle: "\u50a8\u5907\u8d26\u672c",
     reserveLabel: "\u5e94\u6025\u7cae\u98df",
@@ -145,16 +145,16 @@ const workbenchCopy = {
     dropLabel: "\u5317\u6865\u6751",
     dropHint: "\u628a\u4f60\u7684\u51b3\u5b9a\u653e\u5728\u8fd9\u91cc",
     inspectionDropHint: "\u628a\u652f\u6491\u6881\u5b89\u5230\u8fd9\u91cc",
-    bridgeLabel: "Kel \u7684\u652f\u6491\u6881",
+    bridgeLabel: "\u4fee\u8fdc\u7684\u652f\u6491\u6881",
     bridgeHint: "\u5b89\u5230\u65ad\u88c2\u7684\u6865\u8eab\u4e0a",
-    findingKicker: "Kel / \u7ed3\u6784\u68c0\u67e5",
+    findingKicker: "\u4fee\u8fdc / \u7ed3\u6784\u68c0\u67e5",
     findingText: "\u94c1\u5236\u56fa\u5b9a\u9489\u5df2\u7ecf\u9508\u7a7f\u3002\u8fd9\u5904\u635f\u574f\u65e9\u5728\u6628\u591c\u4e4b\u524d\u5c31\u5f00\u59cb\u4e86\u3002",
     grainLabel: "\u7cae\u8f66",
     grainHint: "\u9a6c\u4e0a\u9001\u7cae\u5e76\u4fee\u6865",
     auditLabel: "\u5ba1\u6838\u65d7",
     auditHint: "\u4fdd\u7559\u50a8\u5907\u5e76\u8c03\u67e5",
     fallback: "\u70b9\u51fb\u6216\u952e\u76d8\u4e5f\u53ef\u9009\u62e9",
-    ledgerOpened: "\u50a8\u5907\u8d26\u672c\u5df2\u7ffb\u5f00\uff0cKel \u7684\u6865\u6881\u6a21\u578b\u5df2\u51c6\u5907\u597d\u3002",
+    ledgerOpened: "\u50a8\u5907\u8d26\u672c\u5df2\u7ffb\u5f00\uff0c\u4fee\u8fdc\u7684\u6865\u6881\u6a21\u578b\u5df2\u51c6\u5907\u597d\u3002",
     bridgeInspected: "\u65ad\u6865\u5df2\u68c0\u67e5\u3002\u671d\u5ef7\u73b0\u5728\u62e5\u6709\u8db3\u591f\u7684\u7ebf\u7d22\u505a\u51fa\u51b3\u5b9a\u3002",
     choicePlaced: "\u51b3\u5b9a\u5df2\u653e\u5230\u5317\u6865\u6751\u3002"
   }
@@ -722,7 +722,7 @@ function renderDialogueLog() {
   if (!elements.dialogueLogList) return;
   elements.dialogueLogList.innerHTML = dialogueHistory
     .map((entry) => {
-      const name = entry.speaker === "throne" ? translate("throne") : getCompanion(entry.speaker).name;
+      const name = entry.speaker === "throne" ? translate("throne") : localize(getCompanion(entry.speaker).name);
       return `
         <article class="dialogue-log-entry">
           <div>
@@ -804,8 +804,8 @@ function renderLine(line, { record = true, animate = true, ending = false } = {}
   }
   if (line.revealLedger) elements.ledgerSlip.classList.add("is-visible");
 
-  elements.speakerToken.textContent = companion.name;
-  elements.speakerName.textContent = companion.name;
+  elements.speakerToken.textContent = localize(companion.name);
+  elements.speakerName.textContent = localize(companion.name);
   elements.speakerRole.textContent = localize(line.role || companion.role);
 
   renderState();

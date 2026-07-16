@@ -1,4 +1,4 @@
-window.DREAM_PALACE_DEMO = {
+﻿window.DREAM_PALACE_DEMO = {
   ui: {
     en: {
       demoTitle: "The First Morning Court",
@@ -19,10 +19,10 @@ window.DREAM_PALACE_DEMO = {
       visibleConsequence: "Visible Consequence",
       eveningReflection: "Evening Reflection",
       tomorrowTeaser: "Tomorrow Teaser",
-      answerReleaseKicker: "Kel begins construction",
+      answerReleaseKicker: "Xiu Yuan begins construction",
       answerReleaseTitle: "Grain moves. The bridge rises.",
       answerReleaseDetail: "Supply carts depart while a temporary crossing takes shape.",
-      answerAuditKicker: "Tab begins inspection",
+      answerAuditKicker: "Qing Tang begins inspection",
       answerAuditTitle: "The reserve holds. The inquiry begins.",
       answerAuditDetail: "Inspectors reach the damaged bridge while Northbridge remains on ration control."
     },
@@ -45,10 +45,10 @@ window.DREAM_PALACE_DEMO = {
       visibleConsequence: "决定带来的变化",
       eveningReflection: "当天总结",
       tomorrowTeaser: "明天的线索",
-      answerReleaseKicker: "Kel 开始施工",
+      answerReleaseKicker: "修远开始施工",
       answerReleaseTitle: "粮车出发，临时桥开工。",
       answerReleaseDetail: "运粮车正赶往北桥村，工人也开始搭建临时桥。",
-      answerAuditKicker: "Tab 开始调查",
+      answerAuditKicker: "清棠开始调查",
       answerAuditTitle: "粮食暂不动用，调查已经开始。",
       answerAuditDetail: "调查队已到断桥现场，北桥村目前只能限量领粮。"
     }
@@ -133,23 +133,23 @@ window.DREAM_PALACE_DEMO = {
     companions: {
       mp: {
         id: "mp",
-        name: "MP",
-        role: { en: "Treasury and responsibility", zh: "财政与物资" }
+        name: { en: "Mu Ping", zh: "慕平" },
+        role: { en: "Treasury Advisor", zh: "财政顾问" }
       },
       tab: {
         id: "tab",
-        name: "Tab",
-        role: { en: "Quality and risk", zh: "审核与风险" }
+        name: { en: "Qing Tang", zh: "清棠" },
+        role: { en: "Court Inspector", zh: "朝廷监察官" }
       },
       kel: {
         id: "kel",
-        name: "Kel",
-        role: { en: "Engineering and construction", zh: "工程与建设" }
+        name: { en: "Xiu Yuan", zh: "修远" },
+        role: { en: "Court Engineer", zh: "朝廷工程师" }
       },
       cx: {
         id: "cx",
-        name: "CX",
-        role: { en: "Intelligence and tomorrow's hook", zh: "情报与调查" },
+        name: { en: "Cheng Xuan", zh: "成玄" },
+        role: { en: "Shadow Investigator", zh: "暗线调查官" },
         hidden: true,
         revealed: false
       }
@@ -178,24 +178,24 @@ window.DREAM_PALACE_DEMO = {
       speaker: "tab",
       focus: "tab",
       text: {
-        en: "Emergency release is possible, but it reduces our margin before winter. Mercy without a repair plan only postpones the same failure.",
-        zh: "我们可以马上把应急粮食送过去，但这样一来，冬天前能用的储备就会变少。如果只送粮、不修桥，同样的问题很快还会再发生。"
+        en: "Emergency release is possible. Without a repair plan, mercy only postpones the same failure.",
+        zh: "可以马上送粮。但如果没有修桥计划，今天的仁慈只会把同样的问题推迟几天。"
       }
     },
     {
       speaker: "kel",
       focus: "kel",
       text: {
-        en: "Give me stored timber and a work crew. I can put a temporary frame across the river before the last cart leaves.",
-        zh: "给我仓库里的木料和一队工人。我可以先搭一座临时桥，让粮车今天就能过河。"
+        en: "Give me timber and a crew. I can make the crossing hold before the last cart leaves.",
+        zh: "给我木料和一队工人。我能先把临时桥撑起来，让今天的粮车过河。"
       }
     },
     {
       speaker: "mp",
       focus: "northbridge",
       text: {
-        en: "The village is waiting. Do we release grain now, or verify the shortage before opening the reserve?",
-        zh: "北桥村还在等。我们是现在送粮并修桥，还是先确认情况，再决定要不要动用储备？"
+        en: "Northbridge is waiting. Do we release grain now, or verify the shortage before opening the reserve?",
+        zh: "北桥村还在等。殿下，是现在送粮并修桥，还是先确认情况，再决定要不要动用储备？"
       },
       choices: [
         {
@@ -225,24 +225,24 @@ window.DREAM_PALACE_DEMO = {
               speaker: "mp",
               focus: "mp",
               text: {
-                en: "Understood. I will open the reserve ledger and send the carts before noon.",
-                zh: "明白。我马上安排发粮，保证运粮车中午前出发。"
+                en: "Understood. I will open the reserve ledger. The carts leave before noon.",
+                zh: "明白。我这就打开储备账本，运粮车中午前出发。"
               }
             },
             {
               speaker: "tab",
               focus: "tab",
               text: {
-                en: "Approved with conditions. Kel's repair report will be on this table by sunset.",
-                zh: "同意，但有一个条件：天黑前，我要看到 Kel 的修桥报告。"
+                en: "Approved with conditions. Xiu Yuan's repair report must be on this table by sunset.",
+                zh: "同意，但有条件：天黑前，我要看到修远的修桥报告。"
               }
             },
             {
               speaker: "kel",
               focus: "northbridge",
               text: {
-                en: "The first beams are moving now. It will not be beautiful, but people will cross it safely.",
-                zh: "第一批木料已经运过去了。临时桥不需要漂亮，只要能让大家安全过河。"
+                en: "The first beams are moving now. It will not be beautiful. It will be safe.",
+                zh: "第一批木料已经在路上了。临时桥不需要漂亮，只要安全。"
               }
             }
           ]
@@ -274,8 +274,8 @@ window.DREAM_PALACE_DEMO = {
               speaker: "tab",
               focus: "tab",
               text: {
-                en: "A cautious decision. I will verify the report and find who allowed the bridge to decay.",
-                zh: "这样比较谨慎。我会确认求助内容，也会查清这座桥为什么一直没人维修。"
+                en: "A cautious decision. I will verify the report and identify who let the bridge decay.",
+                zh: "谨慎的决定。我会核实求助内容，也会查清是谁让这座桥拖到今天。"
               }
             },
             {
@@ -291,7 +291,7 @@ window.DREAM_PALACE_DEMO = {
               focus: "northbridge",
               text: {
                 en: "I will prepare the timber anyway. If the report is true, we should not lose another hour.",
-                zh: "我先准备木料。如果情况属实，我们不能再耽误。"
+                zh: "我先准备木料。如果情况属实，我们不能再多等一个时辰。"
               }
             }
           ]
@@ -303,8 +303,8 @@ window.DREAM_PALACE_DEMO = {
       focus: "northbridge",
       phase: "visibleConsequence",
       text: {
-        en: "Look closely, Your Highness. The table is already answering you.",
-        zh: "请看，沙盘已经显示出你的决定带来的变化。"
+        en: "Look closely, Your Highness. The table is already showing your answer.",
+        zh: "殿下请看。沙盘已经把你的回答显示出来了。"
       }
     },
     {
@@ -313,8 +313,8 @@ window.DREAM_PALACE_DEMO = {
       phase: "eveningReflection",
       sceneTone: "evening",
       text: {
-        en: "Your first morning has ended. Northbridge will remember not only what the court decided, but how quickly we saw them.",
-        zh: "今天的早朝结束了。北桥村记住的不只是我们的决定，也会记得我们用了多久才回应他们。"
+        en: "Your first morning has ended. Northbridge will remember what we chose, and how quickly we saw them.",
+        zh: "第一次早朝结束了。北桥村会记得我们的决定，也会记得我们用了多久看见他们。"
       }
     },
     {
@@ -324,8 +324,8 @@ window.DREAM_PALACE_DEMO = {
       phase: "tomorrowTeaser",
       sceneTone: "dawn",
       text: {
-        en: "One village saw your answer. Tomorrow, someone who never petitioned will test what kind of ruler gave it.",
-        zh: "北桥村已经看到了你的选择。明天，一个从没递过求助信的人会来看看，你究竟是怎样的统治者。"
+        en: "One village saw your answer. Tomorrow, someone who never petitioned will test the ruler behind it.",
+        zh: "北桥村已经看到了你的回答。明天，一个从没递过求助信的人，会来试探作出回答的那位君主。"
       }
     }
   ],

@@ -1,27 +1,27 @@
-# Current State
+﻿# Current State
 
 Last verified: 2026-07-16.
 
 ## Stage
 
 - Milestone: Web Demo, pre-external-playtest.
-- Completed sprint: Sprint 2.3 Public Playtest Readiness.
-- Current pass: increase active participation in the Northbridge decision without adding filler or a second petition.
+- Completed sprint: Sprint 2.4 Character & Narrative Lock.
+- Current pass: external playtest validation of the locked narrative slice.
 
 ## Playable Build
 
 The zero-dependency web demo currently supports:
 
-`language -> eight-shot opening -> Morning Court -> Northbridge report -> MP ledger -> Kel bridge inspection -> grain/audit decision -> visible table consequence -> evening reflection -> CX hook -> replay/restart/title`
+`language -> eight-shot opening -> Morning Court -> Northbridge report -> Mu Ping ledger -> Xiu Yuan bridge inspection -> grain/audit decision -> visible table consequence -> evening reflection -> Cheng Xuan hook -> replay/restart/title`
 
 Implemented presentation:
 
 - Chinese and English.
 - Scene-based Morning Court UI.
-- MP, Tab, Kel staging and CX teaser.
+- Mu Ping, Qing Tang, Xiu Yuan staging and Cheng Xuan teaser.
 - Dialogue pacing, log, replay controls, and responsive layouts.
 - Character-free Kingdom Table background and two visual consequence scenes.
-- Three-step physical workbench onboarding: open ledger, fit Kel's support beam, place a policy prop.
+- Three-step physical workbench onboarding: open Mu Ping's ledger, fit Xiu Yuan's support beam, place a policy prop.
 
 ## Current Product Question
 
