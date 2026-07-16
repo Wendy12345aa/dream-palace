@@ -54,6 +54,7 @@ const elements = {
   ledgerRequestValue: document.querySelector("#ledgerRequestValue"),
   ledgerMarginLabel: document.querySelector("#ledgerMarginLabel"),
   ledgerMarginValue: document.querySelector("#ledgerMarginValue"),
+  ledgerOwner: document.querySelector("#ledgerOwner"),
   ledgerCoverTitle: document.querySelector("#ledgerCoverTitle"),
   northbridgeDrop: document.querySelector("#northbridgeDrop"),
   dropLabel: document.querySelector("#dropLabel"),
@@ -92,6 +93,7 @@ const elements = {
   revealTagline: document.querySelector("#revealTagline"),
   revealPortraitFrame: document.querySelector("#revealPortraitFrame"),
   revealPortrait: document.querySelector("#revealPortrait"),
+  revealContinueIndicator: document.querySelector("#revealContinueIndicator"),
   dialogueLayer: document.querySelector(".dialogue-layer"),
   speakerToken: document.querySelector("#speakerToken"),
   speakerPortrait: document.querySelector("#speakerPortrait"),
@@ -110,6 +112,7 @@ const elements = {
 const workbenchCopy = {
   en: {
     kicker: "The Kingdom Table",
+    ledgerOwner: "Mu Ping",
     closedInstruction: "Open Mu Ping's ledger before moving the court's resources.",
     bridgeInstruction: "Inspect the damaged span with Kai Ning's support beam.",
     readyInstruction: "Drag a court prop to Northbridge, or tap it to decide.",
@@ -140,6 +143,7 @@ const workbenchCopy = {
   },
   zh: {
     kicker: "\u738b\u56fd\u6c99\u76d8",
+    ledgerOwner: "\u6155\u5e73",
     closedInstruction: "\u5148\u7ffb\u5f00\u6155\u5e73\u7684\u8d26\u672c\uff0c\u518d\u8c03\u52a8\u671d\u5ef7\u8d44\u6e90\u3002",
     bridgeInstruction: "\u7528\u607a\u5b81\u7684\u652f\u6491\u6881\u68c0\u67e5\u65ad\u6865\u7ed3\u6784\u3002",
     readyInstruction: "\u5c06\u4e00\u4e2a\u671d\u5ef7\u9053\u5177\u62d6\u5230\u5317\u6865\u6751\uff0c\u6216\u76f4\u63a5\u70b9\u51fb\u505a\u51fa\u51b3\u5b9a\u3002",
@@ -149,8 +153,8 @@ const workbenchCopy = {
     ledgerTitle: "\u50a8\u5907\u8d26\u672c",
     reserveLabel: "\u5e94\u6025\u7cae\u98df",
     requestLabel: "\u5317\u6865\u6751\u7533\u8bf7",
-    marginLabel: "\u51ac\u5b63\u4f59\u91cf",
-    marginValue: "\u8c28\u614e",
+    marginLabel: "\u51ac\u5b63\u9884\u7559",
+    marginValue: "\u9700\u4fdd\u7559",
     sacks: "\u888b",
     dropLabel: "\u5317\u6865\u6751",
     dropHint: "\u628a\u4f60\u7684\u51b3\u5b9a\u653e\u5728\u8fd9\u91cc",
@@ -285,6 +289,8 @@ function updateWorkbenchCopy(choices) {
   const releaseChoice = choices.find((choice) => choice.id === "release_grain");
   const requestedGrain = Math.abs(releaseChoice?.stateChange?.grain || 0);
   const numberLocale = currentLanguage === "zh" ? "zh-CN" : "en-US";
+  const reserveValue = `${state.kingdom.grain.toLocaleString(numberLocale)} ${copy.sacks}`;
+  const requestValue = `${requestedGrain.toLocaleString(numberLocale)} ${copy.sacks}`;
 
   elements.workbenchKicker.textContent = copy.kicker;
   elements.workbenchInstruction.textContent = !ledgerOpened
@@ -293,11 +299,12 @@ function updateWorkbenchCopy(choices) {
       ? copy.readyInstruction
       : copy.bridgeInstruction;
   elements.ledgerPageTitle.textContent = copy.ledgerTitle;
+  elements.ledgerOwner.textContent = copy.ledgerOwner;
   elements.ledgerCoverTitle.textContent = copy.ledgerTitle;
   elements.ledgerReserveLabel.textContent = copy.reserveLabel;
-  elements.ledgerReserveValue.textContent = `${state.kingdom.grain.toLocaleString(numberLocale)} ${copy.sacks}`;
+  elements.ledgerReserveValue.textContent = reserveValue;
   elements.ledgerRequestLabel.textContent = copy.requestLabel;
-  elements.ledgerRequestValue.textContent = `${requestedGrain.toLocaleString(numberLocale)} ${copy.sacks}`;
+  elements.ledgerRequestValue.textContent = requestValue;
   elements.ledgerMarginLabel.textContent = copy.marginLabel;
   elements.ledgerMarginValue.textContent = copy.marginValue;
   elements.dropLabel.textContent = copy.dropLabel;
@@ -311,7 +318,12 @@ function updateWorkbenchCopy(choices) {
   elements.auditTokenLabel.textContent = copy.auditLabel;
   elements.auditTokenHint.textContent = copy.auditHint;
   elements.workbenchFallbackLabel.textContent = copy.fallback;
-  elements.ledgerBook.setAttribute("aria-label", copy.closedInstruction);
+  elements.ledgerBook.setAttribute(
+    "aria-label",
+    ledgerOpened
+      ? `${copy.ledgerOwner} - ${copy.ledgerTitle}. ${copy.reserveLabel}: ${reserveValue}. ${copy.requestLabel}: ${requestValue}. ${copy.marginLabel}: ${copy.marginValue}.`
+      : copy.closedInstruction
+  );
   elements.northbridgeDrop.setAttribute("aria-label", `${copy.dropLabel}: ${copy.dropHint}`);
   elements.bridgePiece.setAttribute("aria-label", `${copy.bridgeLabel}. ${copy.bridgeHint}`);
 
@@ -378,8 +390,7 @@ function openLedger() {
   elements.ledgerBook.classList.add("is-open");
   elements.decisionWorkbench.classList.add("is-ledger-open");
   elements.ledgerBook.setAttribute("aria-expanded", "true");
-  elements.workbenchInstruction.textContent = getWorkbenchCopy().bridgeInstruction;
-  elements.dropHint.textContent = getWorkbenchCopy().inspectionDropHint;
+  updateWorkbenchCopy(currentLine.choices || []);
   elements.workbenchStatus.textContent = getWorkbenchCopy().ledgerOpened;
   setBridgeInspectionEnabled(true);
   setDecisionControlsEnabled(false);
@@ -535,7 +546,16 @@ function setLanguage(language) {
   }
 
   if (!elements.courtScene.hidden) {
+    if (activeRevealId) renderActiveRevealCopy(activeRevealId);
     renderLine(currentLine, { record: false, animate: false, ending: currentLineIsEnding });
+    if (tutorialStep && !elements.decisionWorkbench.hidden) showTutorialSpotlight(tutorialStep);
+    if (!elements.decisionWorkbench.hidden) {
+      if (bridgeInspected) {
+        elements.workbenchStatus.textContent = getWorkbenchCopy().bridgeInspected;
+      } else if (ledgerOpened) {
+        elements.workbenchStatus.textContent = getWorkbenchCopy().ledgerOpened;
+      }
+    }
   }
   renderDialogueLog();
 }
@@ -892,6 +912,17 @@ function getPendingRevealId() {
   return state.revealsSeen?.[revealId] ? null : revealId;
 }
 
+function renderActiveRevealCopy(revealId) {
+  const reveal = demo.characterReveals[revealId];
+  const companion = getCompanion(revealId);
+  if (!reveal || !companion) return;
+
+  elements.revealName.textContent = localize(companion.name);
+  elements.revealRole.textContent = localize(reveal.role);
+  elements.revealTagline.textContent = localize(reveal.tagline);
+  elements.revealContinueIndicator.textContent = translate("revealContinue");
+}
+
 function finishCharacterReveal({ advance = false } = {}) {
   window.clearTimeout(revealTimer);
   revealTimer = null;
@@ -911,14 +942,11 @@ function finishCharacterReveal({ advance = false } = {}) {
 
 function showCharacterReveal(revealId) {
   const reveal = demo.characterReveals[revealId];
-  const companion = getCompanion(revealId);
   state.revealsSeen[revealId] = true;
   activeRevealId = revealId;
   revealIsSettled = false;
 
-  elements.revealName.textContent = localize(companion.name);
-  elements.revealRole.textContent = localize(reveal.role);
-  elements.revealTagline.textContent = localize(reveal.tagline);
+  renderActiveRevealCopy(revealId);
   applyPortraitPresentation(
     elements.revealPortraitFrame,
     elements.revealPortrait,
@@ -930,8 +958,8 @@ function showCharacterReveal(revealId) {
   elements.characterReveal.hidden = false;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const duration = prefersReducedMotion ? 650 : revealId === "kel" ? 1700 : 1450;
-  revealTimer = window.setTimeout(() => finishCharacterReveal({ advance: true }), duration);
+  const settleDelay = prefersReducedMotion ? 80 : 900;
+  revealTimer = window.setTimeout(() => finishCharacterReveal(), settleDelay);
 }
 
 function renderChoices(choices) {
@@ -1106,6 +1134,7 @@ function returnToTitle() {
 
 elements.skipOpening.addEventListener("click", enterCourt);
 elements.continueButton.addEventListener("click", advanceDialogue);
+elements.characterReveal.addEventListener("click", advanceDialogue);
 
 elements.dialogueLogButton.addEventListener("click", () => {
   renderDialogueLog();

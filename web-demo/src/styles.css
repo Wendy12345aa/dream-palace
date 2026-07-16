@@ -1775,6 +1775,11 @@ button:focus-visible {
     radial-gradient(circle at 52% 42%, rgba(245, 221, 152, 0.12), transparent 44%);
 }
 
+.character-reveal.is-active {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .character-reveal[hidden] {
   display: none;
 }
@@ -1872,6 +1877,25 @@ button:focus-visible {
   transform: scale(var(--portrait-crop-scale));
   transform-origin: var(--portrait-object-position);
   filter: drop-shadow(0 16px 18px rgba(42, 33, 24, 0.24));
+}
+
+.character-reveal-continue {
+  position: absolute;
+  right: clamp(24px, 4vw, 48px);
+  bottom: 18px;
+  z-index: 2;
+  color: currentColor;
+  font-size: 0.72rem;
+  font-weight: 800;
+  opacity: 0;
+  text-transform: uppercase;
+  transform: translateY(4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.character-reveal.is-settled .character-reveal-continue {
+  opacity: 0.62;
+  transform: none;
 }
 
 .character-reveal-name,
@@ -2827,6 +2851,11 @@ button:focus-visible {
     min-height: 150px;
     margin: -10px -16px -22px 0;
     opacity: 0.88;
+  }
+
+  .character-reveal-continue {
+    right: 20px;
+    bottom: 14px;
   }
 
   .character-reveal-tagline {
