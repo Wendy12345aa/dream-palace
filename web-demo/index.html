@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#171714" />
     <title>Dream Palace - The First Morning Court</title>
-    <link rel="stylesheet" href="src/styles.css?v=20260715-feedback-4" />
+    <link rel="stylesheet" href="src/styles.css?v=20260715-bridge-inspection-1" />
   </head>
   <body>
     <main class="app" aria-label="Dream Palace web demo">
@@ -122,32 +122,134 @@
           </div>
         </section>
 
+        <section class="decision-workbench" id="decisionWorkbench" aria-labelledby="workbenchInstruction" hidden>
+          <header class="workbench-heading">
+            <span id="workbenchKicker">The Kingdom Table</span>
+            <strong id="workbenchInstruction">Open MP's ledger before moving the court's resources.</strong>
+          </header>
+
+          <div class="workbench-surface">
+            <button
+              class="ledger-book"
+              id="ledgerBook"
+              type="button"
+              aria-expanded="false"
+              aria-describedby="workbenchInstruction"
+            >
+              <span class="ledger-page">
+                <span class="ledger-page-title" id="ledgerPageTitle">Reserve ledger</span>
+                <span class="ledger-entry">
+                  <small id="ledgerReserveLabel">Emergency grain</small>
+                  <strong id="ledgerReserveValue">8,200 sacks</strong>
+                </span>
+                <span class="ledger-entry">
+                  <small id="ledgerRequestLabel">Northbridge request</small>
+                  <strong id="ledgerRequestValue">900 sacks</strong>
+                </span>
+                <span class="ledger-entry ledger-entry-margin">
+                  <small id="ledgerMarginLabel">Winter margin</small>
+                  <strong id="ledgerMarginValue">Guarded</strong>
+                </span>
+              </span>
+              <span class="ledger-cover" aria-hidden="true">
+                <span>MP</span>
+                <strong id="ledgerCoverTitle">Reserve ledger</strong>
+                <i></i>
+              </span>
+            </button>
+
+            <div class="northbridge-drop" id="northbridgeDrop">
+              <span class="drop-ring" aria-hidden="true"></span>
+              <strong id="dropLabel">Northbridge</strong>
+              <small id="dropHint">Place your decision here</small>
+            </div>
+
+            <div class="bridge-inspection" id="bridgeInspection">
+              <button
+                class="bridge-piece"
+                id="bridgePiece"
+                type="button"
+                data-drag-action="inspect_bridge"
+                aria-describedby="workbenchInstruction"
+                disabled
+              >
+                <span class="bridge-piece-visual" aria-hidden="true">
+                  <i class="bridge-beam bridge-beam-top"></i>
+                  <i class="bridge-beam bridge-beam-cross-one"></i>
+                  <i class="bridge-beam bridge-beam-cross-two"></i>
+                  <i class="bridge-pin bridge-pin-one"></i>
+                  <i class="bridge-pin bridge-pin-two"></i>
+                </span>
+                <span class="bridge-piece-copy">
+                  <strong id="bridgePieceLabel">Kel's support beam</strong>
+                  <small id="bridgePieceHint">Fit it to the damaged span</small>
+                </span>
+              </button>
+            </div>
+
+            <div class="decision-token-tray" id="decisionTokenTray" aria-label="Court props">
+              <button
+                class="decision-token decision-token-grain"
+                type="button"
+                data-drag-choice="release_grain"
+                aria-describedby="workbenchInstruction"
+                disabled
+              >
+                <span class="token-visual token-cart" aria-hidden="true">
+                  <i class="cart-bed"></i>
+                  <i class="cart-sack cart-sack-one"></i>
+                  <i class="cart-sack cart-sack-two"></i>
+                  <i class="cart-wheel cart-wheel-one"></i>
+                  <i class="cart-wheel cart-wheel-two"></i>
+                </span>
+                <span class="token-copy">
+                  <strong id="grainTokenLabel">Grain cart</strong>
+                  <small id="grainTokenHint">Release grain and repair</small>
+                </span>
+              </button>
+
+              <button
+                class="decision-token decision-token-audit"
+                type="button"
+                data-drag-choice="audit_first"
+                aria-describedby="workbenchInstruction"
+                disabled
+              >
+                <span class="token-visual token-flag" aria-hidden="true">
+                  <i class="flag-cloth"></i>
+                  <i class="flag-pole"></i>
+                  <i class="flag-base"></i>
+                </span>
+                <span class="token-copy">
+                  <strong id="auditTokenLabel">Audit flag</strong>
+                  <small id="auditTokenHint">Hold reserve and inspect</small>
+                </span>
+              </button>
+            </div>
+
+            <div class="bridge-finding" id="bridgeFinding" role="status" aria-live="polite" hidden>
+              <span id="bridgeFindingKicker">Kel / inspection</span>
+              <strong id="bridgeFindingText">The iron pins are rusted through. This damage began long before last night.</strong>
+            </div>
+          </div>
+
+          <div class="workbench-fallback">
+            <span id="workbenchFallbackLabel">Keyboard or tap alternative</span>
+            <div class="workbench-choice-fallback" id="workbenchChoiceFallback"></div>
+          </div>
+          <p class="sr-only" id="workbenchStatus" aria-live="assertive"></p>
+        </section>
+
+        <div class="tutorial-veil" id="tutorialVeil" aria-hidden="true" hidden></div>
+        <div class="tutorial-prompt" id="tutorialPrompt" role="status" aria-live="polite" hidden>
+          <span id="tutorialStep">01</span>
+          <strong id="tutorialText">Open MP's ledger to review the available resources.</strong>
+        </div>
+
         <section class="kingdom-answer" id="kingdomAnswer" aria-live="polite">
           <div class="answer-miniature" aria-hidden="true">
-            <div class="answer-river"></div>
-            <div class="answer-bank answer-bank-left"></div>
-            <div class="answer-bank answer-bank-right"></div>
-            <div class="answer-bridge">
-              <i class="bridge-beam beam-one"></i>
-              <i class="bridge-beam beam-two"></i>
-              <i class="bridge-beam beam-three"></i>
-              <i class="bridge-beam beam-four"></i>
-            </div>
-            <div class="grain-route">
-              <i class="grain-cart cart-one"></i>
-              <i class="grain-cart cart-two"></i>
-            </div>
-            <div class="work-lights">
-              <i></i><i></i><i></i>
-            </div>
-            <div class="audit-route">
-              <i class="inspector inspector-one"></i>
-              <i class="inspector inspector-two"></i>
-              <i class="inspection-line"></i>
-            </div>
-            <div class="audit-standard">
-              <i></i>
-            </div>
+            <div class="answer-scene answer-scene-release"></div>
+            <div class="answer-scene answer-scene-audit"></div>
           </div>
           <div class="answer-copy">
             <span id="answerKicker"></span>
@@ -198,7 +300,7 @@
       </section>
     </main>
 
-    <script src="src/demoData.js?v=20260715-feedback-2"></script>
-    <script src="src/main.js?v=20260715-feedback-2"></script>
+    <script src="src/demoData.js?v=20260715-workbench-1"></script>
+    <script src="src/main.js?v=20260715-bridge-inspection-1"></script>
   </body>
 </html>
