@@ -30,6 +30,7 @@
 - [x] Add dialogue pacing, dialogue log, and replay controls.
 - [x] Complete Sprint 2.4 Character & Narrative Lock.
 - [x] Complete Sprint 2.5 Companion Entrance & Reveal.
+- [x] Complete Sprint 2.6 Portrait & Presentation Polish.
 - [ ] Validate the demo with external playtest feedback.
 
 ## Milestone 2: Steam Demo

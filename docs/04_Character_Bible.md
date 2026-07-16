@@ -62,6 +62,8 @@ Characterization comes before identification. In the current Morning Court demo,
 
 Reveal cards are confirmation moments only. They may contain the official display name, the demo reveal role, and one short thematic line. They must not include biography, relationship state, gameplay statistics, archive content, department exposition, or long personality descriptions.
 
+Sprint 2.6 adds a restrained portrait or bust crop to each visible companion reveal card. The reveal portrait confirms identity; it must support the main scene portrait rather than compete with it. Normal dialogue may show one compact current-speaker portrait token, using the same identity visibility rules as speaker labels and the dialogue log.
+
 Current approved reveal copy:
 
 | Internal ID | Chinese Name | English Name | Chinese Role | English Role | Chinese Line | English Line |
@@ -70,7 +72,7 @@ Current approved reveal copy:
 | `tab` | 清棠 | Qing Tang | 监察使 | Court Inspector | 标准不是阻碍，是保护。 | Standards are not obstacles. They are protection. |
 | `kel` | 恺宁 | Kai Ning | 工造官 | Court Engineer | 没有完美方案，就先造出能用的。 | If perfection must wait, build what works. |
 
-CX is the exception in the current demo. He remains internally `cx` / 承玄 / Cheng Xuan, but player-facing UI must show only ??? / ？？？ until a later formal reveal. Seeing the current teaser does not count as revealing his identity.
+CX is the exception in the current demo. He remains internally `cx` / 承玄 / Cheng Xuan, but player-facing UI must show only ??? / ？？？ until a later formal reveal. Seeing the current teaser does not count as revealing his identity. Any current-demo CX portrait treatment must be an obscured silhouette and must not expose his face, title, accessories, or identity through alt text.
 
 ---
 # Character Philosophy

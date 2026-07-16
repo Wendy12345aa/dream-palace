@@ -88,11 +88,13 @@ This rule applies to speaker labels, dialogue log entries, portrait or teaser la
 
 Do not localize the current CX teaser as Unknown Investigator, Mysterious Man, Shadow Agent, Shadow Investigator, 密查使, or any phrase that describes his story function. The mystery is the point.
 
+For current-demo CX portrait accessibility, use a non-identifying label such as "Unknown figure" / "神秘人物剪影", or mark the image decorative when the nearby ??? / ？？？ already gives context. Do not expose Cheng Xuan / 承玄 or Shadow Investigator / 密查使 through alt text.
+
 ---
 
 # Companion Reveal Localization
 
-First reveal cards for visible companions are short identity confirmations. They contain only display name, reveal role, and one thematic line.
+First reveal cards for visible companions are short identity confirmations. They contain display name, reveal role, one thematic line, and a restrained portrait crop. The copy remains short; portrait presentation is not a place for biography or hidden identity hints.
 
 Approved current demo reveal copy:
 

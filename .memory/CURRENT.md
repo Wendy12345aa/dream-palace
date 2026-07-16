@@ -5,7 +5,7 @@ Last verified: 2026-07-16.
 ## Stage
 
 - Milestone: Web Demo, pre-external-playtest.
-- Completed sprint: Sprint 2.5 Companion Entrance & Reveal.
+- Completed sprint: Sprint 2.6 Portrait & Presentation Polish.
 - Current pass: external playtest validation of the locked narrative slice.
 
 ## Playable Build
@@ -18,9 +18,9 @@ Implemented presentation:
 
 - Chinese and English.
 - Scene-based Morning Court UI.
-- Mu Ping, Qing Tang, Kai Ning staging, one-time reveal cards, and an unnamed CX teaser.
+- Mu Ping, Qing Tang, Kai Ning staging, one-time portrait reveal cards, dialogue portrait tokens, and an unnamed CX silhouette teaser.
 - Dialogue pacing, log, replay controls, and responsive layouts.
-- Shared hidden-identity resolution so CX remains player-facing as ??? / ？？？ in the current demo.
+- Shared hidden-identity and portrait resolution so CX remains player-facing as ??? / ？？？ with only an obscured silhouette in the current demo.
 - Character-free Kingdom Table background and two visual consequence scenes.
 - Three-step physical workbench onboarding: open Mu Ping's ledger, fit Kai Ning's support beam, place a policy prop.
 

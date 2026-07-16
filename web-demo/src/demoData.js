@@ -141,17 +141,44 @@
       mp: {
         id: "mp",
         name: { en: "Mu Ping", zh: "慕平" },
-        role: { en: "Treasury Advisor", zh: "财政顾问" }
+        role: { en: "Treasury Advisor", zh: "财政顾问" },
+        portraitPresentation: {
+          revealAsset: "assets/portraits/mp/animated/pt_mp_base.webp",
+          dialogueAsset: "assets/portraits/mp/animated/pt_mp_base.webp",
+          revealPosition: "52% 21%",
+          dialoguePosition: "52% 18%",
+          revealScale: 1.05,
+          dialogueScale: 1.18,
+          side: "right"
+        }
       },
       tab: {
         id: "tab",
         name: { en: "Qing Tang", zh: "清棠" },
-        role: { en: "Court Inspector", zh: "朝廷监察官" }
+        role: { en: "Court Inspector", zh: "朝廷监察官" },
+        portraitPresentation: {
+          revealAsset: "assets/portraits/tab/pt_tab_idle.png",
+          dialogueAsset: "assets/portraits/tab/pt_tab_idle.png",
+          revealPosition: "52% 16%",
+          dialoguePosition: "52% 13%",
+          revealScale: 1,
+          dialogueScale: 1.1,
+          side: "right"
+        }
       },
       kel: {
         id: "kel",
         name: { en: "Kai Ning", zh: "恺宁" },
-        role: { en: "Court Engineer", zh: "朝廷工程师" }
+        role: { en: "Court Engineer", zh: "朝廷工程师" },
+        portraitPresentation: {
+          revealAsset: "assets/portraits/kel/animated/pt_kel_base.webp",
+          dialogueAsset: "assets/portraits/kel/animated/pt_kel_base.webp",
+          revealPosition: "52% 19%",
+          dialoguePosition: "52% 16%",
+          revealScale: 1.08,
+          dialogueScale: 1.2,
+          side: "right"
+        }
       },
       cx: {
         id: "cx",
@@ -162,7 +189,17 @@
         hidden: true,
         revealed: false,
         teaserSeenKey: "cxTeaserSeen",
-        identityRevealedKey: "cxIdentityRevealed"
+        identityRevealedKey: "cxIdentityRevealed",
+        portraitPresentation: {
+          revealAsset: null,
+          dialogueAsset: "assets/portraits/cx/pt_cx_teaser_silhouette.png",
+          revealPosition: "50% 28%",
+          dialoguePosition: "50% 22%",
+          revealScale: 1,
+          dialogueScale: 1.04,
+          side: "right",
+          hiddenPortrait: true
+        }
       }
     }
   },

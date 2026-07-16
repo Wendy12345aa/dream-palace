@@ -167,7 +167,7 @@ Short reveal card
 Return to normal dialogue
 ```
 
-The reveal card confirms identity. It does not replace characterization.
+The reveal card confirms identity. It does not replace characterization. Sprint 2.6 reveal cards include restrained portrait crops for Mu Ping, Qing Tang, and Kai Ning so the card feels like a companion introduction, not a text-only chapter card.
 
 Current reveal timing:
 
@@ -182,8 +182,10 @@ Reveal behavior:
 - normal continue input may complete the reveal without skipping the next dialogue line
 - reduced motion keeps the same copy and order with simplified motion
 - reveal copy is localized data, not rendering logic
+- reveal and dialogue portrait assets, crop positions, and scales are configured per character
+- normal dialogue shows only one compact portrait token for the current speaker
 
-The CX teaser is not a formal reveal card. It may show only ??? / ？？？ and should preserve mystery.
+The CX teaser is not a formal reveal card. It may show only ??? / ？？？ and an obscured silhouette, and should preserve mystery.
 
 ---
 

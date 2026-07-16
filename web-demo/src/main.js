@@ -90,8 +90,11 @@ const elements = {
   revealName: document.querySelector("#revealName"),
   revealRole: document.querySelector("#revealRole"),
   revealTagline: document.querySelector("#revealTagline"),
+  revealPortraitFrame: document.querySelector("#revealPortraitFrame"),
+  revealPortrait: document.querySelector("#revealPortrait"),
   dialogueLayer: document.querySelector(".dialogue-layer"),
   speakerToken: document.querySelector("#speakerToken"),
+  speakerPortrait: document.querySelector("#speakerPortrait"),
   speakerName: document.querySelector("#speakerName"),
   speakerRole: document.querySelector("#speakerRole"),
   dialogueText: document.querySelector("#dialogueText"),
@@ -677,6 +680,41 @@ function resolveCharacterIdentity(id) {
   };
 }
 
+function getPortraitPresentation(id) {
+  return getCompanion(id).portraitPresentation || {};
+}
+
+function localizePortraitLabel(id, type) {
+  const companion = getCompanion(id);
+  const identity = resolveCharacterIdentity(id);
+  if (companion.hidden && !isCharacterIdentityRevealed(companion)) {
+    return currentLanguage === "zh" ? "神秘人物剪影" : "Unknown figure";
+  }
+
+  const name = localize(identity.name);
+  if (!name) return "";
+  if (currentLanguage === "zh") return `${name}头像`;
+  return type === "reveal" ? `Portrait of ${name}` : `${name} portrait`;
+}
+
+function applyPortraitPresentation(frame, image, presentation, type, id) {
+  const asset = type === "reveal" ? presentation.revealAsset : presentation.dialogueAsset;
+  if (!frame || !image || !asset) {
+    if (frame) frame.hidden = true;
+    return;
+  }
+
+  const position = type === "reveal" ? presentation.revealPosition : presentation.dialoguePosition;
+  const scale = type === "reveal" ? presentation.revealScale : presentation.dialogueScale;
+
+  frame.hidden = false;
+  frame.classList.toggle("is-hidden-portrait", Boolean(presentation.hiddenPortrait));
+  frame.style.setProperty("--portrait-object-position", position || "50% 20%");
+  frame.style.setProperty("--portrait-crop-scale", scale || 1);
+  image.src = asset;
+  image.alt = localizePortraitLabel(id, type);
+}
+
 function renderCompanionStage(speaker) {
   const knownSpeaker = state.companions[speaker] ? speaker : "mp";
   const knownSpeakerIsHidden = Boolean(getCompanion(knownSpeaker).hidden);
@@ -833,9 +871,15 @@ function renderLine(line, { record = true, animate = true, ending = false } = {}
   if (line.revealLedger) elements.ledgerSlip.classList.add("is-visible");
   if (companion.hidden && companion.teaserSeenKey) state[companion.teaserSeenKey] = true;
 
-  elements.speakerToken.textContent = localize(identity.name);
   elements.speakerName.textContent = localize(identity.name);
   elements.speakerRole.textContent = localize(line.role || identity.role) || "";
+  applyPortraitPresentation(
+    elements.speakerToken,
+    elements.speakerPortrait,
+    getPortraitPresentation(line.speaker),
+    "dialogue",
+    line.speaker
+  );
 
   renderState();
   if (record) recordDialogue(line);
@@ -875,6 +919,13 @@ function showCharacterReveal(revealId) {
   elements.revealName.textContent = localize(companion.name);
   elements.revealRole.textContent = localize(reveal.role);
   elements.revealTagline.textContent = localize(reveal.tagline);
+  applyPortraitPresentation(
+    elements.revealPortraitFrame,
+    elements.revealPortrait,
+    getPortraitPresentation(revealId),
+    "reveal",
+    revealId
+  );
   elements.characterReveal.className = `character-reveal is-active theme-${reveal.theme}`;
   elements.characterReveal.hidden = false;
 

@@ -72,3 +72,11 @@ Decision: canonical identity and player-facing identity are separate. CX remains
 Current demo application: seeing the CX teaser does not set `cxIdentityRevealed`; speaker labels, dialogue log entries, and player-facing teaser presentation must use the hidden identity resolver.
 
 Reason: the ending should create curiosity about an unknown presence, not formally introduce Cheng Xuan yet.
+
+## 2026-07-16: Portrait Presentation Reinforces Identity
+
+Decision: companion reveal cards include a recognizable portrait for visible companions, while normal dialogue shows one compact current-speaker portrait token. Portrait crop, scale, asset path, side, and hidden treatment are configured per character.
+
+Current demo application: Mu Ping, Qing Tang, and Kai Ning use approved existing portrait artwork for reveal cards and dialogue tokens. CX uses only the obscured teaser silhouette before a future formal identity reveal.
+
+Reason: portraits should help players connect face, name, role, and dialogue without competing with the main scene portrait or leaking hidden identity.
