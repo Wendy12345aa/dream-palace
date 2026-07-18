@@ -312,6 +312,18 @@ button:focus-visible {
   color: white;
 }
 
+.cx-preview-link {
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(169, 138, 219, 0.7);
+  color: #e4d4ff;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.cx-preview-link:hover {
+  border-bottom-color: #eadcff;
+}
+
 .court-scene {
   position: relative;
   overflow: hidden;

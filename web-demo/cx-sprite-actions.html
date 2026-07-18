@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream Palace - CX Sprite Actions V2 Proof</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        background: #111113;
+        color: #f3eadb;
+        font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      }
+      aside {
+        padding: 20px;
+        border-right: 1px solid rgba(230, 200, 150, 0.2);
+        background: #171719;
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-family: Georgia, serif;
+        font-weight: 500;
+      }
+      .note { color: #b7aea2; font-size: 13px; margin: 0 0 18px; }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #e5bd77;
+        text-decoration: none;
+      }
+      .back-link:hover { color: #ffe2ad; }
+      select, input[type="range"], button {
+        width: 100%;
+        min-height: 38px;
+        margin: 6px 0 12px;
+        border: 1px solid rgba(230, 200, 150, 0.22);
+        border-radius: 6px;
+        background: #242428;
+        color: #f3eadb;
+      }
+      label {
+        display: block;
+        margin-top: 12px;
+        color: #c9c0b4;
+        font-size: 13px;
+      }
+      .toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 8px 0;
+      }
+      .toggle input {
+        width: auto;
+        min-height: 0;
+        margin: 0;
+        accent-color: #d6a95d;
+      }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      button { cursor: pointer; }
+      .stage-wrap { display: grid; place-items: center; padding: 24px; }
+      .stage {
+        position: relative;
+        width: min(72vw, 720px);
+        aspect-ratio: 1024 / 1400;
+        border: 1px solid rgba(230, 200, 150, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #303034;
+        background-image:
+          linear-gradient(45deg, #3f3f43 25%, transparent 25%),
+          linear-gradient(-45deg, #3f3f43 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #3f3f43 75%),
+          linear-gradient(-45deg, transparent 75%, #3f3f43 75%);
+        background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+        background-size: 24px 24px;
+      }
+      .stage.flat { background: #2f3034; }
+      img {
+        position: absolute;
+        left: 0;
+        top: -8.5%;
+        width: 100%;
+        height: 109.8%;
+        object-fit: contain;
+        filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.45));
+      }
+      code {
+        display: block;
+        overflow-wrap: anywhere;
+        color: #91d5dc;
+        font-size: 12px;
+      }
+      .status {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        color: rgba(243, 234, 219, 0.78);
+        font-size: 12px;
+      }
+      @media (max-width: 820px) {
+        body { grid-template-columns: 1fr; }
+        aside { border-right: 0; border-bottom: 1px solid rgba(230, 200, 150, 0.2); }
+        .stage-wrap { padding: 16px; }
+        .stage { width: min(92vw, 620px); }
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <a class="back-link" href="./">Back to Morning Court</a>
+      <h1>CX V2 Proof</h1>
+      <p class="note">Normal-proportion action animation with fixed foot-anchor registration.</p>
+      <label for="action">Action</label>
+      <select id="action"></select>
+      <div class="row">
+        <button id="play" type="button">Play</button>
+        <button id="pause" type="button">Pause</button>
+      </div>
+      <button id="replay" type="button">Replay</button>
+      <label for="fps">FPS</label>
+      <input id="fps" type="range" min="1" max="16" value="6" />
+      <label class="toggle"><input id="loop" type="checkbox" /> Loop override</label>
+      <label class="toggle"><input id="checker" type="checkbox" checked /> Checker background</label>
+      <label>Current frame</label>
+      <code id="frame">loading</code>
+    </aside>
+    <main class="stage-wrap">
+      <div id="stage" class="stage">
+        <img id="sprite" alt="CX action frame" />
+        <div class="status"><span id="readout">loading</span><span id="counter">0 / 0</span></div>
+      </div>
+    </main>
+    <script type="module">
+      import { SpriteActionPlayer } from "./src/spriteActionPlayer.js";
+      const image = document.querySelector("#sprite");
+      const action = document.querySelector("#action");
+      const frame = document.querySelector("#frame");
+      const readout = document.querySelector("#readout");
+      const counter = document.querySelector("#counter");
+      const fps = document.querySelector("#fps");
+      const loop = document.querySelector("#loop");
+      const stage = document.querySelector("#stage");
+      const player = new SpriteActionPlayer({
+        image,
+        manifestUrl: "./assets/sprites/cx/actions-v2/cx_sprite_action_manifest.json",
+        baseUrl: "./assets/sprites/cx/actions-v2/",
+        onFrame: (state) => {
+          frame.textContent = state.path;
+          readout.textContent = `${state.action} / ${state.fps} fps / ${state.loop ? "loop" : "once"}`;
+          counter.textContent = `${state.frameIndex + 1} / ${state.frameCount}`;
+        },
+      });
+      const manifest = await player.load();
+      for (const name of player.actions) {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        action.append(option);
+      }
+      function choose(name) {
+        player.setAnimation(name);
+        fps.value = player.animation.fps;
+        player.setFps(player.animation.fps);
+        loop.checked = player.animation.loop;
+        player.setLoop(player.animation.loop);
+        player.replay();
+      }
+      choose(manifest.fallbackAnimation);
+      action.addEventListener("change", () => choose(action.value));
+      document.querySelector("#play").addEventListener("click", () => player.play());
+      document.querySelector("#pause").addEventListener("click", () => player.pause());
+      document.querySelector("#replay").addEventListener("click", () => player.replay());
+      fps.addEventListener("input", () => { player.setFps(fps.value); player.render(); });
+      loop.addEventListener("change", () => player.setLoop(loop.checked));
+      document.querySelector("#checker").addEventListener("change", (event) => {
+        stage.classList.toggle("flat", !event.target.checked);
+      });
+    </script>
+  </body>
+</html>

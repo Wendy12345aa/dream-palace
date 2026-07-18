@@ -1,0 +1,156 @@
+{
+  "characterId": "cx",
+  "mode": "sprite-action-animation-v2",
+  "canvas": {
+    "width": 1024,
+    "height": 1536
+  },
+  "anchor": {
+    "x": 512,
+    "y": 1488,
+    "unit": "px",
+    "semantic": "bottom-center-foot"
+  },
+  "fallbackAnimation": "idle",
+  "animations": {
+    "idle": {
+      "fps": 6,
+      "loop": true,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/idle/sp_cx_idle_000.png"
+        },
+        {
+          "path": "frames/idle/sp_cx_idle_001.png"
+        },
+        {
+          "path": "frames/idle/sp_cx_idle_002.png"
+        },
+        {
+          "path": "frames/idle/sp_cx_idle_003.png"
+        }
+      ]
+    },
+    "talk": {
+      "fps": 8,
+      "loop": true,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/talk/sp_cx_talk_000.png"
+        },
+        {
+          "path": "frames/talk/sp_cx_talk_001.png"
+        },
+        {
+          "path": "frames/talk/sp_cx_talk_002.png"
+        },
+        {
+          "path": "frames/talk/sp_cx_talk_003.png"
+        }
+      ]
+    },
+    "blink": {
+      "fps": 10,
+      "loop": false,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/blink/sp_cx_blink_000.png"
+        },
+        {
+          "path": "frames/blink/sp_cx_blink_001.png"
+        },
+        {
+          "path": "frames/blink/sp_cx_blink_002.png"
+        },
+        {
+          "path": "frames/blink/sp_cx_blink_003.png"
+        }
+      ]
+    },
+    "thinking": {
+      "fps": 5,
+      "loop": true,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/thinking/sp_cx_thinking_000.png"
+        },
+        {
+          "path": "frames/thinking/sp_cx_thinking_001.png"
+        },
+        {
+          "path": "frames/thinking/sp_cx_thinking_002.png"
+        },
+        {
+          "path": "frames/thinking/sp_cx_thinking_003.png"
+        }
+      ]
+    },
+    "bow": {
+      "fps": 6,
+      "loop": false,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/bow/sp_cx_bow_000.png"
+        },
+        {
+          "path": "frames/bow/sp_cx_bow_001.png"
+        },
+        {
+          "path": "frames/bow/sp_cx_bow_002.png"
+        },
+        {
+          "path": "frames/bow/sp_cx_bow_003.png"
+        },
+        {
+          "path": "frames/bow/sp_cx_bow_004.png"
+        }
+      ]
+    },
+    "ready": {
+      "fps": 7,
+      "loop": true,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/ready/sp_cx_ready_000.png"
+        },
+        {
+          "path": "frames/ready/sp_cx_ready_001.png"
+        },
+        {
+          "path": "frames/ready/sp_cx_ready_002.png"
+        },
+        {
+          "path": "frames/ready/sp_cx_ready_003.png"
+        }
+      ]
+    },
+    "unfold_map": {
+      "fps": 6,
+      "loop": false,
+      "fallback": "idle",
+      "frames": [
+        {
+          "path": "frames/unfold_map/sp_cx_unfold_map_000.png"
+        },
+        {
+          "path": "frames/unfold_map/sp_cx_unfold_map_001.png"
+        },
+        {
+          "path": "frames/unfold_map/sp_cx_unfold_map_002.png"
+        },
+        {
+          "path": "frames/unfold_map/sp_cx_unfold_map_003.png"
+        },
+        {
+          "path": "frames/unfold_map/sp_cx_unfold_map_004.png"
+        }
+      ]
+    }
+  }
+}
