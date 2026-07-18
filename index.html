@@ -3,227 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dream Palace - The First Morning Court</title>
-    <meta
-      name="description"
-      content="Dream Palace is a narrative strategy RPG about companions, kingdom decisions, and visible consequences. Play The First Morning Court demo."
-    />
+    <meta name="theme-color" content="#17130f" />
+    <title>Dream Palace — The First Morning Court</title>
+    <meta name="description" content="Take the throne, hear Northbridge's petition, and make the first decision in Dream Palace, a character-driven narrative strategy game." />
     <link rel="stylesheet" href="web-demo/src/landing.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" id="home">
-      <a class="brand" href="#home" aria-label="Dream Palace home">
-        <span class="brand-mark" aria-hidden="true">DP</span>
-        <span>Dream Palace</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span class="sr-only">Menu</span>
-      </button>
+      <a class="brand" href="#home" aria-label="Dream Palace home"><span class="brand-seal" aria-hidden="true">梦</span><span>Dream Palace</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span class="sr-only">Menu</span></button>
       <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#companions">Companions</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#roadmap">Roadmap</a>
-        <a class="nav-cta" href="web-demo/index.html">Play Demo</a>
+        <a href="#story">Story</a><a href="#companions">Companions</a><a href="#gallery">Gallery</a><a href="#roadmap">Roadmap</a>
+        <a class="nav-cta" href="web-demo/index.html">Play the Demo</a>
       </nav>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true"></div>
-        <div class="hero-overlay"></div>
+        <div class="hero-art" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="kicker">The First Morning Court</p>
-          <h1 id="hero-title">Dream Palace</h1>
-          <p class="hero-copy">A narrative strategy RPG where every royal decision is made with companions who remember what the kingdom becomes.</p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="web-demo/index.html">Play Demo</a>
-            <a class="button secondary" href="https://github.com/Wendy12345aa/dream-palace">View Source</a>
-          </div>
+          <p class="eyebrow">The First Morning Court</p>
+          <h1 id="hero-title">Dream<br />Palace</h1>
+          <p class="hero-copy">The kingdom is waiting for its first answer. Take the throne, listen to those beside you, and decide what tomorrow remembers.</p>
+          <a class="button primary" href="web-demo/index.html"><span>Play the Demo</span><span aria-hidden="true">→</span></a>
         </div>
-        <div class="hero-panel" aria-label="Current demo">
-          <span>Playable now</span>
-          <strong>Morning Court</strong>
-          <p>Hear the first petition, choose how to answer, and watch the court react.</p>
-        </div>
+        <p class="hero-note" aria-hidden="true">A character-driven narrative strategy game</p>
+        <a class="scroll-cue" href="#story">Enter the court <span aria-hidden="true">↓</span></a>
       </section>
 
-      <section class="section intro" aria-label="Game introduction">
-        <div class="section-inner intro-grid">
-          <div>
-            <p class="section-kicker">Living Kingdom RPG</p>
-            <h2>Govern through people, not menus.</h2>
-          </div>
-          <p>
-            Dream Palace begins with a damaged bridge, a village waiting for grain, and a court that needs its first answer.
-            Every choice is voiced through companions, then reflected back through the kingdom.
-          </p>
+      <section class="story section" id="story" aria-labelledby="story-title">
+        <div class="story-lead reveal">
+          <p class="eyebrow">One petition. No simple answer.</p>
+          <h2 id="story-title">A damaged bridge.<br />A village running out of grain.<br /><em>A court waiting for you.</em></h2>
         </div>
-      </section>
-
-      <section class="section" id="features" aria-labelledby="features-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Features</p>
-            <h2 id="features-title">A court where decisions leave marks.</h2>
-          </div>
-          <div class="feature-grid">
-            <article class="feature-card">
-              <span aria-hidden="true">MC</span>
-              <h3>Morning Court</h3>
-              <p>Open each day with petitions, pressure, and the people trusted to advise the throne.</p>
-            </article>
-            <article class="feature-card">
-              <span aria-hidden="true">CR</span>
-              <h3>Companion Relationships</h3>
-              <p>Build trust with advisors whose doubts, skills, and loyalties shape every scene.</p>
-            </article>
-            <article class="feature-card">
-              <span aria-hidden="true">KD</span>
-              <h3>Kingdom Decisions</h3>
-              <p>Balance urgency, reserves, safety, and public trust when no answer is clean.</p>
-            </article>
-            <article class="feature-card">
-              <span aria-hidden="true">BN</span>
-              <h3>Branching Narrative</h3>
-              <p>Choices change dialogue, map states, companion reactions, and tomorrow's threat.</p>
-            </article>
+        <div class="story-body reveal">
+          <p>Dream Palace is about leadership lived through people. Open the ledger with Mu Ping. Inspect the bridge beside Kai Ning. Hear Qing Tang question what everyone else accepts.</p>
+          <p>The throne does not decide alone—and every answer leaves a mark on the companions who trusted you to make it.</p>
+          <div class="story-themes" aria-label="The game experience">
+            <span><b>01</b> Listen before ruling</span><span><b>02</b> Act through companions</span><span><b>03</b> See the kingdom respond</span>
           </div>
         </div>
       </section>
 
-      <section class="section companions" id="companions" aria-labelledby="companions-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Companions</p>
-            <h2 id="companions-title">The current demo court.</h2>
+      <section class="companions section" id="companions" aria-labelledby="companions-title">
+        <div class="section-heading reveal"><p class="eyebrow">The first voices at court</p><h2 id="companions-title">Meet your companions</h2><p>Advisors, challengers, and the people who will remember the ruler you become.</p></div>
+        <div class="character-stage reveal">
+          <div class="character-image-wrap">
+            <img id="characterImage" src="assets/portraits/mp/fullbody/pt_mp_bright_full_body.webp" alt="Mu Ping, treasury advisor" />
+            <span class="character-number" aria-hidden="true">01</span>
           </div>
-          <div class="companion-grid">
-            <article class="companion-card">
-              <img src="assets/reference/concepts/characters/mp/mp-dialogue-bust-concept-v01.png" alt="Mu Ping concept portrait" />
-              <div>
-                <h3>Mu Ping</h3>
-                <p>Treasury advisor</p>
-                <span>Turns every rescue into a visible cost.</span>
-              </div>
-            </article>
-            <article class="companion-card">
-              <img src="assets/reference/concepts/characters/tab/tab-full-body-concept-v01.png" alt="Qing Tang concept portrait" />
-              <div>
-                <h3>Qing Tang</h3>
-                <p>Quality inspector</p>
-                <span>Protects the court from beautiful mistakes.</span>
-              </div>
-            </article>
-            <article class="companion-card">
-              <img src="assets/reference/concepts/characters/kel/kel-full-body-concept-v01.png" alt="Kai Ning concept portrait" />
-              <div>
-                <h3>Kai Ning</h3>
-                <p>Engineer</p>
-                <span>Makes hope practical enough to stand on.</span>
-              </div>
-            </article>
-            <article class="companion-card mystery">
-              <div class="unknown-portrait" aria-hidden="true">?</div>
-              <div>
-                <h3>???</h3>
-                <p>Unintroduced observer</p>
-                <span>A quiet presence waits beyond the first morning.</span>
-              </div>
-            </article>
+          <div class="character-copy" aria-live="polite">
+            <p class="character-role" id="characterRole">Treasury advisor</p>
+            <h3><span id="characterCn">慕平</span><small id="characterEn">Mu Ping</small></h3>
+            <p class="character-quote" id="characterQuote">“Every promise has a cost. I will make sure the court can see it.”</p>
+          </div>
+          <div class="character-tabs" role="tablist" aria-label="Choose a companion">
+            <button class="is-active" role="tab" aria-selected="true" data-character="mp"><span>01</span> 慕平 <small>Mu Ping</small></button>
+            <button role="tab" aria-selected="false" data-character="tab"><span>02</span> 清棠 <small>Qing Tang</small></button>
+            <button role="tab" aria-selected="false" data-character="kel"><span>03</span> 恺宁 <small>Kai Ning</small></button>
+            <button role="tab" aria-selected="false" data-character="cx"><span>04</span> ??? <small>Unintroduced</small></button>
           </div>
         </div>
       </section>
 
-      <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Gallery</p>
-            <h2 id="gallery-title">From court report to kingdom memory.</h2>
-          </div>
-          <div class="gallery-grid">
-            <figure class="gallery-large">
-              <img src="assets/reference/concepts/scenes/morning-court-background-concept-v01.png" alt="Warm morning court throne room concept art" />
-              <figcaption>Morning Court</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/concepts/scenes/morning-court-ui-mockup-v01.png" alt="Morning Court interface mockup with dialogue and kingdom state" />
-              <figcaption>Decision Interface</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/concepts/scenes/companion-roster-lineup-concept-v01.png" alt="Dream Palace companion roster concept lineup" />
-              <figcaption>Companion Roster</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/concepts/scenes/dream-palace-group-key-visual-concept-v01.png" alt="Dream Palace group key visual concept" />
-              <figcaption>Character Reveal</figcaption>
-            </figure>
-          </div>
+      <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading reveal"><p class="eyebrow">Scenes from the first morning</p><h2 id="gallery-title">The court remembers</h2></div>
+        <div class="gallery-layout reveal">
+          <button class="gallery-piece gallery-main" data-lightbox="assets/reference/concepts/scenes/morning-court-background-concept-v01.png"><img src="assets/reference/concepts/scenes/morning-court-background-concept-v01.png" alt="The sunlit Morning Court throne room" /><span>01 — Morning Court</span></button>
+          <button class="gallery-piece" data-lightbox="assets/reference/concepts/scenes/morning-court-ui-mockup-v01.png"><img src="assets/reference/concepts/scenes/morning-court-ui-mockup-v01.png" alt="A court conversation and decision interface" /><span>02 — A question before the throne</span></button>
+          <button class="gallery-piece" data-lightbox="assets/cg/opening/cg_opening_03_messenger_to_capital.webp"><img src="assets/cg/opening/cg_opening_03_messenger_to_capital.webp" alt="A messenger carrying Northbridge's petition to the capital" /><span>03 — Northbridge calls</span></button>
         </div>
       </section>
 
-      <section class="section roadmap" id="roadmap" aria-labelledby="roadmap-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Roadmap</p>
-            <h2 id="roadmap-title">The path from web demo to larger release.</h2>
-          </div>
-          <div class="roadmap-grid">
-            <article>
-              <h3>Completed</h3>
-              <ul>
-                <li>Demo prototype</li>
-              </ul>
-            </article>
-            <article>
-              <h3>In Progress</h3>
-              <ul>
-                <li>Presentation polish</li>
-                <li>Audio</li>
-                <li>Opening</li>
-              </ul>
-            </article>
-            <article>
-              <h3>Future</h3>
-              <ul>
-                <li>Companion stories</li>
-                <li>New chapters</li>
-                <li>Steam demo</li>
-              </ul>
-            </article>
-          </div>
-        </div>
+      <section class="roadmap section" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="roadmap-intro reveal"><p class="eyebrow">The journey ahead</p><h2 id="roadmap-title">A kingdom built one morning at a time.</h2></div>
+        <ol class="timeline reveal">
+          <li class="current"><span>Playable Now</span><strong>The First Morning Court</strong><p>One petition, three companions, and a decision the kingdom will remember.</p></li>
+          <li><span>In Development</span><strong>Polish & playtesting</strong><p>Refining presentation, clarity, pacing, and the feel of ruling through the court.</p></li>
+          <li><span>Later</span><strong>Stories beyond Northbridge</strong><p>More companion stories, court mornings, and visible consequences.</p></li>
+        </ol>
       </section>
 
-      <section class="play-section" id="play" aria-labelledby="play-title">
-        <div class="section-inner play-grid">
-          <div>
-            <p class="section-kicker">Play Demo</p>
-            <h2 id="play-title">Enter the first morning.</h2>
-            <p>Make the court's first decision and see how one village changes the kingdom.</p>
-          </div>
-          <div class="play-actions">
-            <a class="button primary" href="web-demo/index.html">Play Demo</a>
-            <a href="https://github.com/Wendy12345aa/dream-palace">GitHub Repository</a>
-            <a href="https://github.com/Wendy12345aa/dream-palace/issues">Issue Tracker</a>
-            <a href="https://github.com/Wendy12345aa/dream-palace/tree/main/docs">Documentation</a>
-          </div>
-        </div>
+      <section class="final-cta" aria-labelledby="play-title">
+        <div class="final-art" aria-hidden="true"></div>
+        <div class="final-content reveal"><p class="eyebrow">Your first audience is waiting</p><h2 id="play-title">What will the kingdom remember?</h2><p>Enter the Morning Court and give Northbridge its answer.</p><a class="button primary" href="web-demo/index.html"><span>Play the Demo</span><span aria-hidden="true">→</span></a></div>
+        <nav class="project-links" aria-label="Project links"><a href="https://github.com/Wendy12345aa/dream-palace">GitHub</a><a href="https://github.com/Wendy12345aa/dream-palace/tree/main/docs">Documentation</a><a href="https://github.com/Wendy12345aa/dream-palace/issues">Issue Tracker</a></nav>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span>© Project Dream Palace</span>
-      <a href="https://github.com/Wendy12345aa/dream-palace">GitHub</a>
-      <a href="https://github.com/Wendy12345aa/dream-palace/blob/main/README.md">License</a>
-      <a href="https://github.com/Wendy12345aa/dream-palace/tree/main/docs">Credits</a>
-      <span>Version 0.2.7</span>
-    </footer>
-
+    <footer class="site-footer"><span>© Project Dream Palace</span><span>A living kingdom begins with people.</span></footer>
+    <dialog class="lightbox" aria-label="Expanded gallery image"><button type="button" aria-label="Close image">×</button><img alt="" /></dialog>
     <script src="web-demo/src/landing.js"></script>
   </body>
 </html>

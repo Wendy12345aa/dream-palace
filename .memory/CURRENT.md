@@ -1,6 +1,6 @@
 ﻿# Current State
 
-Last verified: 2026-07-16.
+Last verified: 2026-07-18.
 
 ## Stage
 
@@ -23,6 +23,7 @@ Implemented presentation:
 - Shared hidden-identity and portrait resolution so CX remains player-facing as ??? / ？？？ with only an obscured silhouette in the current demo.
 - Character-free Kingdom Table background and two visual consequence scenes.
 - Three-step physical workbench onboarding: open Mu Ping's ledger, fit Kai Ning's support beam, place a policy prop.
+- The GitHub Pages landing page now uses a cinematic, character-led editorial layout with an immediate demo CTA, interactive canonical companion showcase, curated gallery, and responsive roadmap.
 
 ## Current Product Question
 
